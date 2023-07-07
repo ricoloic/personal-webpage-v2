@@ -15,7 +15,7 @@ export type CssSize =
   | `${number}`;
 
 export type ColorsKeys = keyof typeof COLORS;
-export type Colors = typeof COLORS[ColorsKeys];
+export type Colors = (typeof COLORS)[ColorsKeys];
 
 export type FontSizesKeys = keyof typeof FONT_SIZE;
-export type FontSizes = typeof FONT_SIZE[FontSizesKeys];
+export type FontSizes = (typeof FONT_SIZE)[FontSizesKeys];

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Children, Colors } from '../../types';
-import { ListItem, List as StyleList } from './List.styles';
+import { List as StyleList } from './List.styles';
+import ListItem from './ListItem';
 
 interface Props {
   children: Children;

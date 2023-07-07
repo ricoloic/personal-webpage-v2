@@ -16,16 +16,30 @@ function Menu({ open, onClose }: Props) {
     <SlidingPanel
       backgroundColor={COLORS.blue800}
       open={open}
-      width="230px"
+      width="250px"
       side="left"
     >
       <Wrapper>
         <CloseContainer>
-          <Icon name="close" onClick={onClose} fontSize="2xl" />
+          <Icon name="close" onClick={onClose} fontSize="5xl" />
         </CloseContainer>
         <Scroll>
           <List color={COLORS.white}>
-            <List.Item>Test</List.Item>
+            <List.Item onClick={() => null} fontSize="xl">
+              Test
+            </List.Item>
+            <List.Item onClick={() => null} fontSize="xl" leftPadding>
+              Test
+            </List.Item>
+            <List.Item onClick={() => null} fontSize="xl">
+              Test
+            </List.Item>
+            <List.Item onClick={() => null} fontSize="xl">
+              Test
+            </List.Item>
+            <List.Item onClick={() => null} fontSize="xl">
+              Test
+            </List.Item>
           </List>
         </Scroll>
       </Wrapper>

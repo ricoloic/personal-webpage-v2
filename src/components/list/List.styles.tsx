@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { Colors, CssSize } from '../../types';
+import { Colors, CssSize, FontSizes } from '../../types';
 import COLORS from '../../constants/colors';
 
 export const List = styled.ul<{
@@ -11,8 +11,16 @@ export const List = styled.ul<{
   list-style-type: none;
 `;
 
-export const ListItem = styled.li`
+export const ListItem = styled.li<{
+  $leftPadding: boolean;
+  $pointer: boolean;
+  fontSize: FontSizes;
+}>`
+  padding-left: ${({ $leftPadding }) => ($leftPadding ? '15px' : undefined)};
+  cursor: ${({ $pointer }) => ($pointer ? 'pointer' : undefined)};
+  font-size: ${({ fontSize }) => fontSize};
   &:hover {
-    font-size: 2em;
+    font-weight: 900;
+    font-size: calc(${({ fontSize }) => fontSize} + 2px);
   }
 `;
