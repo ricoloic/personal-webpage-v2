@@ -1,0 +1,10 @@
+{
+  "inputs": {
+    "showBlob": "Show Blob",
+    "showParticleBorder": "Show Particle Border",
+    "showParticleAlfa": "Show Particle Alfa",
+    "showParticle": "Show Particle",
+    "particlePerFrame": "Particles per Frame",
+    "colorPalette": "Color Palette"
+  }
+}

@@ -1,7 +1,9 @@
 body {
   margin: 0;
-  font-family: 'Montserrat', sans-serif;
+  font-family: sans-serif;
   height: 100vh;
+  letter-spacing: 1px;
+  font-weight: 400;
 }
 
 #root {

@@ -40,6 +40,7 @@ function Scroll({ children }: Props) {
           <AppearanceEffect>
             <Icon
               name="up"
+              fontSize="2xl"
               onClick={() => {
                 listContainerRef?.current?.scrollTo({
                   top: 0,
@@ -55,10 +56,11 @@ function Scroll({ children }: Props) {
         <div ref={listBottomRef} />
       </ContentContainer>
       {overflow && showDownArray && (
-        <ButtonContainer bottom="-5px">
+        <ButtonContainer bottom="-20px">
           <AppearanceEffect>
             <Icon
               name="down"
+              fontSize="2xl"
               onClick={() => {
                 listBottomRef?.current?.scrollIntoView({
                   behavior: 'smooth',

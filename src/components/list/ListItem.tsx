@@ -1,30 +1,26 @@
-import React from 'react';
-import { Children, FontSizesKeys } from '../../types';
-import { ListItem as StyleListItem } from './List.styles';
-import FONT_SIZE from '../../constants/size';
+import styled from 'styled-components';
+import { FontSizesKeys, FontWeightsKeys } from '../../types';
+import FONT_SIZE, { FONT_WEIGHT } from '../../constants/sizes';
 
-interface Props {
-  children: Children;
+const ListItem = styled.li<{
+  $leftPadding?: boolean;
   fontSize?: FontSizesKeys;
-  onClick?: () => void;
-  leftPadding?: boolean;
-}
-
-function ListItem({
-  children,
-  fontSize = 'base',
-  onClick = undefined,
-  leftPadding = false,
-}: Props) {
-  return (
-    <StyleListItem
-      $leftPadding={leftPadding}
-      $pointer={!!onClick}
-      fontSize={FONT_SIZE[fontSize]}
-    >
-      {children}
-    </StyleListItem>
-  );
-}
+  maxFontWeight?: FontWeightsKeys;
+  $zoom?: boolean;
+  onClick?: () => unknown;
+}>`
+  padding-left: ${({ $leftPadding = undefined }) =>
+    $leftPadding ? '15px' : undefined};
+  cursor: ${({ onClick = undefined }) => (onClick ? 'pointer' : undefined)};
+  font-size: ${({ fontSize = 'base' }) => FONT_SIZE[fontSize]};
+  &:hover {
+    font-weight: ${({ maxFontWeight = '600' }) => FONT_WEIGHT[maxFontWeight]};
+    ${({ $zoom = false, fontSize = 'base' }) =>
+      $zoom &&
+      `
+    font-size: calc(${FONT_SIZE[fontSize]} + 2px);
+    `}
+  }
+`;
 
 export default ListItem;

@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { Colors, CssSize } from '../../types';
+import COLORS from '../../constants/colors';
 
 export const Wrapper = styled.div<{
   right?: CssSize;
@@ -22,12 +23,24 @@ export const Wrapper = styled.div<{
   z-index: 999;
 `;
 
-export const ContentContainer = styled.div`
-  max-height: 60vh;
-  overflow: auto;
-  ::-webkit-scrollbar {
-    display: none;
-  }
+export const WrapperContent = styled.div`
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  color: ${COLORS.white};
+`;
+
+export const CloseContainer = styled.div`
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 4px;
+`;
+
+export const ContentContainer = styled.div<{ gap?: CssSize }>`
+  display: flex;
+  flex-direction: column;
+  gap: ${({ gap = undefined }) => gap};
+  padding: 20px;
 `;
 
 export default Wrapper;

@@ -19,7 +19,7 @@ export const useIsOverflow = (
     };
 
     trigger();
-  }, [ref, height]);
+  }, [ref, ref.current, height]);
 
   return isOverflow;
 };

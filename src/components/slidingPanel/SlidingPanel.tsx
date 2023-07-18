@@ -1,6 +1,12 @@
-import React from 'react';
+import React, { useRef } from 'react';
+import useClickOut from '@bscop/use-click-out';
 import { CssSize, Children, Colors } from '../../types';
-import Wrapper from './SlidingPanel.styles';
+import Wrapper, {
+  CloseContainer,
+  ContentContainer,
+  WrapperContent,
+} from './SlidingPanel.styles';
+import Icon from '../icons';
 
 type Side = 'left' | 'right';
 
@@ -13,6 +19,8 @@ interface Props {
   overflow?: Overflow;
   backgroundColor: Colors;
   width: CssSize;
+  onClickAway?: () => void;
+  onClose: () => void;
 }
 
 function SlidingPanel({
@@ -22,7 +30,12 @@ function SlidingPanel({
   width,
   backgroundColor,
   overflow = 'hidden',
+  onClickAway = undefined,
+  onClose,
 }: Props) {
+  const ref = useRef(null);
+  useClickOut(() => (onClickAway ? onClickAway() : null), { ref });
+
   const calcSide = (() => (side === 'left' ? { left: '0' } : { right: '0' }))();
   const calcTransformation = (() =>
     side === 'left'
@@ -31,6 +44,7 @@ function SlidingPanel({
 
   return (
     <Wrapper
+      ref={ref}
       right={calcSide.right as CssSize | undefined}
       left={calcSide.left as CssSize | undefined}
       width={width}
@@ -38,9 +52,16 @@ function SlidingPanel({
       background={backgroundColor}
       overflow={overflow}
     >
-      {children}
+      <WrapperContent>
+        <CloseContainer>
+          <Icon name="close" onClick={onClose} fontSize="5xl" />
+        </CloseContainer>
+        {children}
+      </WrapperContent>
     </Wrapper>
   );
 }
+
+SlidingPanel.Content = ContentContainer;
 
 export default SlidingPanel;

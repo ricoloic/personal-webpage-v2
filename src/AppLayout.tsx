@@ -9,6 +9,7 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   flex: 1;
+  overflow-y: auto;
   background-color: ${COLORS.gray100};
 `;
 

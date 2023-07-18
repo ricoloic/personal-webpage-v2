@@ -1,17 +1,18 @@
-import React from 'react';
-import { Children, Colors } from '../../types';
-import { List as StyleList } from './List.styles';
-import ListItem from './ListItem';
+import styled from 'styled-components';
+import { Colors, CssSize } from '../../types';
 
-interface Props {
-  children: Children;
+const List = styled.ul<{
+  width?: CssSize;
   color?: Colors;
-}
-
-function List({ children, color = undefined }: Props) {
-  return <StyleList color={color}>{children}</StyleList>;
-}
-
-List.Item = ListItem;
+  $noMargin?: boolean;
+  $noPadding?: boolean;
+}>`
+  width: ${({ width = undefined }) => width};
+  color: ${({ color = undefined }) => color};
+  margin: ${({ $noMargin = undefined }) => ($noMargin ? '0' : undefined)};
+  padding: ${({ $noPadding = undefined }) => ($noPadding ? '0' : undefined)};
+  list-style-type: none;
+  line-height: 1.2;
+`;
 
 export default List;

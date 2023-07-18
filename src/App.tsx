@@ -2,6 +2,7 @@ import * as React from 'react';
 import './i18n/config';
 import styled from 'styled-components';
 import Router from './routes';
+import { AppProvider } from './context/AppContext';
 
 const Wrapper = styled.div`
   display: flex;
@@ -11,9 +12,11 @@ const Wrapper = styled.div`
 
 function App() {
   return (
-    <Wrapper>
-      <Router />
-    </Wrapper>
+    <AppProvider>
+      <Wrapper>
+        <Router />
+      </Wrapper>
+    </AppProvider>
   );
 }
 
