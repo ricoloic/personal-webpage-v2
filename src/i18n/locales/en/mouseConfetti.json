@@ -1,0 +1,8 @@
+{
+  "inputs": {
+    "fillConfetti": "Fill Confetti",
+    "darkMode": "Dark Mode",
+    "confettiSpeed": "Confetti Speed",
+    "colorPalette": "Color Palette"
+  }
+}
