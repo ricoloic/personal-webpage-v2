@@ -1,25 +1,3 @@
 {
-  "sections": {
-    "popularCategory": {
-      "title": "Popular category"
-    },
-    "totalExpenses": {
-      "title": "Total Expenses"
-    },
-    "frequencyOfTransactions": {
-      "title": "Frequency of transactions"
-    },
-    "popularTransactions": {
-      "title": "Popular transactions"
-    },
-    "expensesAndWeeklyAverage": {
-      "title": "Expenses and weekly average"
-    },
-    "expensesAndIncome": {
-      "title": "Expenses and income"
-    },
-    "recommendations": {
-      "title": "Recommendations"
-    }
-  }
+
 }

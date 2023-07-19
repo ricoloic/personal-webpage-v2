@@ -3,6 +3,7 @@
   "pages": {
     "home": "Home",
     "mouseFollow": "Mouse Follow",
-    "mouseConfetti": "Mouse Confetti"
+    "mouseConfetti": "Mouse Confetti",
+    "flowField": "Flow Field"
   }
 }
