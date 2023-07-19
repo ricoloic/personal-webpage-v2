@@ -12,7 +12,7 @@
 - [Conventional commits](https://github.com/compilerla/conventional-pre-commit)
 - [Lint staged](https://github.com/okonet/lint-staged)
 
-#### To install dependencies
+#### To install dependencies 
 
 ```
 yarn install
