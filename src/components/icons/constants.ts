@@ -1,4 +1,11 @@
-import { FiArrowUp, FiArrowDown, FiX, FiMenu, FiEdit2 } from 'react-icons/fi';
+import {
+  FiArrowUp,
+  FiArrowDown,
+  FiX,
+  FiMenu,
+  FiEdit2,
+  FiRefreshCcw,
+} from 'react-icons/fi';
 import {
   FaGasPump,
   FaShoppingBag,
@@ -20,6 +27,7 @@ const ICONS = {
   house: FaHome,
   creditCard: FaRegCreditCard,
   edit: FiEdit2,
+  refresh: FiRefreshCcw,
 };
 
 export default ICONS;

@@ -8,6 +8,7 @@ import ROUTES from '../../routes/constants';
 import COLORS from '../../constants/colors';
 import mouseFollowPreview from '../../assets/previews/mouse-follow-preview.png';
 import mouseConfettiPreview from '../../assets/previews/mouse-confetti-preview.png';
+import flowFieldPreview from '../../assets/previews/flow-field-preview.png';
 
 const age = (() => {
   const ageDifMs = Date.now() - new Date('2002-09-23').getTime();
@@ -113,6 +114,15 @@ export default function Home() {
           }}
         >
           <p>Mouse Confetti</p>
+        </Link>
+        <Link
+          to={ROUTES.flowField}
+          className="card"
+          style={{
+            backgroundImage: `url(${flowFieldPreview})`,
+          }}
+        >
+          <p>Flow Field</p>
         </Link>
       </section>
     </div>

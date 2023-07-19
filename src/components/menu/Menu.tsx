@@ -50,6 +50,9 @@ function Menu({ open, onClose }: Props) {
           >
             {t('pages.mouseConfetti')}
           </ListItem>
+          <ListItem $zoom onClick={handlePageChange('flowField')} fontSize="xl">
+            {t('pages.flowField')}
+          </ListItem>
         </List>
       </Scroll>
     </SlidingPanel>

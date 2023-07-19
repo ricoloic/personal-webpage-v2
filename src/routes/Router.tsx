@@ -5,6 +5,7 @@ import AppLayout from '../AppLayout';
 import Home from '../pages/home';
 import MouseFollow from '../pages/mouseFollow';
 import MouseConfetti from '../pages/mouseConfetti';
+import FlowField from '../pages/flowField';
 
 function Router() {
   return (
@@ -18,6 +19,7 @@ function Router() {
             path={`${ROUTES.mouseConfetti}/*`}
             element={<MouseConfetti />}
           />
+          <Route path={`${ROUTES.flowField}/*`} element={<FlowField />} />
         </Route>
       </Routes>
     </BrowserRouter>
