@@ -1,56 +1,113 @@
 .home {
-  & > .grid-container {
+  display: grid;
+  grid-template-columns: 1fr min(1200px, 100%) 1fr;
+
+  > * {
+    grid-column: 2;
+  }
+
+  section {
+    padding: 50px;
+  }
+
+  #about {
+    padding-top: 50px;
+    padding-bottom: 50px;
+    margin: auto;
+    max-width: 1200px;
     display: grid;
-    gap: 1em;
-    padding: 1em;
+    grid-template-columns: 1fr;
+    gap: 35px;
+    align-items: center;
 
-    .grid-container {
-      display: grid;
-      gap: 1em;
+    #myself {
+      max-width: 300px;
+      max-height: 300px;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      user-select: none;
     }
-  }
 
-  @media (min-width: 50em) {
-    & > .grid-container {
-      grid-template-columns: repeat(2, 1fr);
+    @media (min-width: 700px) {
+      grid-template-columns: 1fr 1fr 1fr;
 
-      .grid-container {
-        grid-template-rows: repeat(2, 1fr);
+      .grid-col-span-2 {
+        grid-column: span 2;
+      }
+
+      .grid-col-span-3 {
+        grid-column: span 3;
       }
     }
   }
 
-  @media (min-width: 70em) {
-    & > .grid-container {
-      grid-template-columns: repeat(12, 1fr);
+  #sketches {
+    display: grid;
+    gap: 30px;
+    grid-template-columns: 1fr;
 
-      & > div:nth-child(2),
-      & > div:nth-child(3) {
-        grid-column: 5 / 9;
-      }
-      & > div:nth-child(2) {
-        grid-row: 1 / 2;
-      }
-      & > div:nth-child(3) {
-        grid-row: 2 / 3;
-      }
-
-      & > div:nth-child(1),
-      & > div:nth-child(4) {
-        grid-row: 1 / 3;
-      }
+    @media (min-width: 700px) {
+      grid-template-columns: 1fr 1fr;
     }
 
-    .grid-col-span-4 {
-      grid-column: span 4;
+    @media (min-width: 1200px) {
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: auto;
+  }
+
+  .card {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 350px;
+    color: black;
+    padding: 15px;
+    position: relative;
+    font-size: 1.5rem;
+    transition: all 0.15s ease-in-out;
+
+    &:hover {
+      box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.75);
+      transform: scale(1.02);
+      transition: all 0.15s ease-in-out;
     }
 
-    .grid-col-span-6 {
-      grid-column: span 6;
+    & p {
+      display: inline-block;
+      margin: 0;
+      padding: 5px 10px;
+      background-color: white;
     }
+  }
 
-    .grid-col-span-8 {
-      grid-column: span 8;
-    }
+  p {
+    margin-left: 20px;
+  }
+
+  h1 {
+    font-size: 3rem;
+  }
+
+  .rounded {
+    border-radius: 50%;
+  }
+
+  .bold {
+    font-weight: bold;
+  }
+
+  .underlined {
+    text-decoration: underline;
+  }
+
+  .full-bleed {
+    width: 100%;
+    grid-column: 1 / -1;
   }
 }

@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { useTranslation } from 'react-i18next';
 import { useEffect, useRef } from 'react';
-import { SketchContainer } from '../../components/container';
+import SketchContainer from '../../components/sketchContainer';
 import sketch, { Args, defaultArgs } from './sketch';
 import COLORS from '../../constants/colors';
 import SlidingPanel from '../../components/slidingPanel';
