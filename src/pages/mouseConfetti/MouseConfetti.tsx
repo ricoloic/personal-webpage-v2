@@ -6,15 +6,15 @@ import sketch, { Args, defaultArgs } from './sketch';
 import COLORS from '../../constants/colors';
 import SlidingPanel from '../../components/slidingPanel';
 import { useApp } from '../../context/AppContext';
-import Checkbox from '../../components/checkbox';
-import Range from '../../components/range';
 import Dropdown from '../../components/dropdown';
 import { PALETTE_OPTIONS } from '../../constants/colorPalettes';
 import { ColorPalettesKeys } from '../../types';
+import Range from '../../components/range';
+import Checkbox from '../../components/checkbox';
 
-export default function MouseFollow() {
+export default function MouseConfetti() {
   const { isEditing, setIsEditing, setEdit } = useApp();
-  const { t } = useTranslation('mouseFollow');
+  const { t } = useTranslation('mouseConfetti');
 
   const ref = useRef<HTMLDivElement>();
 
@@ -28,28 +28,16 @@ export default function MouseFollow() {
     args.current.darkMode = checked;
   };
 
-  const handleShowBlob = (checked: boolean) => {
-    args.current.showBlob = checked;
-  };
-
-  const handleShowParticleBorder = (checked: boolean) => {
-    args.current.particleBorder = checked;
-  };
-
-  const handleShowParticleAlfa = (checked: boolean) => {
-    args.current.particleAlfa = checked;
-  };
-
-  const handleShowParticles = (checked: boolean) => {
-    args.current.showParticles = checked;
-  };
-
-  const handleParticlesPerFrame = (value: number) => {
-    args.current.particlesPerFrame = value;
+  const handleFillConfetti = (checked: boolean) => {
+    args.current.fillConfetti = checked;
   };
 
   const handleColorPaletteChange = (value: string) => {
     args.current.selectColorPalette = value as ColorPalettesKeys;
+  };
+
+  const handleConfettiSpeedChange = (value: number) => {
+    args.current.velocity = value;
   };
 
   useEffect(() => {
@@ -81,37 +69,19 @@ export default function MouseFollow() {
             defaultChecked={defaultArgs.darkMode}
           />
           <Checkbox
-            name="showBlob"
-            title={t('inputs.showBlob')}
-            onClick={handleShowBlob}
-            defaultChecked={defaultArgs.showBlob}
-          />
-          <Checkbox
-            name="showParticleBorder"
-            title={t('inputs.showParticleBorder')}
-            onClick={handleShowParticleBorder}
-            defaultChecked={defaultArgs.particleBorder}
-          />
-          <Checkbox
-            name="showParticleAlfa"
-            title={t('inputs.showParticleAlfa')}
-            onClick={handleShowParticleAlfa}
-            defaultChecked={defaultArgs.particleAlfa}
-          />
-          <Checkbox
-            name="showParticles"
-            title={t('inputs.showParticle')}
-            onClick={handleShowParticles}
-            defaultChecked={defaultArgs.showParticles}
+            name="darkMode"
+            title={t('inputs.fillConfetti')}
+            onClick={handleFillConfetti}
+            defaultChecked={defaultArgs.fillConfetti}
           />
           <Range
-            name="particlesPerFrame"
-            title={t('inputs.particlePerFrame')}
+            name="confettiSpeed"
+            title={t('inputs.confettiSpeed')}
             min={1}
-            max={25}
+            max={6}
             step={1}
-            onChange={handleParticlesPerFrame}
-            defaultValue={defaultArgs.particlesPerFrame}
+            onChange={handleConfettiSpeedChange}
+            defaultValue={defaultArgs.velocity}
           />
           <Dropdown
             name="colorPalette"

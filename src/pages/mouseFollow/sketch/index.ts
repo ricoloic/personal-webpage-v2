@@ -9,12 +9,11 @@ export type Args = {
   particles: Particle[];
   particlesPerFrame: number;
   center: { x: number; y: number };
-  blobColor: string;
-  particleColor: string;
   showParticles: boolean;
   showBlob: boolean;
   particleBorder: boolean;
   particleAlfa: boolean;
+  darkMode: boolean;
 };
 
 export const defaultArgs: Args = {
@@ -22,29 +21,28 @@ export const defaultArgs: Args = {
   particles: [] as Particle[],
   particlesPerFrame: 10,
   center: { x: 0, y: 0 },
-  blobColor: '#333333',
-  particleColor: '#6b49a6',
   showParticles: true,
   showBlob: true,
   particleBorder: false,
   particleAlfa: false,
+  darkMode: true,
 };
 
 const sketch = (args: Args, height: number) =>
   new P5((p5: P5) => {
     p5.setup = () => {
-      p5.createCanvas(window.innerWidth, height - 4).parent('parent');
+      p5.createCanvas(window.innerWidth, height).parent('parent');
       args.center.x = p5.width / 2;
       args.center.y = p5.height / 2;
       p5.noStroke();
     };
 
     p5.windowResized = () => {
-      p5.resizeCanvas(p5.windowWidth, height - 4);
+      p5.resizeCanvas(p5.windowWidth, height);
     };
 
     p5.draw = () => {
-      p5.background(250);
+      p5.background(args.darkMode ? 30 : 250);
       p5.translate(args.center.x, args.center.y);
 
       for (let i = 0; i < args.particlesPerFrame; i += 1) {
@@ -68,7 +66,7 @@ const sketch = (args: Args, height: number) =>
           p5.createVector(0, 0)
         );
         const cntV = sumV.div(args.particles.length);
-        p5.fill(args.blobColor);
+        p5.fill(args.darkMode ? '#fff' : '#333');
         p5.circle(cntV.x, cntV.y, 50);
       }
     };

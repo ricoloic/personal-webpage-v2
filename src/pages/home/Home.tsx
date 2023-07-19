@@ -5,8 +5,9 @@ import loic from '../../assets/photos/loic.webp';
 import './Home.scss';
 import { H1, H2 } from '../../components/typography';
 import ROUTES from '../../routes/constants';
-import mouseFollowPreview from '../../assets/previews/mouse-follow-preview.png';
 import COLORS from '../../constants/colors';
+import mouseFollowPreview from '../../assets/previews/mouse-follow-preview.png';
+import mouseConfettiPreview from '../../assets/previews/mouse-confetti-preview.png';
 
 const age = (() => {
   const ageDifMs = Date.now() - new Date('2002-09-23').getTime();
@@ -103,6 +104,15 @@ export default function Home() {
           }}
         >
           <p>Mouse Follow</p>
+        </Link>
+        <Link
+          to={ROUTES.mouseConfetti}
+          className="card"
+          style={{
+            backgroundImage: `url(${mouseConfettiPreview})`,
+          }}
+        >
+          <p>Mouse Confetti</p>
         </Link>
       </section>
     </div>

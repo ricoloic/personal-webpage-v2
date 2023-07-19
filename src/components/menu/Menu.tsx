@@ -43,6 +43,13 @@ function Menu({ open, onClose }: Props) {
           >
             {t('pages.mouseFollow')}
           </ListItem>
+          <ListItem
+            $zoom
+            onClick={handlePageChange('mouseConfetti')}
+            fontSize="xl"
+          >
+            {t('pages.mouseConfetti')}
+          </ListItem>
         </List>
       </Scroll>
     </SlidingPanel>

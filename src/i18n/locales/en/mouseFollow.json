@@ -1,5 +1,6 @@
 {
   "inputs": {
+    "darkMode": "Dark Mode",
     "showBlob": "Show Blob",
     "showParticleBorder": "Show Particle Border",
     "showParticleAlfa": "Show Particle Alfa",
