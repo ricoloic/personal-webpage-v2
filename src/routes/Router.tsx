@@ -11,6 +11,7 @@ function Router() {
     <BrowserRouter>
       <Routes>
         <Route element={<AppLayout />}>
+          <Route path="*" element={<Home />} />
           <Route path={`${ROUTES.home}/*`} element={<Home />} />
           <Route path={`${ROUTES.mouseFollow}/*`} element={<MouseFollow />} />
           <Route
