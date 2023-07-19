@@ -25,7 +25,7 @@ interface Props {
 
 export function AppProvider({ children }: Props) {
   const [title, setTitle] = useState<string>('');
-  const [edit, setEdit] = useState<boolean>(true);
+  const [edit, setEdit] = useState<boolean>(false);
   const [isEditing, setIsEditing] = useState<boolean>(false);
   const value = useMemo(
     () => ({

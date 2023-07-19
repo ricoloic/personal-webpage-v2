@@ -28,3 +28,12 @@ a:active {
   box-sizing: border-box;
 }
 
+.no-move {
+  overflow: hidden !important;
+  width: 100% !important;
+}
+
+.no-move * {
+  user-select: text;
+}
+
