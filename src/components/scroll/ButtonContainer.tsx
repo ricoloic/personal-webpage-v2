@@ -14,7 +14,7 @@ function ButtonContainer({
   bottom = undefined,
 }: Props) {
   return (
-    <Wrapper $top={top} bottom={bottom}>
+    <Wrapper $top={top} $bottom={bottom}>
       {children}
     </Wrapper>
   );

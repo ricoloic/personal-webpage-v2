@@ -37,62 +37,62 @@ export default function Home() {
           <Image width={500} height={500} src={loic} alt="Loïc Rico" />
           <AboutTopContent>
             <H1>
-              <a href="https://github.com/ricoloic">{t('home:name')}</a>
+              <a href="https://github.com/ricoloic">{t('name')}</a>
             </H1>
             <hr />
             <Description>
-              {t('home:hero.first', { age })}
+              {t('hero.first', { age })}
               <LinkElement href="https://www.ebay.com/">
-                {t('home:hero.company')}
+                {t('hero.company')}
               </LinkElement>
-              {t('home:hero.last')}
+              {t('hero.last')}
             </Description>
           </AboutTopContent>
           <AboutBottomContent>
-            <H2>{t('home:aboutThisPage.title')}</H2>
+            <H2>{t('aboutThisPage.title')}</H2>
             <hr />
             <Description>
-              {t('home:aboutThisPage.first')}
+              {t('aboutThisPage.first')}
               <LinkElement
                 target="_blank"
                 href="https://reactjs.org/"
                 rel="noreferrer"
               >
-                {t('home:aboutThisPage.react')}
+                {t('aboutThisPage.react')}
               </LinkElement>
-              {t('home:aboutThisPage.and')}
+              {t('aboutThisPage.and')}
               <LinkElement
                 target="_blank"
                 href="https://p5js.org/"
                 rel="noreferrer"
               >
-                {t('home:aboutThisPage.p5js')}
+                {t('aboutThisPage.p5js')}
               </LinkElement>
-              {t('home:aboutThisPage.second')}
+              {t('aboutThisPage.second')}
               <LinkElement
                 target="_blank"
                 href="https://github.com/ricoloic/personal-webpage-v2/"
                 rel="noreferrer"
               >
-                {t('home:aboutThisPage.githubRepo')}
+                {t('aboutThisPage.githubRepo')}
               </LinkElement>
-              {t('home:aboutThisPage.last')}
+              {t('aboutThisPage.last')}
             </Description>
           </AboutBottomContent>
         </AboutContent>
       </AboutContainer>
       <SketchesGrid>
         <SketchCard to={ROUTES.mouseFollow} imageUrl={mouseFollowPreview}>
-          {t('general:sketches.mouseFollow')}
+          {t('sketches.mouseFollow')}
         </SketchCard>
         <SketchCard to={ROUTES.mouseConfetti} imageUrl={mouseConfettiPreview}>
-          {t('general:sketches.mouseConfetti')}
+          {t('sketches.mouseConfetti')}
         </SketchCard>
         <SketchCard to={ROUTES.flowField} imageUrl={flowFieldPreview}>
-          {t('general:sketches.flowField')}
+          {t('sketches.flowField')}
         </SketchCard>
         <SketchCard to={ROUTES.circularMotion} imageUrl={circularMotionPreview}>
-          {t('general:sketches.circularMotion')}
+          {t('sketches.circularMotion')}
         </SketchCard>
       </SketchesGrid>
     </div>

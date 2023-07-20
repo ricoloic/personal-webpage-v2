@@ -8,7 +8,7 @@ import flowFieldPreview from '../../assets/previews/flow-field-preview.png';
 import circularMotionPreview from '../../assets/previews/circular-motion-preview.png';
 
 export default function Sketches() {
-  const { t } = useTranslation('general');
+  const { t } = useTranslation('sketches');
 
   return (
     <SketchesGrid>
