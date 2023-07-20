@@ -10,6 +10,7 @@ const ROUTES = {
   flowField: `${SKETCH_PATH}/flow-field`,
   circularMotion: `${SKETCH_PATH}/circular-motion`,
   timesTable: `${SKETCH_PATH}/times-table`,
+  chaosGame: `${SKETCH_PATH}/chaos-game`,
 } as const;
 
 export default ROUTES;

@@ -17,6 +17,7 @@ const sketches = (
     'circularMotion',
     'flowField',
     'timesTable',
+    'chaosGame',
   ] as PagesKeys[]
 ).sort();
 
