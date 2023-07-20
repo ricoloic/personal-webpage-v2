@@ -1,7 +1,8 @@
 import React, { useRef } from 'react';
-import useClickOut from '@bscop/use-click-out';
+import { useClickAway } from 'react-use';
 import { CssSize, Children, Colors } from '../../types';
-import Wrapper, {
+import {
+  Wrapper,
   CloseContainer,
   ContentContainer,
   WrapperContent,
@@ -34,7 +35,9 @@ function SlidingPanel({
   onClose,
 }: Props) {
   const ref = useRef(null);
-  useClickOut(() => (onClickAway ? onClickAway() : null), { ref });
+  useClickAway(ref, () => {
+    if (onClickAway) onClickAway();
+  });
 
   const calcSide = (() => (side === 'left' ? { left: '0' } : { right: '0' }))();
   const calcTransformation = (() =>
@@ -45,6 +48,7 @@ function SlidingPanel({
   return (
     <Wrapper
       ref={ref}
+      $open={open}
       right={calcSide.right as CssSize | undefined}
       left={calcSide.left as CssSize | undefined}
       width={width}

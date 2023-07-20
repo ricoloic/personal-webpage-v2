@@ -102,7 +102,7 @@ const sketch = (args: Args, height: number) =>
 
     p5.draw = () => {
       if (args.displayFlow) {
-        p5.background(225);
+        p5.background(args.darkMode ? 30 : 250);
       }
       let yoff = 0;
       for (let y = 0; y <= args.rows; y += 1) {

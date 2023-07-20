@@ -1,0 +1,8 @@
+{
+  "inputs": {
+    "darkMode": "Dark Mode",
+    "maximumRadius": "Maximum Radius",
+    "lineAmount": "Line Amount",
+    "colorPalette": "Color Palette"
+  }
+}

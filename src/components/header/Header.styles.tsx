@@ -4,6 +4,7 @@ import COLORS from '../../constants/colors';
 export const Wrapper = styled.div`
   position: sticky;
   display: flex;
+  flex-wrap: wrap;
   flex-direction: row;
   align-items: center;
   padding: 10px;

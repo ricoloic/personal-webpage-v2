@@ -2,8 +2,16 @@
   "title": "React boilerplate",
   "pages": {
     "home": "Home",
+    "sketches": "Sketches",
     "mouseFollow": "Mouse Follow",
     "mouseConfetti": "Mouse Confetti",
-    "flowField": "Flow Field"
+    "flowField": "Flow Field",
+    "circularMotion": "Circular Motion"
+  },
+  "sketches": {
+    "mouseFollow": "Mouse Follow",
+    "mouseConfetti": "Mouse Confetti",
+    "flowField": "Flow Field",
+    "circularMotion": "Circular Motion"
   }
 }

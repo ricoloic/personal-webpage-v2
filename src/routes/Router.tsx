@@ -1,25 +1,77 @@
-import React from 'react';
+import React, { lazy, Suspense } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import ROUTES from './constants';
 import AppLayout from '../AppLayout';
-import Home from '../pages/home';
-import MouseFollow from '../pages/mouseFollow';
-import MouseConfetti from '../pages/mouseConfetti';
-import FlowField from '../pages/flowField';
+import Loading from '../components/loading';
+
+const Home = lazy(() => import('../pages/home'));
+const Sketches = lazy(() => import('../pages/sketches'));
+const MouseFollow = lazy(() => import('../pages/mouseFollow'));
+const MouseConfetti = lazy(() => import('../pages/mouseConfetti'));
+const FlowField = lazy(() => import('../pages/flowField'));
+const CircularMotion = lazy(() => import('../pages/circularMotion'));
 
 function Router() {
   return (
     <BrowserRouter>
       <Routes>
         <Route element={<AppLayout />}>
-          <Route path="*" element={<Home />} />
-          <Route path={`${ROUTES.home}/*`} element={<Home />} />
-          <Route path={`${ROUTES.mouseFollow}/*`} element={<MouseFollow />} />
+          <Route
+            path="*"
+            element={
+              <Suspense fallback={<Loading />}>
+                <Home />
+              </Suspense>
+            }
+          />
+          <Route
+            path={`${ROUTES.home}/*`}
+            element={
+              <Suspense fallback={<Loading />}>
+                <Home />
+              </Suspense>
+            }
+          />
+          <Route
+            path={ROUTES.sketches}
+            element={
+              <Suspense fallback={<Loading />}>
+                <Sketches />
+              </Suspense>
+            }
+          />
+          <Route
+            path={`${ROUTES.mouseFollow}/*`}
+            element={
+              <Suspense fallback={<Loading />}>
+                <MouseFollow />
+              </Suspense>
+            }
+          />
           <Route
             path={`${ROUTES.mouseConfetti}/*`}
-            element={<MouseConfetti />}
+            element={
+              <Suspense fallback={<Loading />}>
+                <MouseConfetti />
+              </Suspense>
+            }
           />
-          <Route path={`${ROUTES.flowField}/*`} element={<FlowField />} />
+          <Route
+            path={`${ROUTES.flowField}/*`}
+            element={
+              <Suspense fallback={<Loading />}>
+                <FlowField />
+              </Suspense>
+            }
+          />
+          <Route
+            path={`${ROUTES.circularMotion}/*`}
+            element={
+              <Suspense fallback={<Loading />}>
+                <CircularMotion />
+              </Suspense>
+            }
+          />
         </Route>
       </Routes>
     </BrowserRouter>

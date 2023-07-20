@@ -20,7 +20,7 @@ class Particle {
     this.prevPos = this.pos.copy();
     this.vel = p5.createVector(p5.random(-1, 1), p5.random(-1, 1));
     this.acc = p5.createVector(0, 0);
-    this.limitVel = 4;
+    this.limitVel = 2;
   }
 
   update() {

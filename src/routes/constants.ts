@@ -1,10 +1,14 @@
 export const ROUTES_PARAMETERS = {};
 
+const SKETCH_PATH = '/sketches';
+
 const ROUTES = {
   home: '/',
-  mouseFollow: '/mouse-follow',
-  mouseConfetti: '/mouse-confetti',
-  flowField: '/flow-field',
+  sketches: SKETCH_PATH,
+  mouseFollow: `${SKETCH_PATH}/mouse-follow`,
+  mouseConfetti: `${SKETCH_PATH}/mouse-confetti`,
+  flowField: `${SKETCH_PATH}/flow-field`,
+  circularMotion: `${SKETCH_PATH}/circular-motion`,
 } as const;
 
 export default ROUTES;

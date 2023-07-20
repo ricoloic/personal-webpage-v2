@@ -28,11 +28,11 @@ export default function FlowField() {
 
   const refresh = () => {
     activeSketch.current?.remove();
-    args.current.flowField = [];
-    args.current.particles = [];
-    args.current.zoff = 0;
-    args.current.columns = 0;
-    args.current.rows = 0;
+    args.current.flowField = defaultArgs.flowField;
+    args.current.particles = defaultArgs.particles;
+    args.current.zoff = defaultArgs.zoff;
+    args.current.columns = defaultArgs.columns;
+    args.current.rows = defaultArgs.rows;
     activeSketch.current = sketch(args.current, ref.current?.offsetHeight ?? 0);
   };
 
