@@ -18,6 +18,7 @@ import {
   Description,
   Image,
   LinkElement,
+  MaxWidthContainer,
 } from './Home.styles';
 
 export default function Home() {
@@ -37,7 +38,7 @@ export default function Home() {
         <AboutContent>
           <Image width={500} height={500} src={loic} alt="Loïc Rico" />
           <AboutTopContent>
-            <H1>
+            <H1 $fontSize="5xl">
               <a href="https://github.com/ricoloic">{t('name')}</a>
             </H1>
             <hr />
@@ -82,23 +83,28 @@ export default function Home() {
           </AboutBottomContent>
         </AboutContent>
       </AboutContainer>
-      <SketchesGrid>
-        <SketchCard to={ROUTES.mouseFollow} imageUrl={mouseFollowPreview}>
-          {t('sketches.mouseFollow')}
-        </SketchCard>
-        <SketchCard to={ROUTES.mouseConfetti} imageUrl={mouseConfettiPreview}>
-          {t('sketches.mouseConfetti')}
-        </SketchCard>
-        <SketchCard to={ROUTES.flowField} imageUrl={flowFieldPreview}>
-          {t('sketches.flowField')}
-        </SketchCard>
-        <SketchCard to={ROUTES.circularMotion} imageUrl={circularMotionPreview}>
-          {t('sketches.circularMotion')}
-        </SketchCard>
-        <SketchCard to={ROUTES.timesTable} imageUrl={timesTablePreview}>
-          {t('sketches.timesTable')}
-        </SketchCard>
-      </SketchesGrid>
+      <MaxWidthContainer>
+        <SketchesGrid>
+          <SketchCard to={ROUTES.mouseFollow} imageUrl={mouseFollowPreview}>
+            {t('sketches.mouseFollow')}
+          </SketchCard>
+          <SketchCard to={ROUTES.mouseConfetti} imageUrl={mouseConfettiPreview}>
+            {t('sketches.mouseConfetti')}
+          </SketchCard>
+          <SketchCard to={ROUTES.flowField} imageUrl={flowFieldPreview}>
+            {t('sketches.flowField')}
+          </SketchCard>
+          <SketchCard
+            to={ROUTES.circularMotion}
+            imageUrl={circularMotionPreview}
+          >
+            {t('sketches.circularMotion')}
+          </SketchCard>
+          <SketchCard to={ROUTES.timesTable} imageUrl={timesTablePreview}>
+            {t('sketches.timesTable')}
+          </SketchCard>
+        </SketchesGrid>
+      </MaxWidthContainer>
     </div>
   );
 }
