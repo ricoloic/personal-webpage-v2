@@ -6,6 +6,7 @@ export const PAGES = {
   flowField: 'flowField',
   circularMotion: 'circularMotion',
   timesTable: 'timesTable',
+  chaosGame: 'chaosGame',
 } as const;
 
 export default PAGES;
