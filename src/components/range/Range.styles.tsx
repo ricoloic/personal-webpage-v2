@@ -28,7 +28,7 @@ export const RangeSlider = styled.input`
     transform: translateY(calc(-${height} / 4));
 
     &:hover {
-      background: ${COLORS.blue500};
+      background: ${COLORS.gray800};
     }
   }
   &::-webkit-slider-thumb {
@@ -43,15 +43,15 @@ export const RangeSlider = styled.input`
     transform: translateY(calc(-${height} / 4));
 
     &:hover {
-      background: ${COLORS.blue500};
+      background: ${COLORS.gray800};
     }
   }
 
   &:active::-moz-range-thumb {
-    background: ${COLORS.blue500};
+    background: ${COLORS.gray800};
   }
   &:active::-webkit-slider-thumb {
-    background: ${COLORS.blue500};
+    background: ${COLORS.gray800};
   }
 
   // Focus state
@@ -61,7 +61,7 @@ export const RangeSlider = styled.input`
   }
   &:hover::-webkit-slider-thumb {
     box-shadow: 0 0 0 calc(${height} / 6) ${COLORS.white},
-      0 0 0 calc(${height} / 3) ${COLORS.blue500};
+      0 0 0 calc(${height} / 3) ${COLORS.gray800};
   }
   &:focus::-moz-range-thumb {
     box-shadow: 0 0 0 calc(${height} / 6) ${COLORS.white},
@@ -69,7 +69,7 @@ export const RangeSlider = styled.input`
   }
   &:hover::-moz-range-thumb {
     box-shadow: 0 0 0 calc(${height} / 6) ${COLORS.white},
-      0 0 0 calc(${height} / 3) ${COLORS.blue500};
+      0 0 0 calc(${height} / 3) ${COLORS.gray800};
   }
 
   &::-webkit-slider-runnable-track {

@@ -54,7 +54,7 @@ export default function MouseConfetti() {
   return (
     <>
       <SlidingPanel
-        backgroundColor={COLORS.blue800}
+        backgroundColor={COLORS.gray1000}
         open={isEditing}
         width="400px"
         side="right"

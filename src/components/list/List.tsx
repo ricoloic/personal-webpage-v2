@@ -13,6 +13,7 @@ const List = styled.ul<{
   padding: ${({ $noPadding = undefined }) => ($noPadding ? '0' : undefined)};
   list-style-type: none;
   line-height: 1;
+  overflow-x: hidden;
 `;
 
 export default List;

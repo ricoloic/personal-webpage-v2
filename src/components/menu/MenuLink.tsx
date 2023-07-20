@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { PagesKeys } from '../../types';
 import { ListItem } from '../list';
 import Icon from '../icons';
+import FONT_SIZE from '../../constants/sizes';
 
 interface Props {
   page: PagesKeys;
@@ -20,7 +21,13 @@ function MenuLink({ page, currentPage, paddingLeft = false, onClick }: Props) {
       onClick={onClick(page)}
       fontSize="xl"
     >
-      {page === currentPage && <Icon name="cornerDownRight" fontSize="2xl" />}
+      {page === currentPage && (
+        <Icon
+          style={{ marginLeft: `calc(-${FONT_SIZE['2xl']} - 5px)` }}
+          name="cornerDownRight"
+          fontSize="2xl"
+        />
+      )}
       <div>{t(page)}</div>
     </ListItem>
   );

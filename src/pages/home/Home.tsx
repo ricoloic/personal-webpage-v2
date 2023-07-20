@@ -27,7 +27,7 @@ export default function Home() {
   return (
     <div>
       <AboutContainer
-        style={{ backgroundColor: COLORS.blue800, color: COLORS.white }}
+        style={{ backgroundColor: COLORS.gray1000, color: COLORS.white }}
       >
         <AboutContent>
           <Image width={500} height={500} src={loic} alt="Loïc Rico" />

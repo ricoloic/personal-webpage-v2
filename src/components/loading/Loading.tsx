@@ -7,7 +7,7 @@ function Loading() {
   return (
     <>
       <LoaderWrapper>
-        <PuffLoader color={COLORS.blue800} />
+        <PuffLoader color={COLORS.gray1000} />
       </LoaderWrapper>
       <AdjacentBackground $background={COLORS.gray100} />
     </>

@@ -58,7 +58,7 @@ export default function ChaosGame() {
   return (
     <>
       <SlidingPanel
-        backgroundColor={COLORS.blue800}
+        backgroundColor={COLORS.gray1000}
         open={isEditing}
         width="400px"
         side="right"

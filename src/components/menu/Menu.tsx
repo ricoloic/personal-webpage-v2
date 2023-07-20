@@ -37,7 +37,7 @@ function Menu({ open, onClose }: Props) {
 
   return (
     <SlidingPanel
-      backgroundColor={COLORS.blue800}
+      backgroundColor={COLORS.gray1000}
       open={open}
       width="320px"
       side="left"
