@@ -1,16 +1,8 @@
 import React, { useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
-import ROUTES from '../../routes/constants';
 import COLORS from '../../constants/colors';
 import { H1, H2 } from '../../components/typography';
-import SketchesGrid, { SketchCard } from '../../components/sketchesGrid';
 import loic from '../../assets/photos/loic.webp';
-import mouseFollowPreview from '../../assets/previews/mouse-follow-preview.png';
-import mouseConfettiPreview from '../../assets/previews/mouse-confetti-preview.png';
-import flowFieldPreview from '../../assets/previews/flow-field-preview.png';
-import circularMotionPreview from '../../assets/previews/circular-motion-preview.png';
-import timesTablePreview from '../../assets/previews/times-table-preview.png';
-import chaosGamePreview from '../../assets/previews/chaos-game-preview.png';
 import {
   AboutBottomContent,
   AboutContainer,
@@ -21,6 +13,7 @@ import {
   LinkElement,
   MaxWidthContainer,
 } from './Home.styles';
+import SketchesMenu from '../../components/sketchesMenu';
 
 export default function Home() {
   const { t } = useTranslation('home');
@@ -85,29 +78,7 @@ export default function Home() {
         </AboutContent>
       </AboutContainer>
       <MaxWidthContainer>
-        <SketchesGrid>
-          <SketchCard to={ROUTES.mouseFollow} imageUrl={mouseFollowPreview}>
-            {t('sketches.mouseFollow')}
-          </SketchCard>
-          <SketchCard to={ROUTES.mouseConfetti} imageUrl={mouseConfettiPreview}>
-            {t('sketches.mouseConfetti')}
-          </SketchCard>
-          <SketchCard to={ROUTES.flowField} imageUrl={flowFieldPreview}>
-            {t('sketches.flowField')}
-          </SketchCard>
-          <SketchCard
-            to={ROUTES.circularMotion}
-            imageUrl={circularMotionPreview}
-          >
-            {t('sketches.circularMotion')}
-          </SketchCard>
-          <SketchCard to={ROUTES.timesTable} imageUrl={timesTablePreview}>
-            {t('sketches.timesTable')}
-          </SketchCard>
-          <SketchCard to={ROUTES.chaosGame} imageUrl={chaosGamePreview}>
-            {t('sketches.chaosGame')}
-          </SketchCard>
-        </SketchesGrid>
+        <SketchesMenu />
       </MaxWidthContainer>
     </div>
   );

@@ -8,6 +8,16 @@
     "flowField": "Flow Field",
     "circularMotion": "Circular Motion",
     "timesTable": "Times Table",
-    "chaosGame": "Chaos Game"
+    "chaosGame": "Chaos Game",
+    "maurerRose": "Maurer Rose"
+  },
+  "sketches": {
+    "mouseFollow": "Mouse Follow",
+    "mouseConfetti": "Mouse Confetti",
+    "flowField": "Flow Field",
+    "circularMotion": "Circular Motion",
+    "timesTable": "Times Table",
+    "chaosGame": "Chaos Game",
+    "maurerRose": "Maurer Rose"
   }
 }

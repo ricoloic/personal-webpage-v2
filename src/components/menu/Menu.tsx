@@ -18,6 +18,7 @@ const sketches = (
     'flowField',
     'timesTable',
     'chaosGame',
+    'maurerRose',
   ] as PagesKeys[]
 ).sort();
 

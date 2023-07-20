@@ -7,6 +7,7 @@ export const PAGES = {
   circularMotion: 'circularMotion',
   timesTable: 'timesTable',
   chaosGame: 'chaosGame',
+  maurerRose: 'maurerRose',
 } as const;
 
 export default PAGES;
