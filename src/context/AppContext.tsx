@@ -6,11 +6,13 @@ import React, {
   useMemo,
   useState,
 } from 'react';
-import { Children } from '../types';
+import { Children, PagesKeys } from '../types';
 
 interface ContextState {
   title: string;
   setTitle: Dispatch<SetStateAction<string>>;
+  page: PagesKeys;
+  setPage: Dispatch<SetStateAction<PagesKeys>>;
   edit: boolean;
   setEdit: Dispatch<SetStateAction<boolean>>;
   isEditing: boolean;
@@ -25,18 +27,21 @@ interface Props {
 
 export function AppProvider({ children }: Props) {
   const [title, setTitle] = useState<string>('');
+  const [page, setPage] = useState<PagesKeys>('home');
   const [edit, setEdit] = useState<boolean>(false);
   const [isEditing, setIsEditing] = useState<boolean>(false);
   const value = useMemo(
     () => ({
       title,
       setTitle,
+      page,
+      setPage,
       edit,
       setEdit,
       isEditing,
       setIsEditing,
     }),
-    [title, edit, isEditing]
+    [title, page, edit, isEditing]
   );
   return <AppContext.Provider value={value}>{children}</AppContext.Provider>;
 }

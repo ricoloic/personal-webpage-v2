@@ -1,3 +1,18 @@
 {
-
+  "name": "Loïc Rico",
+  "hero": {
+    "first": "Hi, I'm Loïc Rico, a {{age}} years old canadian web developer. This page is a personal website of mine where I can display my creations. I'm currently working at ",
+    "company": "eBay",
+    "last": " as a full-stack developer. I'm passionate about generative art and I love to learn new things."
+  },
+  "aboutThisPage": {
+    "title": "About this page",
+    "first": "This page is a personal website of mine where I can display my creations. It was build with ",
+    "react": "React",
+    "and": " and ",
+    "p5js": "p5js",
+    "second": ". The source code is available on the ",
+    "githubRepo": "Github Repo",
+    "last": ". I'm currently working on this page on my free time. If you would like to report a feature or a bug, feel free to leave an issue on the project repository. Before I decided to create this page, I was always finding my self searching for a particular project to show to someone. And more often than not I wasn't even able to start the project since the person I would be showing it to, were not setup to run it locally. So I decided to build this page to show my creations to people who are interested in my work. I hope you enjoy it."
+  }
 }

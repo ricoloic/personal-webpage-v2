@@ -3,6 +3,7 @@ import { Colors, CssSize } from '../../types';
 import COLORS from '../../constants/colors';
 
 export const Wrapper = styled.div<{
+  $open?: boolean;
   right?: CssSize;
   left?: CssSize;
   width: CssSize;
@@ -15,12 +16,13 @@ export const Wrapper = styled.div<{
   bottom: 0;
   right: ${({ right = undefined }) => right};
   left: ${({ left = undefined }) => left};
-  width: ${({ width }) => width};
+  width: ${({ width }) => `min(${width}, 100%)`};
   transform: ${({ transform }) => transform};
   background: ${({ background }) => background};
   transition: 0.3s ease-out;
   overflow: ${({ overflow }) => overflow};
   z-index: 999;
+  ${({ $open }) => $open && `box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.75);`}
 `;
 
 export const WrapperContent = styled.div`
@@ -43,4 +45,4 @@ export const ContentContainer = styled.div<{ gap?: CssSize }>`
   padding: 20px;
 `;
 
-export default Wrapper;
+export default { Wrapper, CloseContainer, ContentContainer, WrapperContent };

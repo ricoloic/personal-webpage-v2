@@ -12,7 +12,7 @@ const List = styled.ul<{
   margin: ${({ $noMargin = undefined }) => ($noMargin ? '0' : undefined)};
   padding: ${({ $noPadding = undefined }) => ($noPadding ? '0' : undefined)};
   list-style-type: none;
-  line-height: 1.2;
+  line-height: 1;
 `;
 
 export default List;
