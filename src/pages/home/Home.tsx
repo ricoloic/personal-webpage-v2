@@ -9,6 +9,7 @@ import mouseFollowPreview from '../../assets/previews/mouse-follow-preview.png';
 import mouseConfettiPreview from '../../assets/previews/mouse-confetti-preview.png';
 import flowFieldPreview from '../../assets/previews/flow-field-preview.png';
 import circularMotionPreview from '../../assets/previews/circular-motion-preview.png';
+import timesTablePreview from '../../assets/previews/times-table-preview.png';
 import {
   AboutBottomContent,
   AboutContainer,
@@ -93,6 +94,9 @@ export default function Home() {
         </SketchCard>
         <SketchCard to={ROUTES.circularMotion} imageUrl={circularMotionPreview}>
           {t('sketches.circularMotion')}
+        </SketchCard>
+        <SketchCard to={ROUTES.timesTable} imageUrl={timesTablePreview}>
+          {t('sketches.timesTable')}
         </SketchCard>
       </SketchesGrid>
     </div>

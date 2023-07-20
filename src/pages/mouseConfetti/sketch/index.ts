@@ -16,9 +16,9 @@ export type Args = {
 export const defaultArgs: Args = {
   selectColorPalette: 'happy',
   confettiList: [],
-  velocity: 2,
+  velocity: 4,
   darkMode: true,
-  fillConfetti: false,
+  fillConfetti: true,
   radius: 40,
 };
 

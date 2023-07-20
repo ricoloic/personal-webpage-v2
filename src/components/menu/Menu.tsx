@@ -10,6 +10,16 @@ import { useApp } from '../../context/AppContext';
 import MenuLink from './MenuLink';
 import { PagesKeys } from '../../types';
 
+const sketches = (
+  [
+    'mouseFollow',
+    'mouseConfetti',
+    'circularMotion',
+    'flowField',
+    'timesTable',
+  ] as PagesKeys[]
+).sort();
+
 interface Props {
   open: boolean;
   onClose: () => void;
@@ -40,24 +50,15 @@ function Menu({ open, onClose }: Props) {
             currentPage={page}
             onClick={handlePageChange}
           />
-          {(
-            [
-              'mouseFollow',
-              'mouseConfetti',
-              'circularMotion',
-              'flowField',
-            ] as PagesKeys[]
-          )
-            .sort()
-            .map((pageName) => (
-              <MenuLink
-                key={pageName}
-                paddingLeft
-                page={pageName}
-                currentPage={page}
-                onClick={handlePageChange}
-              />
-            ))}
+          {sketches.map((pageName) => (
+            <MenuLink
+              key={pageName}
+              paddingLeft
+              page={pageName}
+              currentPage={page}
+              onClick={handlePageChange}
+            />
+          ))}
         </List>
       </Scroll>
     </SlidingPanel>

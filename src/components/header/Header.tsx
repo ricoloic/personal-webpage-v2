@@ -5,7 +5,6 @@ import { useApp } from '../../context/AppContext';
 import Icon from '../icons';
 import Wrapper from './Header.styles';
 import { H2 } from '../typography';
-import PAGES from '../../constants/pages';
 
 interface Props {
   onOpenMenu: () => void;
@@ -24,15 +23,15 @@ function Header({ onOpenMenu }: Props) {
     setIsEditing((isEditing) => !isEditing);
   };
 
-  const handleGoToHome = () => {
-    navigate(PAGES.home);
+  const handleGoBack = () => {
+    navigate(-1);
   };
 
   return (
     <Wrapper>
       <Icon fontSize="10xl" name="menu" onClick={handleOpenMenu} />
       {size.width > 500 && page !== 'home' && (
-        <Icon fontSize="10xl" name="home" onClick={handleGoToHome} />
+        <Icon fontSize="10xl" name="left" onClick={handleGoBack} />
       )}
       {size.width > 400 && <H2 $userSelect="none">{title}</H2>}
       <div style={{ flex: 1 }} />

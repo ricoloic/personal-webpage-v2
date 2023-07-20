@@ -9,6 +9,7 @@ const ROUTES = {
   mouseConfetti: `${SKETCH_PATH}/mouse-confetti`,
   flowField: `${SKETCH_PATH}/flow-field`,
   circularMotion: `${SKETCH_PATH}/circular-motion`,
+  timesTable: `${SKETCH_PATH}/times-table`,
 } as const;
 
 export default ROUTES;
