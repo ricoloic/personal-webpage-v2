@@ -7,6 +7,7 @@ import Loading from '../components/loading';
 const Home = lazy(() => import('../pages/home'));
 const Sketches = lazy(() => import('../pages/sketches'));
 const MouseFollow = lazy(() => import('../pages/mouseFollow'));
+const TimesTable = lazy(() => import('../pages/timesTable'));
 const MouseConfetti = lazy(() => import('../pages/mouseConfetti'));
 const FlowField = lazy(() => import('../pages/flowField'));
 const CircularMotion = lazy(() => import('../pages/circularMotion'));
@@ -45,6 +46,14 @@ function Router() {
             element={
               <Suspense fallback={<Loading />}>
                 <MouseFollow />
+              </Suspense>
+            }
+          />
+          <Route
+            path={`${ROUTES.timesTable}/*`}
+            element={
+              <Suspense fallback={<Loading />}>
+                <TimesTable />
               </Suspense>
             }
           />

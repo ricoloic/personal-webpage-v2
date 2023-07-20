@@ -6,6 +6,7 @@ import mouseFollowPreview from '../../assets/previews/mouse-follow-preview.png';
 import mouseConfettiPreview from '../../assets/previews/mouse-confetti-preview.png';
 import flowFieldPreview from '../../assets/previews/flow-field-preview.png';
 import circularMotionPreview from '../../assets/previews/circular-motion-preview.png';
+import timesTablePreview from '../../assets/previews/times-table-preview.png';
 
 export default function Sketches() {
   const { t } = useTranslation('sketches');
@@ -23,6 +24,9 @@ export default function Sketches() {
       </SketchCard>
       <SketchCard to={ROUTES.circularMotion} imageUrl={circularMotionPreview}>
         {t('sketches.circularMotion')}
+      </SketchCard>
+      <SketchCard to={ROUTES.timesTable} imageUrl={timesTablePreview}>
+        {t('sketches.timesTable')}
       </SketchCard>
     </SketchesGrid>
   );

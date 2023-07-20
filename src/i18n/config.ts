@@ -8,6 +8,7 @@ import mouseFollow from './locales/en/mouseFollow.json';
 import mouseConfetti from './locales/en/mouseConfetti.json';
 import flowField from './locales/en/flowField.json';
 import circularMotion from './locales/en/circularMotion.json';
+import timesTable from './locales/en/timesTable.json';
 
 export const defaultNS = 'general';
 export const resources = {
@@ -19,6 +20,7 @@ export const resources = {
     mouseConfetti,
     flowField,
     circularMotion,
+    timesTable,
   },
 } as const;
 export const namespaces = [
@@ -29,6 +31,7 @@ export const namespaces = [
   'mouseConfetti',
   'flowField',
   'circularMotion',
+  'timesTable',
 ];
 
 i18n.use(initReactI18next).init({

@@ -5,6 +5,7 @@ export const PAGES = {
   mouseConfetti: 'mouseConfetti',
   flowField: 'flowField',
   circularMotion: 'circularMotion',
+  timesTable: 'timesTable',
 } as const;
 
 export default PAGES;

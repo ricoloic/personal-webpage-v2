@@ -1,0 +1,9 @@
+{
+  "inputs": {
+    "darkMode": "Dark Mode",
+    "amountOfPoints": "Amount of Points",
+    "transparency": "Transparency",
+    "lineThickness": "Line Thickness",
+    "multiplier": "Multiplier"
+  }
+}
