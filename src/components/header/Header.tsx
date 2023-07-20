@@ -34,7 +34,7 @@ function Header({ onOpenMenu }: Props) {
       {size.width > 500 && page !== 'home' && (
         <Icon fontSize="10xl" name="home" onClick={handleGoToHome} />
       )}
-      {size.width > 400 && <H2 userSelect="none">{title}</H2>}
+      {size.width > 400 && <H2 $userSelect="none">{title}</H2>}
       <div style={{ flex: 1 }} />
       {edit && <Icon fontSize="10xl" name="edit" onClick={handleToggleEdit} />}
     </Wrapper>

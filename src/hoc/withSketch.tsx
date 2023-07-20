@@ -18,7 +18,7 @@ export default function withSketch() {
           };
         }
 
-        return () => null;
+        return () => undefined;
       }, []);
 
       return <Component />;

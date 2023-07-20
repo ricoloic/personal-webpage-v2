@@ -62,7 +62,7 @@ export default function FlowField() {
     return () => {
       setEdit(() => false);
       newSketch.remove();
-      if (activeSketch.current) activeSketch.current.remove();
+      if (activeSketch.current) activeSketch.current?.remove();
     };
   }, []);
 
@@ -76,7 +76,7 @@ export default function FlowField() {
         onClickAway={handleCloseEditing}
         onClose={handleCloseEditing}
       >
-        <SlidingPanel.Content gap="10px">
+        <SlidingPanel.Content $gap="10px">
           <Button
             icon={<Icon name="refresh" />}
             name="refresh"

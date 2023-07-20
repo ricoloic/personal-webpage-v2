@@ -20,7 +20,7 @@ import {
 } from './Home.styles';
 
 export default function Home() {
-  const { t } = useTranslation(['home', 'general']);
+  const { t } = useTranslation('home');
 
   const age = useMemo(() => {
     const ageDifMs = Date.now() - new Date('2002-09-23').getTime();
@@ -34,13 +34,7 @@ export default function Home() {
         style={{ backgroundColor: COLORS.blue800, color: COLORS.white }}
       >
         <AboutContent>
-          <Image
-            id="myself"
-            width={500}
-            height={500}
-            src={loic}
-            alt="Loïc Rico"
-          />
+          <Image width={500} height={500} src={loic} alt="Loïc Rico" />
           <AboutTopContent>
             <H1>
               <a href="https://github.com/ricoloic">{t('home:name')}</a>

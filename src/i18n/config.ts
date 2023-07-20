@@ -18,20 +18,22 @@ export const resources = {
     flowField,
     circularMotion,
   },
-};
+} as const;
+export const namespaces = [
+  'general',
+  'home',
+  'mouseFollow',
+  'mouseConfetti',
+  'flowField',
+  'circularMotion',
+];
 
 i18n.use(initReactI18next).init({
   fallbackLng: 'en',
   lng: 'en',
   resources,
-  ns: [
-    'general',
-    'home',
-    'mouseFollow',
-    'mouseConfetti',
-    'flowField',
-    'circularMotion',
-  ],
+  ns: namespaces,
+  react: {},
   defaultNS,
 });
 

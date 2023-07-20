@@ -73,7 +73,7 @@ export default function MouseFollow() {
         onClickAway={handleCloseEditing}
         onClose={handleCloseEditing}
       >
-        <SlidingPanel.Content gap="10px">
+        <SlidingPanel.Content $gap="10px">
           <Checkbox
             name="darkMode"
             title={t('inputs.darkMode')}

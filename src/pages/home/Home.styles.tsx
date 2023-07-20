@@ -17,19 +17,19 @@ export const AboutContent = styled.div`
   grid-column: 2;
   align-items: center;
 
-  @media (min-width: 750px) {
+  @media (min-width: 775px) {
     grid-template-columns: 1fr 1fr 1fr;
   }
 `;
 
 export const AboutTopContent = styled.div`
-  @media (min-width: 750px) {
+  @media (min-width: 775px) {
     grid-column: span 2;
   }
 `;
 
 export const AboutBottomContent = styled.div`
-  @media (min-width: 750px) {
+  @media (min-width: 775px) {
     grid-column: span 3;
   }
 `;
@@ -48,6 +48,8 @@ export const Image = styled.img`
 
 export const Description = styled.p`
   margin-left: 20px;
+  margin-top: 10px;
+  line-height: 1.3;
 `;
 
 export const LinkElement = styled.a`

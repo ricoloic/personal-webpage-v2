@@ -2,7 +2,7 @@ import * as React from 'react';
 import { inject } from '@vercel/analytics';
 import { createRoot } from 'react-dom/client';
 import App from './App';
-import './main.css';
+import './main.scss';
 
 if (import.meta.env.PROD) {
   inject();

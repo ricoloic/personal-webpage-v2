@@ -9,14 +9,14 @@ interface Props {
 }
 
 function AppearanceEffect({ children, show = true, style = {} }: Props) {
-  const [showTransision, setShowTransision] = useState(false);
-  const props = useSpring({
-    opacity: showTransision ? 1 : 0,
+  const [showTransition, setShowTransition] = useState(false);
+  const props = useSpring(() => ({
+    opacity: showTransition ? 1 : 0,
     config: { duration: 200 },
-  });
+  }));
 
   useEffect(() => {
-    setShowTransision(show);
+    setShowTransition(show as boolean);
   }, [show]);
 
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment

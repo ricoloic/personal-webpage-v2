@@ -8,6 +8,7 @@ import { RoutesKeys } from '../../routes/types';
 import ROUTES from '../../routes/constants';
 import { useApp } from '../../context/AppContext';
 import MenuLink from './MenuLink';
+import { PagesKeys } from '../../types';
 
 interface Props {
   open: boolean;
@@ -39,30 +40,24 @@ function Menu({ open, onClose }: Props) {
             currentPage={page}
             onClick={handlePageChange}
           />
-          <MenuLink
-            paddingLeft
-            page="mouseFollow"
-            currentPage={page}
-            onClick={handlePageChange}
-          />
-          <MenuLink
-            paddingLeft
-            page="mouseConfetti"
-            currentPage={page}
-            onClick={handlePageChange}
-          />
-          <MenuLink
-            paddingLeft
-            page="flowField"
-            currentPage={page}
-            onClick={handlePageChange}
-          />
-          <MenuLink
-            paddingLeft
-            page="circularMotion"
-            currentPage={page}
-            onClick={handlePageChange}
-          />
+          {(
+            [
+              'mouseFollow',
+              'mouseConfetti',
+              'circularMotion',
+              'flowField',
+            ] as PagesKeys[]
+          )
+            .sort()
+            .map((pageName) => (
+              <MenuLink
+                key={pageName}
+                paddingLeft
+                page={pageName}
+                currentPage={page}
+                onClick={handlePageChange}
+              />
+            ))}
         </List>
       </Scroll>
     </SlidingPanel>

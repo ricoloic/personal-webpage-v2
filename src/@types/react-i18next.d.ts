@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import { resources, defaultNS } from '../i18n/config';
 
 declare module 'react-i18next' {

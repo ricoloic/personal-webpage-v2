@@ -8,14 +8,14 @@ const ListItem = styled.li<{
   maxFontWeight?: FontWeightsKeys;
   $zoom?: boolean;
   onClick?: () => unknown;
-  gap?: CssSize;
+  $gap?: CssSize;
   marginY?: CssSize;
 }>`
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: flex-start;
-  gap: ${({ gap = '5px' }) => gap};
+  gap: ${({ $gap = '5px' }) => $gap};
   ${({ marginY = '10px' }) => `
     margin-top: ${marginY};
     margin-bottom: ${marginY};

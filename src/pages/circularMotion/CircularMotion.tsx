@@ -59,7 +59,7 @@ export default function CircularMotion() {
     return () => {
       setEdit(() => false);
       newSketch.remove();
-      if (activeSketch.current) activeSketch.current.remove();
+      if (activeSketch.current) activeSketch.current?.remove();
     };
   }, []);
 
@@ -73,7 +73,7 @@ export default function CircularMotion() {
         onClickAway={handleCloseEditing}
         onClose={handleCloseEditing}
       >
-        <SlidingPanel.Content gap="10px">
+        <SlidingPanel.Content $gap="10px">
           <Checkbox
             name="darkMode"
             title={t('inputs.darkMode')}

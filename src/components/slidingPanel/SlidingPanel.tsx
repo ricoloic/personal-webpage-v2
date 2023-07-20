@@ -39,7 +39,10 @@ function SlidingPanel({
     if (onClickAway) onClickAway();
   });
 
-  const calcSide = (() => (side === 'left' ? { left: '0' } : { right: '0' }))();
+  const calcSide = (() =>
+    side === 'left'
+      ? { left: '0', right: undefined }
+      : { left: undefined, right: '0' })();
   const calcTransformation = (() =>
     side === 'left'
       ? `translate(${open ? '0%' : '-100%'})`
@@ -49,12 +52,12 @@ function SlidingPanel({
     <Wrapper
       ref={ref}
       $open={open}
-      right={calcSide.right as CssSize | undefined}
-      left={calcSide.left as CssSize | undefined}
+      $right={calcSide.right as CssSize}
+      $left={calcSide.left as CssSize}
       width={width}
       transform={calcTransformation}
-      background={backgroundColor}
-      overflow={overflow}
+      $background={backgroundColor}
+      overflow={overflow ?? 'hidden'}
     >
       <WrapperContent>
         <CloseContainer>

@@ -20,7 +20,7 @@ function Range({
   min,
   step = undefined,
 }: Props) {
-  const [value, setValue] = useState<string | number>(defaultValue);
+  const [value, setValue] = useState<string | number>(defaultValue ?? 0);
 
   const handleRangeChange = (event: ChangeEvent<HTMLInputElement>) => {
     setValue(event.target.value);

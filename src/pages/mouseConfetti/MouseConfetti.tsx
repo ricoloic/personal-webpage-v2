@@ -1,6 +1,6 @@
-import * as React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useEffect, useRef } from 'react';
+
 import SketchContainer from '../../components/sketchContainer';
 import sketch, { Args, defaultArgs } from './sketch';
 import COLORS from '../../constants/colors';
@@ -61,7 +61,7 @@ export default function MouseConfetti() {
         onClickAway={handleCloseEditing}
         onClose={handleCloseEditing}
       >
-        <SlidingPanel.Content gap="10px">
+        <SlidingPanel.Content $gap="10px">
           <Checkbox
             name="darkMode"
             title={t('inputs.darkMode')}

@@ -23,7 +23,7 @@ function Dropdown({
   onChange,
   options,
 }: Props) {
-  const [value, setValue] = useState<string | number>(defaultValue);
+  const [value, setValue] = useState<string | number>(defaultValue ?? '');
 
   const handleSelectChange = (event: ChangeEvent<HTMLInputElement>) => {
     setValue(event.target.value);
@@ -33,7 +33,7 @@ function Dropdown({
   return (
     <div>
       {title && <Label>{title}</Label>}{' '}
-      <Wrapper $disabled={disabled}>
+      <Wrapper $disabled={disabled as boolean}>
         <Select
           value={value}
           name={name}

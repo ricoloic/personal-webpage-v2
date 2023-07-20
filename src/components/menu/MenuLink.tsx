@@ -16,7 +16,7 @@ function MenuLink({ page, currentPage, paddingLeft = false, onClick }: Props) {
   return (
     <ListItem
       $zoom
-      $leftPadding={paddingLeft}
+      $leftPadding={paddingLeft as boolean}
       onClick={onClick(page)}
       fontSize="xl"
     >

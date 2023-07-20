@@ -42,10 +42,12 @@ function Scroll({ children }: Props) {
               name="up"
               fontSize="2xl"
               onClick={() => {
+                // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                // @ts-ignore
                 listContainerRef?.current?.scrollTo({
                   top: 0,
                   behavior: 'smooth',
-                });
+                } as ScrollToOptions);
               }}
             />
           </AppearanceEffect>
@@ -62,6 +64,8 @@ function Scroll({ children }: Props) {
               name="down"
               fontSize="2xl"
               onClick={() => {
+                // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                // @ts-ignore
                 listBottomRef?.current?.scrollIntoView({
                   behavior: 'smooth',
                 });
