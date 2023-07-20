@@ -40,7 +40,7 @@ const sketch = (args: Args, height: number) =>
           p5.random(-args.center.y, args.center.y)
         );
 
-      const pointInCircle = (i) => {
+      const pointInCircle = (i: number) => {
         const angle = (i * p5.TWO_PI) / args.amountOfPoints;
         return p5.createVector(radius * p5.cos(angle), radius * p5.sin(angle));
       };
