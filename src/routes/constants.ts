@@ -11,6 +11,7 @@ const ROUTES = {
   circularMotion: `${SKETCH_PATH}/circular-motion`,
   timesTable: `${SKETCH_PATH}/times-table`,
   chaosGame: `${SKETCH_PATH}/chaos-game`,
+  maurerRose: `${SKETCH_PATH}/maurer-rose`,
 } as const;
 
 export default ROUTES;

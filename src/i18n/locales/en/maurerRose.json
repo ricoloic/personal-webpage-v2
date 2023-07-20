@@ -1,0 +1,8 @@
+{
+  "inputs": {
+    "darkMode": "Dark Mode",
+    "colorHighlight": "Color Highlight",
+    "petalAmount": "Petal Amount",
+    "degrees": "Degrees"
+  }
+}

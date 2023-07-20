@@ -12,6 +12,7 @@ const MouseConfetti = lazy(() => import('../pages/mouseConfetti'));
 const FlowField = lazy(() => import('../pages/flowField'));
 const CircularMotion = lazy(() => import('../pages/circularMotion'));
 const ChaosGame = lazy(() => import('../pages/chaosGame'));
+const MaurerRose = lazy(() => import('../pages/maurerRose'));
 
 function Router() {
   return (
@@ -87,6 +88,14 @@ function Router() {
             element={
               <Suspense fallback={<Loading />}>
                 <ChaosGame />
+              </Suspense>
+            }
+          />
+          <Route
+            path={`${ROUTES.maurerRose}/*`}
+            element={
+              <Suspense fallback={<Loading />}>
+                <MaurerRose />
               </Suspense>
             }
           />
