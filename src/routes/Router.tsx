@@ -4,6 +4,11 @@ import ROUTES from './constants';
 import AppLayout from '../AppLayout';
 import Loading from '../components/loading';
 
+const SketchesStatic = lazy(() => import('../pages/sketchesStatic'));
+const SketchesDynamic = lazy(() => import('../pages/sketchesDynamic'));
+const SketchesMouseMovement = lazy(
+  () => import('../pages/sketchesMouseMovement')
+);
 const Home = lazy(() => import('../pages/home'));
 const Sketches = lazy(() => import('../pages/sketches'));
 const MouseFollow = lazy(() => import('../pages/mouseFollow'));
@@ -40,6 +45,30 @@ function Router() {
             element={
               <Suspense fallback={<Loading />}>
                 <Sketches />
+              </Suspense>
+            }
+          />
+          <Route
+            path={ROUTES.sketchesMouseMovement}
+            element={
+              <Suspense fallback={<Loading />}>
+                <SketchesMouseMovement />
+              </Suspense>
+            }
+          />
+          <Route
+            path={ROUTES.sketchesStatic}
+            element={
+              <Suspense fallback={<Loading />}>
+                <SketchesStatic />
+              </Suspense>
+            }
+          />
+          <Route
+            path={ROUTES.sketchesDynamic}
+            element={
+              <Suspense fallback={<Loading />}>
+                <SketchesDynamic />
               </Suspense>
             }
           />

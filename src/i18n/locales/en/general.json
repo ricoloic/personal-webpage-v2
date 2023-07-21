@@ -3,6 +3,13 @@
   "pages": {
     "home": "Home",
     "sketches": "Sketches",
+    "sketchesMouseMovement": "Mouse Movements",
+    "sketchesMouseMovementDescription": "Sketches utilising mouse movement",
+    "sketchesStatic": "Statics",
+    "sketchesStaticDescription": "Sketches that finish by being static",
+    "sketchesDynamic": "Dynamics",
+    "sketchesDynamicDescription": "Sketches that are always dynamic",
+
     "mouseFollow": "Mouse Follow",
     "mouseConfetti": "Mouse Confetti",
     "flowField": "Flow Field",

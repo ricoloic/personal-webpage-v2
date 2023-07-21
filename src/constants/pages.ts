@@ -1,6 +1,10 @@
 export const PAGES = {
   home: 'home',
   sketches: 'sketches',
+  sketchesMouseMovement: 'sketchesMouseMovement',
+  sketchesStatic: 'sketchesStatic',
+  sketchesDynamic: 'sketchesDynamic',
+
   mouseFollow: 'mouseFollow',
   mouseConfetti: 'mouseConfetti',
   flowField: 'flowField',

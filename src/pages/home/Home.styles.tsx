@@ -1,10 +1,5 @@
 import styled from 'styled-components';
 
-export const MaxWidthContainer = styled.div`
-  max-width: min(100%, 2000px);
-  margin: auto;
-`;
-
 export const AboutContainer = styled.div`
   padding: 50px;
   display: grid;

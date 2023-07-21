@@ -1,6 +1,6 @@
 import React from 'react';
+import MaxWidthContainer from '../../components/maxWidthContainer/MaxWidthContainer';
 import SketchesMenu from '../../components/sketchesMenu';
-import { MaxWidthContainer } from './Sketches.styles';
 
 export default function Sketches() {
   return (

@@ -11,8 +11,8 @@ import {
   Description,
   Image,
   LinkElement,
-  MaxWidthContainer,
 } from './Home.styles';
+import MaxWidthContainer from '../../components/maxWidthContainer/MaxWidthContainer';
 import SketchesMenu from '../../components/sketchesMenu';
 
 export default function Home() {

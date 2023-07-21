@@ -5,6 +5,10 @@ const SKETCH_PATH = '/sketches';
 const ROUTES = {
   home: '/',
   sketches: SKETCH_PATH,
+  sketchesMouseMovement: `${SKETCH_PATH}-mouse-movement`,
+  sketchesStatic: `${SKETCH_PATH}-static`,
+  sketchesDynamic: `${SKETCH_PATH}-dynamic`,
+
   mouseFollow: `${SKETCH_PATH}/mouse-follow`,
   mouseConfetti: `${SKETCH_PATH}/mouse-confetti`,
   flowField: `${SKETCH_PATH}/flow-field`,
