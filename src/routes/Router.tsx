@@ -4,6 +4,7 @@ import ROUTES from './constants';
 import AppLayout from '../AppLayout';
 import Loading from '../components/loading';
 
+const Flocking = lazy(() => import('../pages/flocking'));
 const SketchesStatic = lazy(() => import('../pages/sketchesStatic'));
 const SketchesDynamic = lazy(() => import('../pages/sketchesDynamic'));
 const SketchesMouseMovement = lazy(
@@ -69,6 +70,14 @@ function Router() {
             element={
               <Suspense fallback={<Loading />}>
                 <SketchesDynamic />
+              </Suspense>
+            }
+          />
+          <Route
+            path={`${ROUTES.flocking}/*`}
+            element={
+              <Suspense fallback={<Loading />}>
+                <Flocking />
               </Suspense>
             }
           />

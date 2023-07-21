@@ -11,6 +11,7 @@ const ROUTES = {
 
   mouseFollow: `${SKETCH_PATH}/mouse-follow`,
   mouseConfetti: `${SKETCH_PATH}/mouse-confetti`,
+  flocking: `${SKETCH_PATH}/flocking`,
   flowField: `${SKETCH_PATH}/flow-field`,
   circularMotion: `${SKETCH_PATH}/circular-motion`,
   timesTable: `${SKETCH_PATH}/times-table`,

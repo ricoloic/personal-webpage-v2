@@ -9,9 +9,9 @@
     "sketchesStaticDescription": "Sketches that finish by being static",
     "sketchesDynamic": "Dynamics",
     "sketchesDynamicDescription": "Sketches that are always dynamic",
-
     "mouseFollow": "Mouse Follow",
     "mouseConfetti": "Mouse Confetti",
+    "flocking": "Flocking",
     "flowField": "Flow Field",
     "circularMotion": "Circular Motion",
     "timesTable": "Times Table",
@@ -21,6 +21,7 @@
   "sketches": {
     "mouseFollow": "Mouse Follow",
     "mouseConfetti": "Mouse Confetti",
+    "flocking": "Flocking",
     "flowField": "Flow Field",
     "circularMotion": "Circular Motion",
     "timesTable": "Times Table",
