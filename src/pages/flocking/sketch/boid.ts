@@ -32,7 +32,8 @@ class Boid {
     else if (this.pos.y > this.p5.height) this.pos.y = 0;
   }
 
-  flockInBoids(boids, action, perceptionRadius = 50) {
+  // eslint-disable-next-line @typescript-eslint/ban-types
+  flockInBoids(boids: Boid[], action: Function, perceptionRadius = 50) {
     let steeringAmount = this.p5.createVector(0, 0);
     let total = 0;
 
@@ -56,7 +57,7 @@ class Boid {
   alignment(boids: Boid[], alignmentForce = 0.7) {
     const { steeringAmount, total } = this.flockInBoids(
       boids,
-      (boid, steering) => steering.add(boid.vel),
+      (boid: Boid, steering: P5.Vector) => steering.add(boid.vel),
       45
     );
     if (total > 0) {
@@ -72,7 +73,7 @@ class Boid {
   cohesion(boids: Boid[], cohesionForce = 0.3) {
     const { steeringAmount, total } = this.flockInBoids(
       boids,
-      (boid, steering) => steering.add(boid.pos),
+      (boid: Boid, steering: P5.Vector) => steering.add(boid.pos),
       30
     );
 
@@ -92,7 +93,7 @@ class Boid {
     const { steeringAmount, total } = this.flockInBoids(
       boids,
       // eslint-disable-next-line arrow-body-style
-      (boid, steering, distance) =>
+      (boid: Boid, steering: P5.Vector, distance: P5.Vector) =>
         steering.add(P5.Vector.sub(this.pos, boid.pos).div(distance)),
       12
     );

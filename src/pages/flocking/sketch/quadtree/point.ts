@@ -7,7 +7,7 @@ class Point {
 
   public userData: Boid;
 
-  constructor(x: number, y: number, userData = null) {
+  constructor(x: number, y: number, userData: Boid) {
     this.x = x;
     this.y = y;
     this.userData = userData;
