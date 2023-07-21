@@ -3,6 +3,7 @@ import { initReactI18next } from 'react-i18next';
 
 import general from './locales/en/general.json';
 import home from './locales/en/home.json';
+import flocking from './locales/en/flocking.json';
 import mouseFollow from './locales/en/mouseFollow.json';
 import mouseConfetti from './locales/en/mouseConfetti.json';
 import flowField from './locales/en/flowField.json';
@@ -16,6 +17,7 @@ export const resources = {
   en: {
     general,
     home,
+    flocking,
     mouseFollow,
     mouseConfetti,
     flowField,
@@ -28,6 +30,7 @@ export const resources = {
 export const namespaces = [
   'general',
   'home',
+  'flocking',
   'mouseFollow',
   'mouseConfetti',
   'flowField',

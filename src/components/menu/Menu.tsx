@@ -15,6 +15,7 @@ const sketches = (
     'mouseFollow',
     'mouseConfetti',
     'circularMotion',
+    'flocking',
     'flowField',
     'timesTable',
     'chaosGame',

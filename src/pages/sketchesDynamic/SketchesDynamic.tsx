@@ -4,6 +4,7 @@ import MaxWidthContainer from '../../components/maxWidthContainer';
 import SketchesGrid, { SketchCard } from '../../components/sketchesGrid';
 import ROUTES from '../../routes/constants';
 import flowFieldPreview from '../../assets/previews/flow-field-preview.png';
+import flockingPreview from '../../assets/previews/flocking-preview.png';
 
 export default function SketchesDynamic() {
   const { t } = useTranslation('general');
@@ -12,6 +13,9 @@ export default function SketchesDynamic() {
       <SketchesGrid>
         <SketchCard to={ROUTES.flowField} imageUrl={flowFieldPreview}>
           {t('sketches.flowField')}
+        </SketchCard>
+        <SketchCard to={ROUTES.flocking} imageUrl={flockingPreview}>
+          {t('sketches.flocking')}
         </SketchCard>
       </SketchesGrid>
     </MaxWidthContainer>

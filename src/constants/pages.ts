@@ -7,6 +7,7 @@ export const PAGES = {
 
   mouseFollow: 'mouseFollow',
   mouseConfetti: 'mouseConfetti',
+  flocking: 'flocking',
   flowField: 'flowField',
   circularMotion: 'circularMotion',
   timesTable: 'timesTable',

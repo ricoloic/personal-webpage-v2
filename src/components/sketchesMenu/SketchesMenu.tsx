@@ -9,6 +9,7 @@ import timesTablePreview from '../../assets/previews/times-table-preview.png';
 import chaosGamePreview from '../../assets/previews/chaos-game-preview.png';
 import maurerRosePreview from '../../assets/previews/maurer-rose-preview.png';
 import flowFieldPreview from '../../assets/previews/flow-field-preview.png';
+import flockingPreview from '../../assets/previews/flocking-preview.png';
 
 export default function SketchesMenu() {
   const { t } = useTranslation('general');
@@ -50,6 +51,9 @@ export default function SketchesMenu() {
       />
       <SketchCard to={ROUTES.flowField} imageUrl={flowFieldPreview}>
         {t('sketches.flowField')}
+      </SketchCard>
+      <SketchCard to={ROUTES.flocking} imageUrl={flockingPreview}>
+        {t('sketches.flocking')}
       </SketchCard>
     </SketchesGrid>
   );
