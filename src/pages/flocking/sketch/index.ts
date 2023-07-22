@@ -21,11 +21,11 @@ export const defaultArgs: Args = {
   boundary: new Rectangle(0, 0, 0, 0),
   boids: [],
   quadTree: new QuadTree(),
-  alignmentForce: 0.5,
-  cohesionForce: 0.2,
-  separationForce: 4.3,
+  alignmentForce: Boid.forces.alignmentForce, // 0.5
+  cohesionForce: Boid.forces.cohesionForce, // 0.2
+  separationForce: Boid.forces.separationForce, // 4.3
   displayQuadTree: false,
-  boidAmount: 550,
+  boidAmount: 250,
   darkMode: true,
 };
 
