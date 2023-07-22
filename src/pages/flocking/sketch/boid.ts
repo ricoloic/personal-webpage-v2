@@ -15,6 +15,12 @@ class Boid {
 
   private size: number;
 
+  public static forces = {
+    alignmentForce: 0.5,
+    cohesionForce: 0.2,
+    separationForce: 3,
+  };
+
   constructor(p5: P5) {
     this.p5 = p5;
     this.pos = p5.createVector(p5.random(p5.width), p5.random(p5.height));
@@ -30,83 +36,6 @@ class Boid {
     else if (this.pos.x > this.p5.width) this.pos.x = 0;
     if (this.pos.y < 0) this.pos.y = this.p5.height;
     else if (this.pos.y > this.p5.height) this.pos.y = 0;
-  }
-
-  // eslint-disable-next-line @typescript-eslint/ban-types
-  flockInBoids(boids: Boid[], action: Function, perceptionRadius = 50) {
-    let steeringAmount = this.p5.createVector(0, 0);
-    let total = 0;
-
-    // eslint-disable-next-line no-restricted-syntax
-    for (const boid of boids) {
-      const distance = this.p5.dist(
-        boid.pos.x,
-        boid.pos.y,
-        this.pos.x,
-        this.pos.y
-      );
-      if (boid !== this && distance < perceptionRadius) {
-        steeringAmount = action(boid, steeringAmount, distance);
-        total += 1;
-      }
-    }
-
-    return { steeringAmount, total };
-  }
-
-  alignment(boids: Boid[], alignmentForce = 0.7) {
-    const { steeringAmount, total } = this.flockInBoids(
-      boids,
-      (boid: Boid, steering: P5.Vector) => steering.add(boid.vel),
-      45
-    );
-    if (total > 0) {
-      steeringAmount
-        .div(total)
-        .sub(this.vel)
-        .limit(this.maxForce)
-        .mult(alignmentForce);
-    }
-    this.applyForce(steeringAmount);
-  }
-
-  cohesion(boids: Boid[], cohesionForce = 0.3) {
-    const { steeringAmount, total } = this.flockInBoids(
-      boids,
-      (boid: Boid, steering: P5.Vector) => steering.add(boid.pos),
-      30
-    );
-
-    if (total > 0) {
-      steeringAmount
-        .div(total)
-        .sub(this.pos)
-        .sub(this.vel)
-        .limit(this.maxForce)
-        .mult(cohesionForce);
-    }
-
-    this.applyForce(steeringAmount);
-  }
-
-  separation(boids: Boid[], separationForce = 5) {
-    const { steeringAmount, total } = this.flockInBoids(
-      boids,
-      // eslint-disable-next-line arrow-body-style
-      (boid: Boid, steering: P5.Vector, distance: P5.Vector) =>
-        steering.add(P5.Vector.sub(this.pos, boid.pos).div(distance)),
-      12
-    );
-
-    if (total > 0) {
-      steeringAmount
-        .div(total)
-        .sub(this.vel)
-        .limit(this.maxForce)
-        .mult(separationForce);
-    }
-
-    this.applyForce(steeringAmount);
   }
 
   applyForce(force: P5.Vector) {
@@ -137,15 +66,69 @@ class Boid {
   flock(
     darkMode: boolean,
     boids: Boid[],
-    { alignmentForce = 0.7, cohesionForce = 0.3, separationForce = 5 } = {
-      alignmentForce: 0.7,
-      cohesionForce: 0.3,
-      separationForce: 5,
-    }
+    {
+      alignmentForce = Boid.forces.alignmentForce,
+      cohesionForce = Boid.forces.cohesionForce,
+      separationForce = Boid.forces.separationForce,
+    } = Boid.forces
   ) {
-    this.alignment(boids, alignmentForce);
-    this.cohesion(boids, cohesionForce);
-    this.separation(boids, separationForce);
+    const steering1 = this.p5.createVector(0, 0);
+    const steering2 = this.p5.createVector(0, 0);
+    const steering3 = this.p5.createVector(0, 0);
+    let total1 = 0;
+    let total2 = 0;
+    let total3 = 0;
+
+    // eslint-disable-next-line no-restricted-syntax
+    for (const boid of boids) {
+      const distance = this.p5.dist(
+        boid.pos.x,
+        boid.pos.y,
+        this.pos.x,
+        this.pos.y
+      );
+      if (boid !== this) {
+        if (distance < 45) {
+          steering1.add(boid.vel);
+          total1 += 1;
+        }
+        if (distance < 30) {
+          steering2.add(boid.pos);
+          total2 += 1;
+        }
+        if (distance < 35) {
+          steering3.add(P5.Vector.sub(this.pos, boid.pos).div(distance));
+          total3 += 1;
+        }
+      }
+    }
+
+    if (total1 > 0) {
+      steering1
+        .div(total1)
+        .sub(this.vel)
+        .limit(this.maxForce)
+        .mult(alignmentForce);
+    }
+    if (total2 > 0) {
+      steering2
+        .div(total2)
+        .sub(this.pos)
+        .sub(this.vel)
+        .limit(this.maxForce)
+        .mult(cohesionForce);
+    }
+    if (total3 > 0) {
+      steering3
+        .div(total3)
+        .sub(this.vel)
+        .limit(this.maxForce)
+        .mult(separationForce);
+    }
+    this.applyForce(steering1);
+    this.applyForce(steering2);
+    this.applyForce(steering3);
+
     this.checkEdges();
     this.update();
     this.show(darkMode);
