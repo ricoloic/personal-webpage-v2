@@ -11,7 +11,7 @@ interface Props {
 function Card({ title, subtitle, to }: Props) {
   return (
     <CardWrapper to={to}>
-      <div>
+      <div style={{ zIndex: 20 }}>
         <H3 $fontSize="2xl">{title}</H3>
         <p>{subtitle}</p>
       </div>

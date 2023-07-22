@@ -35,12 +35,12 @@ export const CardWrapper = styled(Link)`
       width: fit-content;
       margin: 0;
       padding: 5px 10px;
-      background-color: ${COLORS.white};
+      background-color: ${COLORS.gray100};
     }
 
     & p {
       width: fit-content;
-      background-color: ${COLORS.white};
+      background-color: ${COLORS.gray100};
       padding: 5px 10px;
       font-size: 20px;
       margin: 0;
@@ -71,7 +71,7 @@ export const SketchCardWrapper = styled(Link)<{ $imageUrl: string }>`
     display: inline-block;
     margin: 0;
     padding: 5px 10px;
-    background-color: ${COLORS.white};
+    background-color: ${COLORS.gray100};
   }
 `;
 

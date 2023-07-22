@@ -10,6 +10,7 @@ import chaosGamePreview from '../../assets/previews/chaos-game-preview.png';
 import maurerRosePreview from '../../assets/previews/maurer-rose-preview.png';
 import flowFieldPreview from '../../assets/previews/flow-field-preview.png';
 import flockingPreview from '../../assets/previews/flocking-preview.png';
+import besierCurvePreview from '../../assets/previews/besier-curve-preview.png';
 
 export default function SketchesMenu() {
   const { t } = useTranslation('general');
@@ -54,6 +55,9 @@ export default function SketchesMenu() {
       </SketchCard>
       <SketchCard to={ROUTES.flocking} imageUrl={flockingPreview}>
         {t('sketches.flocking')}
+      </SketchCard>
+      <SketchCard to={ROUTES.besierCurve} imageUrl={besierCurvePreview}>
+        {t('sketches.besierCurve')}
       </SketchCard>
     </SketchesGrid>
   );

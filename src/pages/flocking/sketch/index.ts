@@ -56,9 +56,8 @@ const sketch = (args: Args, height: number) =>
       for (const boid of args.boids) {
         args.quadTree.insert(new Point(boid.pos.x, boid.pos.y, boid));
       }
-      if (args.displayQuadTree) args.quadTree.show(p5);
+      if (args.displayQuadTree) args.quadTree.show(p5, args.darkMode);
 
-      const tempBoids = [...args.boids];
       // eslint-disable-next-line no-restricted-syntax
       for (const boid of args.boids) {
         const range = new Rectangle(boid.pos.x, boid.pos.y, 50, 50);

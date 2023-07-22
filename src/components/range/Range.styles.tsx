@@ -11,6 +11,7 @@ export const RangeSlider = styled.input`
   -webkit-appearance: none;
   width: calc(100% - 90px);
   border-radius: 5px;
+  height: calc(${height} - (${height} / 2));
   background: ${COLORS.gray100};
   outline: none;
   padding: 0;
@@ -28,7 +29,7 @@ export const RangeSlider = styled.input`
     transform: translateY(calc(-${height} / 4));
 
     &:hover {
-      background: ${COLORS.gray800};
+      background: ${COLORS.gray100};
     }
   }
   &::-webkit-slider-thumb {
@@ -43,33 +44,33 @@ export const RangeSlider = styled.input`
     transform: translateY(calc(-${height} / 4));
 
     &:hover {
-      background: ${COLORS.gray800};
+      background: ${COLORS.gray100};
     }
   }
 
   &:active::-moz-range-thumb {
-    background: ${COLORS.gray800};
+    background: ${COLORS.gray100};
   }
   &:active::-webkit-slider-thumb {
-    background: ${COLORS.gray800};
+    background: ${COLORS.gray100};
   }
 
   // Focus state
   &:focus::-webkit-slider-thumb {
-    box-shadow: 0 0 0 calc(${height} / 6) ${COLORS.white},
+    box-shadow: 0 0 0 calc(${height} / 6) ${COLORS.gray100},
       0 0 0 calc(${height} / 3) ${COLORS.gray900};
   }
   &:hover::-webkit-slider-thumb {
-    box-shadow: 0 0 0 calc(${height} / 6) ${COLORS.white},
-      0 0 0 calc(${height} / 3) ${COLORS.gray800};
+    box-shadow: 0 0 0 calc(${height} / 6) ${COLORS.gray100},
+      0 0 0 calc(${height} / 3) ${COLORS.gray100};
   }
   &:focus::-moz-range-thumb {
-    box-shadow: 0 0 0 calc(${height} / 6) ${COLORS.white},
+    box-shadow: 0 0 0 calc(${height} / 6) ${COLORS.gray100},
       0 0 0 calc(${height} / 3) ${COLORS.gray900};
   }
   &:hover::-moz-range-thumb {
-    box-shadow: 0 0 0 calc(${height} / 6) ${COLORS.white},
-      0 0 0 calc(${height} / 3) ${COLORS.gray800};
+    box-shadow: 0 0 0 calc(${height} / 6) ${COLORS.gray100},
+      0 0 0 calc(${height} / 3) ${COLORS.gray100};
   }
 
   &::-webkit-slider-runnable-track {
