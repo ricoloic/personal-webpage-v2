@@ -1,6 +1,5 @@
 /* eslint-disable no-param-reassign */
 import P5 from 'p5';
-import COLORS from '../../../constants/colors';
 
 export type Args = {
   petalAmount: number;
@@ -53,7 +52,7 @@ const sketch = (args: Args, height: number) =>
       p5.endShape(p5.CLOSE);
 
       if (args.colorHighlight) {
-        p5.stroke(p5.color(COLORS.red500));
+        p5.stroke(p5.color('#CC0011'));
         p5.strokeWeight(3);
         p5.beginShape();
         for (let i = 0; i < 360; i += 1) {

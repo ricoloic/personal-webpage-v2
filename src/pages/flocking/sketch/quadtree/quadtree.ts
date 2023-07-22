@@ -92,7 +92,7 @@ class QuadTree {
   }
 
   // use p5js to draw the QuadTree and its points
-  show(p5: P5) {
+  show(p5: P5, darkMode: boolean) {
     p5.stroke(255);
     p5.strokeWeight(1);
     p5.noFill();
@@ -103,10 +103,10 @@ class QuadTree {
       this.boundary.h * 2
     );
     if (this.divided) {
-      this.northeast?.show(p5);
-      this.northwest?.show(p5);
-      this.southeast?.show(p5);
-      this.southwest?.show(p5);
+      this.northeast?.show(p5, darkMode);
+      this.northwest?.show(p5, darkMode);
+      this.southeast?.show(p5, darkMode);
+      this.southwest?.show(p5, darkMode);
     }
     // eslint-disable-next-line no-restricted-syntax
     for (const p of this.points) {

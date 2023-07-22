@@ -9,6 +9,7 @@
     "sketchesStaticDescription": "Sketches that finish by being static",
     "sketchesDynamic": "Dynamics",
     "sketchesDynamicDescription": "Sketches that are always dynamic",
+    "besierCurve": "Besier Curve",
     "mouseFollow": "Mouse Follow",
     "mouseConfetti": "Mouse Confetti",
     "flocking": "Flocking",
@@ -19,6 +20,7 @@
     "maurerRose": "Maurer Rose"
   },
   "sketches": {
+    "besierCurve": "Besier Curve",
     "mouseFollow": "Mouse Follow",
     "mouseConfetti": "Mouse Confetti",
     "flocking": "Flocking",

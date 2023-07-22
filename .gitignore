@@ -1,5 +1,6 @@
 /node_modules
 .idea/
+.fleet/
 /www/dist/
 /build
 /dist

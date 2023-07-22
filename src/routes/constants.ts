@@ -9,6 +9,7 @@ const ROUTES = {
   sketchesStatic: `${SKETCH_PATH}-static`,
   sketchesDynamic: `${SKETCH_PATH}-dynamic`,
 
+  besierCurve: `${SKETCH_PATH}/besier-curve`,
   mouseFollow: `${SKETCH_PATH}/mouse-follow`,
   mouseConfetti: `${SKETCH_PATH}/mouse-confetti`,
   flocking: `${SKETCH_PATH}/flocking`,

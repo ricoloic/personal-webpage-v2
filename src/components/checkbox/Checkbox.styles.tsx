@@ -11,7 +11,7 @@ export const Input = styled.input`
   appearance: none;
   width: 1em;
   height: 1em;
-  border: 0.1em solid ${COLORS.white};
+  border: 2px solid ${COLORS.gray100};
   font: inherit;
   margin-right: 10px;
   margin-bottom: -0.125em; // to align with text
@@ -21,13 +21,14 @@ export const Input = styled.input`
   }
   &:checked {
     border-color: transparent;
-    background: linear-gradient(${COLORS.white}, ${COLORS.white}) border-box;
-    box-shadow: 0 0 0 0.1em inset ${COLORS.gray1000};
+    background: ${COLORS.gray100};
+    background: linear-gradient(${COLORS.gray100}, ${COLORS.gray100}) border-box;
+    box-shadow: 0 0 0 2px inset ${COLORS.gray1000};
   }
   &:not(:checked):hover {
     border-color: transparent;
     background: linear-gradient(transparent, transparent) padding-box,
-      linear-gradient(${COLORS.white}, ${COLORS.white}) border-box;
+      linear-gradient(${COLORS.gray100}, ${COLORS.gray100}) border-box;
   }
 `;
 

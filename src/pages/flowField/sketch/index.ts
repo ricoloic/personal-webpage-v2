@@ -98,6 +98,7 @@ const sketch = (args: Args, height: number) =>
 
     p5.windowResized = () => {
       p5.resizeCanvas(p5.windowWidth, height);
+      p5.background(args.darkMode ? 30 : 250);
     };
 
     p5.draw = () => {

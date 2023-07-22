@@ -12,6 +12,7 @@ const SketchesMouseMovement = lazy(
 );
 const Home = lazy(() => import('../pages/home'));
 const Sketches = lazy(() => import('../pages/sketches'));
+const BesierCurve = lazy(() => import('../pages/besierCurve'));
 const MouseFollow = lazy(() => import('../pages/mouseFollow'));
 const TimesTable = lazy(() => import('../pages/timesTable'));
 const MouseConfetti = lazy(() => import('../pages/mouseConfetti'));
@@ -78,6 +79,14 @@ function Router() {
             element={
               <Suspense fallback={<Loading />}>
                 <Flocking />
+              </Suspense>
+            }
+          />
+          <Route
+            path={`${ROUTES.besierCurve}/*`}
+            element={
+              <Suspense fallback={<Loading />}>
+                <BesierCurve />
               </Suspense>
             }
           />

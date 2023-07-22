@@ -12,6 +12,7 @@ import { PagesKeys } from '../../types';
 
 const sketches = (
   [
+    'besierCurve',
     'mouseFollow',
     'mouseConfetti',
     'circularMotion',
