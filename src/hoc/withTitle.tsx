@@ -11,7 +11,9 @@ export default function withTitle(page: PagesKeys) {
       const { setTitle, setPage } = useApp();
 
       const title =
-        page === 'home' ? 'Loïc Rico' : (t(`${PAGES[page]}`) as string);
+        page === 'home'
+          ? 'Rico Generative Arts with p5js'
+          : (t(`${PAGES[page]}`) as string);
 
       useEffect(() => {
         setTitle(title);
