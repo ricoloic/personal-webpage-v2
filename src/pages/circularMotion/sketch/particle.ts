@@ -10,8 +10,6 @@ export class Particle {
 
   private readonly vel: number;
 
-  private origin: P5.Vector;
-
   private radians: number;
 
   private alphaIntensity: number;
@@ -33,8 +31,7 @@ export class Particle {
   ) {
     this.p5 = p5;
     this.vel = vel;
-    this.origin = p5.createVector(x, y);
-    this.pos = this.origin.copy();
+    this.pos = p5.createVector(x, y);
     this.radians = this.p5.floor(this.p5.random(0, 100));
     this.color = color;
     this.alphaIntensity = this.p5.random(0.08, 0.1) && 0.5;
@@ -54,15 +51,11 @@ export class Particle {
     this.p5.endShape();
   }
 
-  updatePos(mouseIsPressed: boolean, position: P5.Vector) {
+  updatePos(position: P5.Vector) {
     this.radians += this.vel;
 
-    const newXPosition =
-      (mouseIsPressed ? position.x : this.origin.x) +
-      this.p5.cos(this.radians) * this.spacing;
-    const newYPosition =
-      (mouseIsPressed ? position.y : this.origin.y) +
-      this.p5.sin(this.radians) * this.spacing;
+    const newXPosition = position.x + this.p5.cos(this.radians) * this.spacing;
+    const newYPosition = position.y + this.p5.sin(this.radians) * this.spacing;
 
     this.pos.set(newXPosition, newYPosition);
 
@@ -74,8 +67,8 @@ export class Particle {
     this.showTrail();
   }
 
-  animate(mouseIsPressed: boolean, position: P5.Vector) {
-    this.updatePos(mouseIsPressed, position);
+  animate(position: P5.Vector) {
+    this.updatePos(position);
     this.show();
   }
 }

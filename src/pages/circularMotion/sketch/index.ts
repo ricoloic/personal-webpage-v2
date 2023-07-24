@@ -26,6 +26,10 @@ export const defaultArgs: Args = {
 
 const sketch = (args: Args, height: number) =>
   new P5((p5: P5) => {
+    let position: P5.Vector;
+    let xoff = 0;
+    let yoff = 10000;
+
     const createParticle = () => {
       return new Particle(
         p5,
@@ -59,12 +63,14 @@ const sketch = (args: Args, height: number) =>
     p5.setup = () => {
       p5.createCanvas(window.innerWidth, height).parent('parent');
 
+      position = p5.createVector();
       args.particles = Array.from({ length: args.lineAmount }).map(
         createParticle
       );
       args.latestMousePositions = [];
       args.averageMousePosition = p5.createVector(0, 0);
       p5.noFill();
+      p5.noiseDetail(2, 0.5);
     };
 
     p5.windowResized = () => {
@@ -81,9 +87,18 @@ const sketch = (args: Args, height: number) =>
         updateAverageMousePosition();
       }
 
+      position.set(
+        p5.map(p5.noise(xoff), 0, 1, args.maxRadius, p5.width - args.maxRadius),
+        p5.map(p5.noise(yoff), 0, 1, args.maxRadius, p5.height - args.maxRadius)
+      );
+      xoff += 0.01;
+      yoff += 0.01;
+
       p5.background(args.darkMode ? 30 : 250);
       args.particles.forEach((particle) =>
-        particle.animate(p5.mouseIsPressed, args.averageMousePosition)
+        particle.animate(
+          p5.mouseIsPressed ? args.averageMousePosition : position
+        )
       );
     };
   });
