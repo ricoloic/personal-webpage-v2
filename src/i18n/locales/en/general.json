@@ -9,7 +9,10 @@
     "sketchesStaticDescription": "Sketches that finish by being static",
     "sketchesDynamic": "Dynamics",
     "sketchesDynamicDescription": "Sketches that are always dynamic",
-    "besierCurve": "Besier Curve",
+    "sketchesBesierCurve": "Besier Curves",
+    "sketchesBesierCurveDescription": "Sketches created using Besier Curves",
+    "besierQuadraticCurve": "Besier Quadratic Curve",
+    "besierCubicCurve": "Besier Cubic Curve",
     "mouseFollow": "Mouse Follow",
     "mouseConfetti": "Mouse Confetti",
     "flocking": "Flocking",
@@ -20,7 +23,8 @@
     "maurerRose": "Maurer Rose"
   },
   "sketches": {
-    "besierCurve": "Besier Curve",
+    "besierCubicCurve": "Besier Cubic Curve",
+    "besierQuadraticCurve": "Besier Quadratic Curve",
     "mouseFollow": "Mouse Follow",
     "mouseConfetti": "Mouse Confetti",
     "flocking": "Flocking",
