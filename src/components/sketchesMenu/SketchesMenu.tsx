@@ -18,14 +18,14 @@ export default function SketchesMenu() {
 
   return (
     <SketchesGrid>
-      <SketchCard to={ROUTES.mouseFollow} imageUrl={mouseFollowPreview}>
-        {t('sketches.mouseFollow')}
-      </SketchCard>
       <Card
         to={ROUTES.sketchesMouseMovement}
         title={t('pages.sketchesMouseMovement')}
         subtitle={t('pages.sketchesMouseMovementDescription')}
       />
+      <SketchCard to={ROUTES.mouseFollow} imageUrl={mouseFollowPreview}>
+        {t('sketches.mouseFollow')}
+      </SketchCard>
       <SketchCard to={ROUTES.mouseConfetti} imageUrl={mouseConfettiPreview}>
         {t('sketches.mouseConfetti')}
       </SketchCard>
