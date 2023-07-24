@@ -4,6 +4,7 @@ export const PAGES = {
   sketchesMouseMovement: 'sketchesMouseMovement',
   sketchesStatic: 'sketchesStatic',
   sketchesDynamic: 'sketchesDynamic',
+  sketchesBesierCurve: 'sketchesBesierCurve',
 
   besierQuadraticCurve: 'besierQuadraticCurve',
   besierCubicCurve: 'besierCubicCurve',

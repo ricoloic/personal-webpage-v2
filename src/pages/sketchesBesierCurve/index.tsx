@@ -1,4 +1,4 @@
 import SketchesBesierCurve from './SketchesBesierCurve';
+import withTitle from '../../hoc/withTitle';
 
-export default SketchesBesierCurve;
-
+export default withTitle('sketchesBesierCurve')(SketchesBesierCurve);
