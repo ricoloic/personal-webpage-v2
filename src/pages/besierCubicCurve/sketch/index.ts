@@ -1,5 +1,6 @@
 /* eslint-disable no-param-reassign */
 import P5 from 'p5';
+import Point from './point';
 
 export type Args = {
   darkMode: boolean;
@@ -11,35 +12,46 @@ export const defaultArgs: Args = {
 
 const calculateCubicBesier = (
   t: number,
-  pt1: P5.Vector,
-  pt2: P5.Vector,
-  pt3: P5.Vector,
-  pt4: P5.Vector
+  pt1: Point,
+  pt2: Point,
+  pt3: Point,
+  pt4: Point
 ) => {
   const calc = (axis: 'x' | 'y') =>
-    (1 - t) * (1 - t) * (1 - t) * pt1[axis] +
-    3 * (1 - t) * (1 - t) * t * pt2[axis] +
-    3 * (1 - t) * t * t * pt3[axis] +
-    t * t * t * pt4[axis];
-  return new P5.Vector(calc('x'), calc('y'));
+    (1 - t) * (1 - t) * (1 - t) * pt1.vector[axis] +
+    3 * (1 - t) * (1 - t) * t * pt2.vector[axis] +
+    3 * (1 - t) * t * t * pt3.vector[axis] +
+    t * t * t * pt4.vector[axis];
+  return { x: calc('x'), y: calc('y') };
 };
 
 const sketch = (args: Args, height: number) =>
   new P5((p5: P5) => {
+    let initiated = false;
+    const weight = 15;
     let t = 1;
-    let point1: P5.Vector;
-    let point2: P5.Vector;
-    let point3: P5.Vector;
-    let point4: P5.Vector;
+    const points: Point[] = [];
 
     const assignPoints = () => {
       const centerX = p5.width / 2;
       const centerY = p5.height / 2;
       const minMult = 150;
-      point1 = p5.createVector(centerX - minMult, centerY - minMult);
-      point2 = p5.createVector(centerX + minMult, centerY);
-      point3 = p5.createVector(centerX - minMult, centerY);
-      point4 = p5.createVector(centerX + minMult, centerY + minMult);
+      const v1 = [centerX - minMult, centerY - minMult];
+      const v2 = [centerX + minMult, centerY];
+      const v3 = [centerX - minMult, centerY];
+      const v4 = [centerX + minMult, centerY + minMult];
+      if (initiated) {
+        points[0].vector.set(v1[0], v1[1]);
+        points[1].vector.set(v2[0], v2[1]);
+        points[2].vector.set(v3[0], v3[1]);
+        points[3].vector.set(v4[0], v4[1]);
+      } else {
+        points.push(new Point(p5, v1[0], v1[1], weight, 'P1'));
+        points.push(new Point(p5, v2[0], v2[1], weight, 'P2'));
+        points.push(new Point(p5, v3[0], v3[1], weight, 'P3'));
+        points.push(new Point(p5, v4[0], v4[1], weight, 'P4'));
+        initiated = true;
+      }
     };
 
     p5.setup = () => {
@@ -61,13 +73,9 @@ const sketch = (args: Args, height: number) =>
       p5.background(args.darkMode ? 30 : 250);
       p5.noFill();
 
-      // point2.set(p5.mouseX, p5.mouseY);
-
-      p5.strokeWeight(1);
-      p5.stroke('#f96e46');
-      p5.line(point1.x, point1.y, point2.x, point2.y);
-      p5.line(point2.x, point2.y, point3.x, point3.y);
-      p5.line(point3.x, point3.y, point4.x, point4.y);
+      points[0].lineToPoint(points[1]);
+      points[1].lineToPoint(points[2]);
+      points[2].lineToPoint(points[3]);
 
       p5.strokeWeight(2);
       p5.stroke(args.darkMode ? 250 : 30);
@@ -75,26 +83,26 @@ const sketch = (args: Args, height: number) =>
       for (let i = 0; i <= 1.0000001; i += 0.01) {
         const curvePoint = calculateCubicBesier(
           i,
-          point1,
-          point2,
-          point3,
-          point4
+          points[0],
+          points[1],
+          points[2],
+          points[3]
         );
         p5.vertex(curvePoint.x, curvePoint.y);
       }
       p5.endShape();
 
       const a1 = [
-        p5.lerp(point1.x, point2.x, t),
-        p5.lerp(point1.y, point2.y, t),
+        p5.lerp(points[0].vector.x, points[1].vector.x, t),
+        p5.lerp(points[0].vector.y, points[1].vector.y, t),
       ];
       const a2 = [
-        p5.lerp(point2.x, point3.x, t),
-        p5.lerp(point2.y, point3.y, t),
+        p5.lerp(points[1].vector.x, points[2].vector.x, t),
+        p5.lerp(points[1].vector.y, points[2].vector.y, t),
       ];
       const a3 = [
-        p5.lerp(point3.x, point4.x, t),
-        p5.lerp(point3.y, point4.y, t),
+        p5.lerp(points[2].vector.x, points[3].vector.x, t),
+        p5.lerp(points[2].vector.y, points[3].vector.y, t),
       ];
       p5.strokeWeight(1);
       p5.stroke('#f9c846');
@@ -106,10 +114,10 @@ const sketch = (args: Args, height: number) =>
       p5.line(b1[0], b1[1], b2[0], b2[1]);
       const curvePoint = calculateCubicBesier(
         t,
-        point1,
-        point2,
-        point3,
-        point4
+        points[0],
+        points[1],
+        points[2],
+        points[3]
       );
       p5.strokeWeight(1);
       p5.stroke(args.darkMode ? 250 : 30);
@@ -118,20 +126,24 @@ const sketch = (args: Args, height: number) =>
       p5.text(t.toString().slice(0, 4), curvePoint.x, curvePoint.y);
       p5.pop();
 
-      p5.stroke(args.darkMode ? 250 : 30);
-      p5.strokeWeight(10);
-      p5.point(point1.x, point1.y);
-      p5.point(point2.x, point2.y);
-      p5.point(point3.x, point3.y);
-      p5.point(point4.x, point4.y);
-      p5.strokeWeight(1);
-      p5.push();
-      p5.translate(15, 15);
-      p5.text('P1', point1.x, point1.y);
-      p5.text('P2', point2.x, point2.y);
-      p5.text('P3', point3.x, point3.y);
-      p5.text('P4', point4.x, point4.y);
-      p5.pop();
+      for (let i = 0; i < points.length; i += 1) {
+        points[i].update();
+        points[i].show(args.darkMode);
+      }
+    };
+
+    p5.mousePressed = () => {
+      for (let i = 0; i < points.length; i += 1) {
+        if (points[i].mouseHover()) {
+          points[i].isSelected = true;
+        }
+      }
+    };
+
+    p5.mouseReleased = () => {
+      for (let i = 0; i < points.length; i += 1) {
+        points[i].isSelected = false;
+      }
     };
   });
 
