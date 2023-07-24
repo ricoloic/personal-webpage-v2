@@ -8,9 +8,9 @@ import SlidingPanel from '../../components/slidingPanel';
 import { useApp } from '../../context/AppContext';
 import Checkbox from '../../components/checkbox';
 
-export default function BesierCurve() {
+export default function BesierQuadraticCurve() {
   const { isEditing, setIsEditing, setEdit } = useApp();
-  const { t } = useTranslation('besierCurve');
+  const { t } = useTranslation('besierQuadraticCurve');
 
   const ref = useRef<HTMLDivElement>();
 

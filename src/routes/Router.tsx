@@ -4,15 +4,19 @@ import ROUTES from './constants';
 import AppLayout from '../AppLayout';
 import Loading from '../components/loading';
 
+const BesierCubicCurve = lazy(() => import('../pages/besierCubicCurve'));
 const Flocking = lazy(() => import('../pages/flocking'));
 const SketchesStatic = lazy(() => import('../pages/sketchesStatic'));
 const SketchesDynamic = lazy(() => import('../pages/sketchesDynamic'));
+const SketchesBesierCurve = lazy(() => import('../pages/sketchesBesierCurve'));
 const SketchesMouseMovement = lazy(
   () => import('../pages/sketchesMouseMovement')
 );
 const Home = lazy(() => import('../pages/home'));
 const Sketches = lazy(() => import('../pages/sketches'));
-const BesierCurve = lazy(() => import('../pages/besierCurve'));
+const BesierQuadraticCurve = lazy(
+  () => import('../pages/besierQuadraticCurve')
+);
 const MouseFollow = lazy(() => import('../pages/mouseFollow'));
 const TimesTable = lazy(() => import('../pages/timesTable'));
 const MouseConfetti = lazy(() => import('../pages/mouseConfetti'));
@@ -59,6 +63,22 @@ function Router() {
             }
           />
           <Route
+            path={ROUTES.besierCubicCurve}
+            element={
+              <Suspense fallback={<Loading />}>
+                <BesierCubicCurve />
+              </Suspense>
+            }
+          />
+          <Route
+            path={ROUTES.sketchesBesierCurve}
+            element={
+              <Suspense fallback={<Loading />}>
+                <SketchesBesierCurve />
+              </Suspense>
+            }
+          />
+          <Route
             path={ROUTES.sketchesStatic}
             element={
               <Suspense fallback={<Loading />}>
@@ -83,10 +103,10 @@ function Router() {
             }
           />
           <Route
-            path={`${ROUTES.besierCurve}/*`}
+            path={`${ROUTES.besierQuadraticCurve}/*`}
             element={
               <Suspense fallback={<Loading />}>
-                <BesierCurve />
+                <BesierQuadraticCurve />
               </Suspense>
             }
           />

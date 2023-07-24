@@ -93,7 +93,6 @@ const sketch = (args: Args, height: number) =>
         args.particles.push(new Particle(p5));
       }
       p5.colorMode(p5.HSB);
-      // p.frameRate(20);
     };
 
     p5.windowResized = () => {

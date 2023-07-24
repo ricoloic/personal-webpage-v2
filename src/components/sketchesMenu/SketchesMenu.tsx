@@ -10,7 +10,8 @@ import chaosGamePreview from '../../assets/previews/chaos-game-preview.png';
 import maurerRosePreview from '../../assets/previews/maurer-rose-preview.png';
 import flowFieldPreview from '../../assets/previews/flow-field-preview.png';
 import flockingPreview from '../../assets/previews/flocking-preview.png';
-import besierCurvePreview from '../../assets/previews/besier-curve-preview.png';
+import besierQuadraticCurvePreview from '../../assets/previews/besier-quadratic-curve-preview.png';
+import besierCubicCurvePreview from '../../assets/previews/besier-cubic-curve-preview.png';
 
 export default function SketchesMenu() {
   const { t } = useTranslation('general');
@@ -28,14 +29,14 @@ export default function SketchesMenu() {
       <SketchCard to={ROUTES.mouseConfetti} imageUrl={mouseConfettiPreview}>
         {t('sketches.mouseConfetti')}
       </SketchCard>
+      <SketchCard to={ROUTES.circularMotion} imageUrl={circularMotionPreview}>
+        {t('sketches.circularMotion')}
+      </SketchCard>
       <Card
         to={ROUTES.sketchesStatic}
         title={t('pages.sketchesStatic')}
         subtitle={t('pages.sketchesStaticDescription')}
       />
-      <SketchCard to={ROUTES.circularMotion} imageUrl={circularMotionPreview}>
-        {t('sketches.circularMotion')}
-      </SketchCard>
       <SketchCard to={ROUTES.timesTable} imageUrl={timesTablePreview}>
         {t('sketches.timesTable')}
       </SketchCard>
@@ -56,8 +57,22 @@ export default function SketchesMenu() {
       <SketchCard to={ROUTES.flocking} imageUrl={flockingPreview}>
         {t('sketches.flocking')}
       </SketchCard>
-      <SketchCard to={ROUTES.besierCurve} imageUrl={besierCurvePreview}>
-        {t('sketches.besierCurve')}
+      <Card
+        to={ROUTES.sketchesBesierCurve}
+        title={t('pages.sketchesBesierCurve')}
+        subtitle={t('pages.sketchesBesierCurveDescription')}
+      />
+      <SketchCard
+        to={ROUTES.besierQuadraticCurve}
+        imageUrl={besierQuadraticCurvePreview}
+      >
+        {t('sketches.besierQuadraticCurve')}
+      </SketchCard>
+      <SketchCard
+        to={ROUTES.besierCubicCurve}
+        imageUrl={besierCubicCurvePreview}
+      >
+        {t('sketches.besierCubicCurve')}
       </SketchCard>
     </SketchesGrid>
   );
