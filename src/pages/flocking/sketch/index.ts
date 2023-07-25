@@ -6,9 +6,6 @@ import QuadTree from './quadtree/quadtree';
 import Point from './quadtree/point';
 
 export type Args = {
-  boundary: Rectangle;
-  boids: Boid[];
-  quadTree: QuadTree;
   alignmentForce: number;
   cohesionForce: number;
   separationForce: number;
@@ -18,9 +15,6 @@ export type Args = {
 };
 
 export const defaultArgs: Args = {
-  boundary: new Rectangle(0, 0, 0, 0),
-  boids: [],
-  quadTree: new QuadTree(),
   alignmentForce: Boid.forces.alignmentForce, // 0.5
   cohesionForce: Boid.forces.cohesionForce, // 0.2
   separationForce: Boid.forces.separationForce, // 4.3
@@ -31,37 +25,48 @@ export const defaultArgs: Args = {
 
 const sketch = (args: Args, height: number) =>
   new P5((p5: P5) => {
-    p5.setup = () => {
-      p5.createCanvas(window.innerWidth, height).parent('parent');
-      args.boundary = new Rectangle(
+    const boids: Boid[] = [];
+    let boundary: Rectangle = new Rectangle(0, 0, 0, 0);
+
+    const generateInitialBoundary = () => {
+      boundary = new Rectangle(
         p5.width / 2,
         p5.height / 2,
         p5.width,
         p5.height
       );
+    };
 
-      for (let i = 0; i < args.boidAmount; i += 1)
-        args.boids.push(new Boid(p5));
+    p5.setup = () => {
+      p5.createCanvas(window.innerWidth, height).parent('parent');
+      generateInitialBoundary();
+      for (let i = 0; i < args.boidAmount; i += 1) boids.push(new Boid(p5));
     };
 
     p5.windowResized = () => {
       p5.resizeCanvas(p5.windowWidth, height);
+      generateInitialBoundary();
     };
 
     p5.draw = () => {
+      if (args.boidAmount > boids.length) {
+        boids.push(new Boid(p5));
+      } else if (args.boidAmount < boids.length) {
+        boids.splice(0, 1);
+      }
       p5.background(args.darkMode ? 30 : 250);
 
-      args.quadTree = new QuadTree(args.boundary, 4);
-      // eslint-disable-next-line no-restricted-syntax
-      for (const boid of args.boids) {
-        args.quadTree.insert(new Point(boid.pos.x, boid.pos.y, boid));
+      const quadTree = new QuadTree(boundary, 4);
+      for (let i = 0; i < boids.length; i += 1) {
+        const boid = boids[i];
+        quadTree.insert(new Point(boid.pos.x, boid.pos.y, boid));
       }
-      if (args.displayQuadTree) args.quadTree.show(p5, args.darkMode);
+      if (args.displayQuadTree) quadTree.show(p5, args.darkMode);
 
-      // eslint-disable-next-line no-restricted-syntax
-      for (const boid of args.boids) {
+      for (let i = 0; i < boids.length; i += 1) {
+        const boid = boids[i];
         const range = new Rectangle(boid.pos.x, boid.pos.y, 50, 50);
-        const points = args.quadTree.query(range);
+        const points = quadTree.query(range);
 
         boid.flock(
           args.darkMode,

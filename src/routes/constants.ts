@@ -10,6 +10,7 @@ const ROUTES = {
   sketchesDynamic: `${SKETCH_PATH}-dynamic`,
   sketchesBesierCurve: `${SKETCH_PATH}-besier-curve`,
 
+  blackHole: `${SKETCH_PATH}/black-hole`,
   besierQuadraticCurve: `${SKETCH_PATH}/besier-quadratic-curve`,
   besierCubicCurve: `${SKETCH_PATH}/besier-cubic-curve`,
   mouseFollow: `${SKETCH_PATH}/mouse-follow`,

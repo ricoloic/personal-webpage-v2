@@ -78,8 +78,8 @@ class QuadTree {
   // query the points like object in a given range and returns them
   query(range: Rectangle, found: Point[] = []) {
     if (!this.boundary.intersects(range)) return found;
-    // eslint-disable-next-line no-restricted-syntax
-    for (const p of this.points) if (range.contains(p)) found.push(p);
+    for (let i = 0; i < this.points.length; i += 1)
+      if (range.contains(this.points[i])) found.push(this.points[i]);
 
     if (this.divided) {
       this.northeast?.query(range, found);
@@ -93,7 +93,7 @@ class QuadTree {
 
   // use p5js to draw the QuadTree and its points
   show(p5: P5, darkMode: boolean) {
-    p5.stroke(255);
+    p5.stroke(darkMode ? 250 : 30);
     p5.strokeWeight(1);
     p5.noFill();
     p5.rect(
@@ -108,9 +108,8 @@ class QuadTree {
       this.southeast?.show(p5, darkMode);
       this.southwest?.show(p5, darkMode);
     }
-    // eslint-disable-next-line no-restricted-syntax
-    for (const p of this.points) {
-      p5.point(p.x, p.y);
+    for (let i = 0; i < this.points.length; i += 1) {
+      p5.point(this.points[i].x, this.points[i].y);
     }
   }
 }

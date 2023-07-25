@@ -4,6 +4,7 @@ import ROUTES from './constants';
 import AppLayout from '../AppLayout';
 import Loading from '../components/loading';
 
+const BlackHole = lazy(() => import('../pages/blackHole'));
 const BesierCubicCurve = lazy(() => import('../pages/besierCubicCurve'));
 const Flocking = lazy(() => import('../pages/flocking'));
 const SketchesStatic = lazy(() => import('../pages/sketchesStatic'));
@@ -59,6 +60,14 @@ function Router() {
             element={
               <Suspense fallback={<Loading />}>
                 <SketchesMouseMovement />
+              </Suspense>
+            }
+          />
+          <Route
+            path={ROUTES.blackHole}
+            element={
+              <Suspense fallback={<Loading />}>
+                <BlackHole />
               </Suspense>
             }
           />

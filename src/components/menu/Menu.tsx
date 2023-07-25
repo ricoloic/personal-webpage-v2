@@ -12,6 +12,8 @@ import { PagesKeys } from '../../types';
 
 const sketches = (
   [
+    'blackHole',
+    'besierCubicCurve',
     'besierQuadraticCurve',
     'mouseFollow',
     'mouseConfetti',

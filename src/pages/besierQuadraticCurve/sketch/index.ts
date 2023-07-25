@@ -3,10 +3,12 @@ import P5 from 'p5';
 import Point from './point';
 
 export type Args = {
+  displayControlLines: boolean;
   darkMode: boolean;
 };
 
 export const defaultArgs: Args = {
+  displayControlLines: true,
   darkMode: true,
 };
 
@@ -67,9 +69,6 @@ const sketch = (args: Args, height: number) =>
       p5.background(args.darkMode ? 30 : 250);
       p5.noFill();
 
-      points[0].lineToPoint(points[1]);
-      points[1].lineToPoint(points[2]);
-
       p5.strokeWeight(2);
       p5.stroke(args.darkMode ? 250 : 30);
       p5.beginShape();
@@ -84,29 +83,34 @@ const sketch = (args: Args, height: number) =>
       }
       p5.endShape();
 
-      p5.strokeWeight(1);
-      p5.stroke('#f9c846');
-      const a1 = [
-        p5.lerp(points[0].vector.x, points[1].vector.x, t),
-        p5.lerp(points[0].vector.y, points[1].vector.y, t),
-      ];
-      const a2 = [
-        p5.lerp(points[1].vector.x, points[2].vector.x, t),
-        p5.lerp(points[1].vector.y, points[2].vector.y, t),
-      ];
-      p5.line(a1[0], a1[1], a2[0], a2[1]);
-      const curvePoint = calculateQuadraticBesier(
-        t,
-        points[0],
-        points[1],
-        points[2]
-      );
-      p5.strokeWeight(1);
-      p5.stroke(args.darkMode ? 250 : 30);
-      p5.push();
-      p5.translate(-15, 15);
-      p5.text(t.toString().slice(0, 4), curvePoint.x, curvePoint.y);
-      p5.pop();
+      if (args.displayControlLines) {
+        points[0].lineToPoint(points[1]);
+        points[1].lineToPoint(points[2]);
+
+        p5.strokeWeight(1);
+        p5.stroke('#f9c846');
+        const a1 = [
+          p5.lerp(points[0].vector.x, points[1].vector.x, t),
+          p5.lerp(points[0].vector.y, points[1].vector.y, t),
+        ];
+        const a2 = [
+          p5.lerp(points[1].vector.x, points[2].vector.x, t),
+          p5.lerp(points[1].vector.y, points[2].vector.y, t),
+        ];
+        p5.line(a1[0], a1[1], a2[0], a2[1]);
+        const curvePoint = calculateQuadraticBesier(
+          t,
+          points[0],
+          points[1],
+          points[2]
+        );
+        p5.strokeWeight(1);
+        p5.stroke(args.darkMode ? 250 : 30);
+        p5.push();
+        p5.translate(-15, 15);
+        p5.text(t.toString().slice(0, 4), curvePoint.x, curvePoint.y);
+        p5.pop();
+      }
 
       for (let i = 0; i < points.length; i += 1) {
         points[i].update();

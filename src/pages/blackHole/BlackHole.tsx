@@ -1,6 +1,5 @@
-import * as React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useEffect, useRef } from 'react';
 import SketchContainer from '../../components/sketchContainer';
 import sketch, { Args, defaultArgs } from './sketch';
 import COLORS from '../../constants/colors';
@@ -8,12 +7,11 @@ import SlidingPanel from '../../components/slidingPanel';
 import { useApp } from '../../context/AppContext';
 import Checkbox from '../../components/checkbox';
 
-export default function BesierQuadraticCurve() {
+export default function ChaosGame() {
   const { isEditing, setIsEditing, setEdit } = useApp();
-  const { t } = useTranslation('besierQuadraticCurve');
+  const { t } = useTranslation('blackHole');
 
   const ref = useRef<HTMLDivElement>();
-
   const args = useRef<Args>(defaultArgs);
 
   const handleCloseEditing = () => {
@@ -22,10 +20,6 @@ export default function BesierQuadraticCurve() {
 
   const handleDarkMode = (checked: boolean) => {
     args.current.darkMode = checked;
-  };
-
-  const handleDisplayControlLines = (checked: boolean) => {
-    args.current.displayControlLines = checked;
   };
 
   useEffect(() => {
@@ -55,12 +49,6 @@ export default function BesierQuadraticCurve() {
             title={t('inputs.darkMode')}
             onClick={handleDarkMode}
             defaultChecked={defaultArgs.darkMode}
-          />
-          <Checkbox
-            name="displayControlLines"
-            title={t('inputs.displayControlLines')}
-            onClick={handleDisplayControlLines}
-            defaultChecked={defaultArgs.displayControlLines}
           />
         </SlidingPanel.Content>
       </SlidingPanel>
