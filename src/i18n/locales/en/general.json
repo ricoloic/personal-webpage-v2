@@ -11,6 +11,8 @@
     "sketchesDynamicDescription": "Sketches that are always dynamic",
     "sketchesBesierCurve": "Besier Curves",
     "sketchesBesierCurveDescription": "Sketches created using Besier Curves",
+
+    "blackHole": "Black Hole",
     "besierQuadraticCurve": "Besier Quadratic Curve",
     "besierCubicCurve": "Besier Cubic Curve",
     "mouseFollow": "Mouse Follow",
@@ -23,6 +25,7 @@
     "maurerRose": "Maurer Rose"
   },
   "sketches": {
+    "blackHole": "Black Hole",
     "besierCubicCurve": "Besier Cubic Curve",
     "besierQuadraticCurve": "Besier Quadratic Curve",
     "mouseFollow": "Mouse Follow",

@@ -24,6 +24,10 @@ export default function BesierCubicCurve() {
     args.current.darkMode = checked;
   };
 
+  const handleDisplayControlLines = (checked: boolean) => {
+    args.current.displayControlLines = checked;
+  };
+
   useEffect(() => {
     const newSketch = sketch(args.current, ref.current?.offsetHeight ?? 0);
 
@@ -51,6 +55,12 @@ export default function BesierCubicCurve() {
             title={t('inputs.darkMode')}
             onClick={handleDarkMode}
             defaultChecked={defaultArgs.darkMode}
+          />
+          <Checkbox
+            name="displayControlLines"
+            title={t('inputs.displayControlLines')}
+            onClick={handleDisplayControlLines}
+            defaultChecked={defaultArgs.displayControlLines}
           />
         </SlidingPanel.Content>
       </SlidingPanel>

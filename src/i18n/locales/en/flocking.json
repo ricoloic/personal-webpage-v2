@@ -1,6 +1,10 @@
 {
   "inputs": {
     "darkMode": "Dark Mode",
-    "displayQuadTree": "Display QuadTree"
+    "displayQuadTree": "Display QuadTree",
+    "boidsAmount": "Boids Amount",
+    "alignmentForce": "Alignment Force",
+    "seperationForce": "Seperation Force",
+    "cohesionForce": "Cohesion Force"
   }
 }

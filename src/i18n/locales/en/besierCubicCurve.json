@@ -1,5 +1,6 @@
 {
     "inputs": {
-        "darkMode": "Dark Mode"
+        "darkMode": "Dark Mode",
+        "displayControlLines": "Display Control Lines"
     }
 }

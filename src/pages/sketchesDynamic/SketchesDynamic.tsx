@@ -5,6 +5,7 @@ import SketchesGrid, { SketchCard } from '../../components/sketchesGrid';
 import ROUTES from '../../routes/constants';
 import flowFieldPreview from '../../assets/previews/flow-field-preview.png';
 import flockingPreview from '../../assets/previews/flocking-preview.png';
+import blackHolePreview from '../../assets/previews/black-hole-preview.png';
 
 export default function SketchesDynamic() {
   const { t } = useTranslation('general');
@@ -16,6 +17,9 @@ export default function SketchesDynamic() {
         </SketchCard>
         <SketchCard to={ROUTES.flocking} imageUrl={flockingPreview}>
           {t('sketches.flocking')}
+        </SketchCard>
+        <SketchCard to={ROUTES.blackHole} imageUrl={blackHolePreview}>
+          {t('sketches.blackHole')}
         </SketchCard>
       </SketchesGrid>
     </MaxWidthContainer>
