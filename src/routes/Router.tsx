@@ -6,6 +6,7 @@ import Loading from '../components/loading';
 
 const BlackHole = lazy(() => import('../pages/blackHole'));
 const BesierCubicCurve = lazy(() => import('../pages/besierCubicCurve'));
+const CaveGeneration = lazy(() => import('../pages/caveGeneration'));
 const Flocking = lazy(() => import('../pages/flocking'));
 const SketchesStatic = lazy(() => import('../pages/sketchesStatic'));
 const SketchesDynamic = lazy(() => import('../pages/sketchesDynamic'));
@@ -100,6 +101,14 @@ function Router() {
             element={
               <Suspense fallback={<Loading />}>
                 <SketchesDynamic />
+              </Suspense>
+            }
+          />
+          <Route
+            path={`${ROUTES.caveGeneration}/*`}
+            element={
+              <Suspense fallback={<Loading />}>
+                <CaveGeneration />
               </Suspense>
             }
           />

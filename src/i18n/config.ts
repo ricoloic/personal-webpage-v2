@@ -6,6 +6,7 @@ import home from './locales/en/home.json';
 import blackHole from './locales/en/blackHole.json';
 import besierQuadraticCurve from './locales/en/besierQuadraticCurve.json';
 import besierCubicCurve from './locales/en/besierCubicCurve.json';
+import caveGeneration from './locales/en/caveGeneration.json';
 import flocking from './locales/en/flocking.json';
 import mouseFollow from './locales/en/mouseFollow.json';
 import mouseConfetti from './locales/en/mouseConfetti.json';
@@ -23,6 +24,7 @@ export const resources = {
     blackHole,
     besierQuadraticCurve,
     besierCubicCurve,
+    caveGeneration,
     flocking,
     mouseFollow,
     mouseConfetti,
@@ -39,6 +41,7 @@ export const namespaces = [
   'blackHole',
   'besierQuadraticCurve',
   'besierCubicCurve',
+  'caveGeneration',
   'flocking',
   'mouseFollow',
   'mouseConfetti',

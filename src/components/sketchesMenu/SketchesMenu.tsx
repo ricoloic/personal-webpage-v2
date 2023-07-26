@@ -4,6 +4,7 @@ import SketchesGrid, { Card, SketchCard } from '../sketchesGrid';
 import ROUTES from '../../routes/constants';
 import mouseFollowPreview from '../../assets/previews/mouse-follow-preview.png';
 import mouseConfettiPreview from '../../assets/previews/mouse-confetti-preview.png';
+import caveGenerationPreview from '../../assets/previews/cave-generation-preview.png';
 import circularMotionPreview from '../../assets/previews/circular-motion-preview.png';
 import timesTablePreview from '../../assets/previews/times-table-preview.png';
 import chaosGamePreview from '../../assets/previews/chaos-game-preview.png';
@@ -43,6 +44,9 @@ export default function SketchesMenu() {
       </SketchCard>
       <SketchCard to={ROUTES.chaosGame} imageUrl={chaosGamePreview}>
         {t('sketches.chaosGame')}
+      </SketchCard>
+      <SketchCard to={ROUTES.caveGeneration} imageUrl={caveGenerationPreview}>
+        {t('sketches.caveGeneration')}
       </SketchCard>
       <SketchCard to={ROUTES.maurerRose} imageUrl={maurerRosePreview}>
         {t('sketches.maurerRose')}

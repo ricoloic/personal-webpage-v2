@@ -15,6 +15,7 @@ const sketches = (
     'blackHole',
     'besierCubicCurve',
     'besierQuadraticCurve',
+    'caveGeneration',
     'mouseFollow',
     'mouseConfetti',
     'circularMotion',
