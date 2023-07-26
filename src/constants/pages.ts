@@ -9,6 +9,7 @@ export const PAGES = {
   blackHole: 'blackHole',
   besierQuadraticCurve: 'besierQuadraticCurve',
   besierCubicCurve: 'besierCubicCurve',
+  caveGeneration: 'caveGeneration',
   mouseFollow: 'mouseFollow',
   mouseConfetti: 'mouseConfetti',
   flocking: 'flocking',

@@ -13,6 +13,7 @@ const ROUTES = {
   blackHole: `${SKETCH_PATH}/black-hole`,
   besierQuadraticCurve: `${SKETCH_PATH}/besier-quadratic-curve`,
   besierCubicCurve: `${SKETCH_PATH}/besier-cubic-curve`,
+  caveGeneration: `${SKETCH_PATH}/cave-generation`,
   mouseFollow: `${SKETCH_PATH}/mouse-follow`,
   mouseConfetti: `${SKETCH_PATH}/mouse-confetti`,
   flocking: `${SKETCH_PATH}/flocking`,
