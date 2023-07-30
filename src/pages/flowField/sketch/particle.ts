@@ -23,6 +23,11 @@ class Particle {
     this.limitVel = 2;
   }
 
+  reset() {
+    this.pos.set(this.p5.random(this.p5.width), this.p5.random(this.p5.height));
+    this.prevPos = this.pos.copy();
+  }
+
   update() {
     this.prevPos.x = this.pos.x;
     this.prevPos.y = this.pos.y;

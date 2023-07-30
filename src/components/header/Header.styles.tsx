@@ -7,7 +7,6 @@ export const Wrapper = styled.div`
   flex-wrap: wrap;
   flex-direction: row;
   align-items: center;
-  padding: 10px;
   gap: 20px;
   background-color: ${COLORS.white};
 `;

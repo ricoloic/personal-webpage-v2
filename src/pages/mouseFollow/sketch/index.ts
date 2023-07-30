@@ -6,7 +6,7 @@ import { ColorPalettesKeys } from '../../../types';
 
 export type Args = {
   selectColorPalette: ColorPalettesKeys;
-  particlesPerFrame: number;
+  particleAmount: number;
   showParticles: boolean;
   showBlob: boolean;
   particleBorder: boolean;
@@ -16,7 +16,7 @@ export type Args = {
 
 export const defaultArgs: Args = {
   selectColorPalette: 'happy',
-  particlesPerFrame: 10,
+  particleAmount: 70,
   showParticles: true,
   showBlob: true,
   particleBorder: false,
@@ -48,10 +48,16 @@ const sketch = (args: Args, height: number) =>
       p5.background(args.darkMode ? 30 : 250);
       p5.translate(center.x, center.y);
 
-      for (let i = 0; i < args.particlesPerFrame; i += 1) {
-        const color = p5.random(COLOR_PALETTES[args.selectColorPalette]);
-        const particle = new Particle(p5, center, color);
-        particles.push(particle);
+      if (args.particleAmount > particles.length) {
+        particles.push(
+          new Particle(
+            p5,
+            center,
+            p5.random(COLOR_PALETTES[args.selectColorPalette])
+          )
+        );
+      } else if (args.particleAmount < particles.length) {
+        particles.splice(0, 1);
       }
 
       const avg = { x: 0, y: 0 };
@@ -61,7 +67,7 @@ const sketch = (args: Args, height: number) =>
           particles[i].show(args.particleBorder, args.particleAlfa);
         avg.x += particles[i].pos.x;
         avg.y += particles[i].pos.y;
-        if (particles[i].finished()) particles.splice(i, 1);
+        if (particles[i].finished()) particles[i].reset(center);
       }
       avg.x /= particles.length;
       avg.y /= particles.length;

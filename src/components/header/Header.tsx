@@ -1,5 +1,4 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
 import { useWindowSize } from 'react-use';
 import { useApp } from '../../context/AppContext';
 import Icon from '../icons';
@@ -11,8 +10,7 @@ interface Props {
 }
 
 function Header({ onOpenMenu }: Props) {
-  const { title, edit, setIsEditing, page } = useApp();
-  const navigate = useNavigate();
+  const { title, edit, setIsEditing } = useApp();
   const size = useWindowSize();
 
   const handleOpenMenu = () => {
@@ -23,19 +21,18 @@ function Header({ onOpenMenu }: Props) {
     setIsEditing((isEditing) => !isEditing);
   };
 
-  const handleGoBack = () => {
-    navigate(-1);
-  };
-
   return (
     <Wrapper>
-      <Icon fontSize="10xl" name="menu" onClick={handleOpenMenu} />
-      {size.width > 500 && page !== 'home' && (
-        <Icon fontSize="10xl" name="left" onClick={handleGoBack} />
+      <Icon fontSize="10xl" name="carbon:menu" onClick={handleOpenMenu} />
+      {size.width > 460 && (
+        <H2 $fontWeight="400" $fontSize="lg">
+          {title}
+        </H2>
       )}
-      {size.width > 460 && <H2 $userSelect="none">{title}</H2>}
       <div style={{ flex: 1 }} />
-      {edit && <Icon fontSize="10xl" name="edit" onClick={handleToggleEdit} />}
+      {edit && (
+        <Icon fontSize="10xl" name="carbon:edit" onClick={handleToggleEdit} />
+      )}
     </Wrapper>
   );
 }

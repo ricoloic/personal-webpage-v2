@@ -1,11 +1,11 @@
 import React from 'react';
+import { Icon as Iconify } from '@iconify/react';
 import COLORS from '../../constants/colors';
-import ICONS from './constants';
 import { ColorsKeys, FontSizesKeys } from '../../types';
 import FONT_SIZE from '../../constants/sizes';
 
 interface Props {
-  name: keyof typeof ICONS;
+  name: string;
   fontSize?: FontSizesKeys;
   onClick?: () => void | undefined;
   color?: ColorsKeys;
@@ -19,22 +19,24 @@ function Icon({
   color = undefined,
   style = {},
 }: Props) {
-  const icon = ICONS[name]({
-    fontSize: FONT_SIZE[fontSize],
-    onClick,
-    cursor: onClick ? 'pointer' : undefined,
-    color: color ? COLORS[color] : undefined,
-  });
   return (
+    // eslint-disable-next-line jsx-a11y/click-events-have-key-events,jsx-a11y/no-static-element-interactions
     <div
+      role={onClick ? 'button' : undefined}
+      onClick={onClick}
       style={{
         display: 'inline-block',
-        width: FONT_SIZE[fontSize],
-        height: FONT_SIZE[fontSize],
+        cursor: onClick ? 'pointer' : undefined,
+        padding: '12px',
         ...style,
       }}
     >
-      {icon}
+      <Iconify
+        icon={name}
+        color={color ? COLORS[color] : undefined}
+        width={FONT_SIZE[fontSize]}
+        height={FONT_SIZE[fontSize]}
+      />
     </div>
   );
 }

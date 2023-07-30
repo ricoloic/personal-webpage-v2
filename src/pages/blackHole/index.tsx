@@ -1,3 +1,5 @@
 import BlackHole from './BlackHole';
+import withTitle from '../../hoc/withTitle';
+import withSketch from '../../hoc/withSketch';
 
-export default BlackHole;
+export default withSketch()(withTitle('blackHole')(BlackHole));

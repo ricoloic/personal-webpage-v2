@@ -103,11 +103,15 @@ export class MapGenerator {
     return neighbourCount;
   }
 
-  show(scale: number) {
+  show(darkMode: boolean, scale: number) {
     this.p5.noStroke();
     for (let x = 0; x < this.map.length; x += 1) {
       for (let y = 0; y < this.map[x].length; y += 1) {
-        this.p5.fill(this.map[x][y] ? 30 : 250);
+        if (darkMode) {
+          this.p5.fill(this.map[x][y] ? 30 : 250);
+        } else {
+          this.p5.fill(this.map[x][y] ? 250 : 30);
+        }
         this.p5.rect(x * scale, y * scale, scale, scale);
       }
     }
@@ -115,4 +119,3 @@ export class MapGenerator {
 }
 
 export default MapGenerator;
-

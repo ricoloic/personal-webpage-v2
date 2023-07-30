@@ -1,8 +1,8 @@
 import React, { useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
+import loic from '../../assets/photos/loic.webp';
 import COLORS from '../../constants/colors';
 import { H1, H2 } from '../../components/typography';
-import loic from '../../assets/photos/loic.webp';
 import {
   AboutBottomContent,
   AboutContainer,

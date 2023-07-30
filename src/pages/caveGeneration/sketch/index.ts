@@ -21,11 +21,11 @@ const sketch = (args: Args, height: number) =>
     const generateDefault = () => {
       const w = p5.ceil(p5.width / args.tileScale - 1);
       const h = p5.ceil(p5.height / args.tileScale - 1);
+      p5.background(args.darkMode ? 30 : 250);
       mapGenerator = new MapGenerator(p5, w, h, args.randomFillPercent);
       const halfTile = args.tileScale / 2;
-      p5.background(args.darkMode ? 30 : 250);
       p5.translate(halfTile, halfTile);
-      mapGenerator.show(args.tileScale);
+      mapGenerator.show(args.darkMode, args.tileScale);
     };
 
     p5.setup = () => {
@@ -38,7 +38,7 @@ const sketch = (args: Args, height: number) =>
       generateDefault();
     };
 
-    //     p5.draw = () => {};
+    p5.draw = () => {};
   });
 
 export default sketch;

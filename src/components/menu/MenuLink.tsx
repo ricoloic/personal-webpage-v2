@@ -24,7 +24,7 @@ function MenuLink({ page, currentPage, paddingLeft = false, onClick }: Props) {
       {page === currentPage && (
         <Icon
           style={{ marginLeft: `calc(-${FONT_SIZE['2xl']} - 5px)` }}
-          name="cornerDownRight"
+          name="carbon:arrow-right"
           fontSize="2xl"
         />
       )}

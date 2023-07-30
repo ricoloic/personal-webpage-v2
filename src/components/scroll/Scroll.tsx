@@ -39,7 +39,7 @@ function Scroll({ children }: Props) {
         <ButtonContainer top="-20px">
           <AppearanceEffect>
             <Icon
-              name="up"
+              name="carbon:arrow-up"
               fontSize="2xl"
               onClick={() => {
                 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
@@ -61,7 +61,7 @@ function Scroll({ children }: Props) {
         <ButtonContainer bottom="-20px">
           <AppearanceEffect>
             <Icon
-              name="down"
+              name="carbon:arrow-down"
               fontSize="2xl"
               onClick={() => {
                 // eslint-disable-next-line @typescript-eslint/ban-ts-comment

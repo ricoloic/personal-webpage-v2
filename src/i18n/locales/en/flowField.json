@@ -2,6 +2,9 @@
   "inputs": {
     "refreshSketch": "Refresh Sketch",
     "darkMode": "Dark Mode",
+    "displayFlow": "Display Flow",
+    "particleAmount": "Particle Amount",
+    "scale": "Scale",
     "color": "Color"
   }
 }

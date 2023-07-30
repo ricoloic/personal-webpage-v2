@@ -31,3 +31,5 @@ export const COLOR_OPTIONS = {
 } as const;
 
 export type ColorOptionsKeys = keyof typeof COLOR_OPTIONS;
+
+export default COLOR_OPTIONS;

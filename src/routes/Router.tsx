@@ -73,6 +73,14 @@ function Router() {
             }
           />
           <Route
+            path={ROUTES.caveGeneration}
+            element={
+              <Suspense fallback={<Loading />}>
+                <CaveGeneration />
+              </Suspense>
+            }
+          />
+          <Route
             path={ROUTES.besierCubicCurve}
             element={
               <Suspense fallback={<Loading />}>
@@ -101,14 +109,6 @@ function Router() {
             element={
               <Suspense fallback={<Loading />}>
                 <SketchesDynamic />
-              </Suspense>
-            }
-          />
-          <Route
-            path={`${ROUTES.caveGeneration}/*`}
-            element={
-              <Suspense fallback={<Loading />}>
-                <CaveGeneration />
               </Suspense>
             }
           />

@@ -3,12 +3,7 @@ import { useEffect, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 import P5 from 'p5';
 import SketchContainer from '../../components/sketchContainer';
-import sketch, {
-  Args,
-  COLOR_OPTIONS,
-  ColorOptionsKeys,
-  defaultArgs,
-} from './sketch';
+import sketch, { Args, defaultArgs } from './sketch';
 import COLORS from '../../constants/colors';
 import SlidingPanel from '../../components/slidingPanel';
 import { useApp } from '../../context/AppContext';
@@ -16,6 +11,8 @@ import Dropdown from '../../components/dropdown';
 import Button from '../../components/button';
 import Icon from '../../components/icons';
 import Checkbox from '../../components/checkbox';
+import { COLOR_OPTIONS, ColorOptionsKeys } from './sketch/colorOptions';
+import Range from '../../components/range';
 
 export default function FlowField() {
   const { isEditing, setIsEditing, setEdit } = useApp();
@@ -28,11 +25,6 @@ export default function FlowField() {
 
   const refresh = () => {
     activeSketch.current?.remove();
-    args.current.flowField = defaultArgs.flowField;
-    args.current.particles = defaultArgs.particles;
-    args.current.zoff = defaultArgs.zoff;
-    args.current.columns = defaultArgs.columns;
-    args.current.rows = defaultArgs.rows;
     activeSketch.current = sketch(args.current, ref.current?.offsetHeight ?? 0);
   };
 
@@ -46,6 +38,23 @@ export default function FlowField() {
 
   const handleDarkMode = (checked: boolean) => {
     args.current.darkMode = checked;
+    refresh();
+  };
+
+  const handleDisplayFlow = (checked: boolean) => {
+    args.current.displayFlow = checked;
+    // if (checked) args.current.scale = 30;
+    // else args.current.scale = 10;
+    refresh();
+  };
+
+  const handleParticleAmountChange = (value: number) => {
+    args.current.particleAmount = value;
+    refresh();
+  };
+
+  const handleScaleChange = (value: number) => {
+    args.current.scale = value;
     refresh();
   };
 
@@ -78,7 +87,7 @@ export default function FlowField() {
       >
         <SlidingPanel.Content $gap="10px">
           <Button
-            icon={<Icon name="refresh" />}
+            icon={<Icon name="carbon:renew" />}
             name="refresh"
             onClick={handleRefreshClick}
           >
@@ -89,6 +98,30 @@ export default function FlowField() {
             title={t('inputs.darkMode')}
             onClick={handleDarkMode}
             defaultChecked={defaultArgs.darkMode}
+          />
+          <Checkbox
+            name="displayFlow"
+            title={t('inputs.displayFlow')}
+            onClick={handleDisplayFlow}
+            defaultChecked={defaultArgs.displayFlow}
+          />
+          <Range
+            name="particleAmount"
+            title={t('inputs.particleAmount')}
+            onChange={handleParticleAmountChange}
+            min={500}
+            max={10000}
+            step={100}
+            defaultValue={defaultArgs.particleAmount}
+          />
+          <Range
+            name="scale"
+            title={t('inputs.scale')}
+            onChange={handleScaleChange}
+            min={5}
+            max={100}
+            step={1}
+            defaultValue={defaultArgs.scale}
           />
           <Dropdown
             name="color"

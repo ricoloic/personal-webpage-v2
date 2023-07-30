@@ -61,7 +61,7 @@ function SlidingPanel({
     >
       <WrapperContent>
         <CloseContainer>
-          <Icon name="close" onClick={onClose} fontSize="5xl" />
+          <Icon name="carbon:close-outline" onClick={onClose} fontSize="5xl" />
         </CloseContainer>
         {children}
       </WrapperContent>

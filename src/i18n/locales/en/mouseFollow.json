@@ -5,7 +5,7 @@
     "showParticleBorder": "Show Particle Border",
     "showParticleAlfa": "Show Particle Alfa",
     "showParticle": "Show Particle",
-    "particlePerFrame": "Particles per Frame",
+    "particleAmount": "Particles Amount",
     "colorPalette": "Color Palette"
   }
 }

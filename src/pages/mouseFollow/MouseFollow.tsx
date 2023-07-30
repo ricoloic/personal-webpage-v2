@@ -44,8 +44,8 @@ export default function MouseFollow() {
     args.current.showParticles = checked;
   };
 
-  const handleParticlesPerFrame = (value: number) => {
-    args.current.particlesPerFrame = value;
+  const handleParticlesAmount = (value: number) => {
+    args.current.particleAmount = value;
   };
 
   const handleColorPaletteChange = (value: string) => {
@@ -105,13 +105,13 @@ export default function MouseFollow() {
             defaultChecked={defaultArgs.showParticles}
           />
           <Range
-            name="particlesPerFrame"
-            title={t('inputs.particlePerFrame')}
-            min={1}
-            max={25}
-            step={1}
-            onChange={handleParticlesPerFrame}
-            defaultValue={defaultArgs.particlesPerFrame}
+            name="particleAmount"
+            title={t('inputs.particleAmount')}
+            min={10}
+            max={200}
+            step={10}
+            onChange={handleParticlesAmount}
+            defaultValue={defaultArgs.particleAmount}
           />
           <Dropdown
             name="colorPalette"

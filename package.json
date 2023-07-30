@@ -29,6 +29,7 @@
 		"@codeboxx/eslint-config": "^1.7.0",
 		"@commitlint/cli": "^17.1.2",
 		"@commitlint/config-conventional": "^17.1.0",
+		"@iconify/react": "^4.1.1",
 		"@types/p5": "^1.6.2",
 		"@types/react": "^18.0.0",
 		"@types/react-dom": "^18.0.0",
