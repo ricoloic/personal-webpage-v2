@@ -6,6 +6,7 @@ import ROUTES from '../../routes/constants';
 import flowFieldPreview from '../../assets/previews/flow-field-preview.png';
 import flockingPreview from '../../assets/previews/flocking-preview.png';
 import blackHolePreview from '../../assets/previews/black-hole-preview.png';
+import pongPreview from '../../assets/previews/pong-preview.png';
 
 export default function SketchesDynamic() {
   const { t } = useTranslation('general');
@@ -14,6 +15,9 @@ export default function SketchesDynamic() {
       <SketchesGrid>
         <SketchCard to={ROUTES.flowField} imageUrl={flowFieldPreview}>
           {t('sketches.flowField')}
+        </SketchCard>
+        <SketchCard to={ROUTES.pong} imageUrl={pongPreview}>
+          {t('sketches.pong')}
         </SketchCard>
         <SketchCard to={ROUTES.flocking} imageUrl={flockingPreview}>
           {t('sketches.flocking')}

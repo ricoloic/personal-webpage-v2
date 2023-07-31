@@ -18,6 +18,7 @@ export const PAGES = {
   timesTable: 'timesTable',
   chaosGame: 'chaosGame',
   maurerRose: 'maurerRose',
+  pong: 'pong',
 } as const;
 
 export default PAGES;

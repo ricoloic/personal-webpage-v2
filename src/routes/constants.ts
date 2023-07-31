@@ -22,6 +22,7 @@ const ROUTES = {
   timesTable: `${SKETCH_PATH}/times-table`,
   chaosGame: `${SKETCH_PATH}/chaos-game`,
   maurerRose: `${SKETCH_PATH}/maurer-rose`,
+  pong: `${SKETCH_PATH}/pong`,
 } as const;
 
 export default ROUTES;

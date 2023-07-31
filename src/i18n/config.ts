@@ -14,6 +14,7 @@ import flowField from './locales/en/flowField.json';
 import circularMotion from './locales/en/circularMotion.json';
 import timesTable from './locales/en/timesTable.json';
 import chaosGame from './locales/en/chaosGame.json';
+import pong from './locales/en/pong.json';
 import maurerRose from './locales/en/maurerRose.json';
 
 export const defaultNS = 'general';
@@ -21,6 +22,7 @@ export const resources = {
   en: {
     general,
     home,
+    pong,
     blackHole,
     besierQuadraticCurve,
     besierCubicCurve,
@@ -38,6 +40,7 @@ export const resources = {
 export const namespaces = [
   'general',
   'home',
+  'pong',
   'blackHole',
   'besierQuadraticCurve',
   'besierCubicCurve',

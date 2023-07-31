@@ -19,6 +19,7 @@ const Sketches = lazy(() => import('../pages/sketches'));
 const BesierQuadraticCurve = lazy(
   () => import('../pages/besierQuadraticCurve')
 );
+const Pong = lazy(() => import('../pages/pong'));
 const MouseFollow = lazy(() => import('../pages/mouseFollow'));
 const TimesTable = lazy(() => import('../pages/timesTable'));
 const MouseConfetti = lazy(() => import('../pages/mouseConfetti'));
@@ -117,6 +118,14 @@ function Router() {
             element={
               <Suspense fallback={<Loading />}>
                 <Flocking />
+              </Suspense>
+            }
+          />
+          <Route
+            path={`${ROUTES.pong}/*`}
+            element={
+              <Suspense fallback={<Loading />}>
+                <Pong />
               </Suspense>
             }
           />

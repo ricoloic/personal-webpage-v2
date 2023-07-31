@@ -14,6 +14,7 @@ import flockingPreview from '../../assets/previews/flocking-preview.png';
 import besierQuadraticCurvePreview from '../../assets/previews/besier-quadratic-curve-preview.png';
 import besierCubicCurvePreview from '../../assets/previews/besier-cubic-curve-preview.png';
 import blackHolePreview from '../../assets/previews/black-hole-preview.png';
+import pongPreview from '../../assets/previews/pong-preview.png';
 
 export default function SketchesMenu() {
   const { t } = useTranslation('general');
@@ -58,6 +59,9 @@ export default function SketchesMenu() {
       />
       <SketchCard to={ROUTES.flowField} imageUrl={flowFieldPreview}>
         {t('sketches.flowField')}
+      </SketchCard>
+      <SketchCard to={ROUTES.pong} imageUrl={pongPreview}>
+        {t('sketches.pong')}
       </SketchCard>
       <SketchCard to={ROUTES.flocking} imageUrl={flockingPreview}>
         {t('sketches.flocking')}
