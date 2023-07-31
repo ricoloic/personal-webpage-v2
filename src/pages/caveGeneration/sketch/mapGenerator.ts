@@ -182,6 +182,8 @@ export class MapGenerator {
       }
     }
 
+    if (survivingRooms.length === 0) return;
+
     survivingRooms.sort((a, b) => a.roomSize - b.roomSize);
     survivingRooms[0].isMainRoom = true;
     survivingRooms[0].isAccessibleFromMainRoom = true;
@@ -476,8 +478,8 @@ export class MapGenerator {
     return neighbourCount;
   }
 
-  show(darkMode: boolean) {
-    this.meshGen.show(this.p5, darkMode);
+  show(darkMode: boolean, showMesh: boolean, showBorder: boolean) {
+    this.meshGen.show(this.p5, darkMode, showMesh, showBorder);
   }
 }
 

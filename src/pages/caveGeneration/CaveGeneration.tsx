@@ -7,6 +7,9 @@ import SlidingPanel from '../../components/slidingPanel';
 import COLORS from '../../constants/colors';
 import Checkbox from '../../components/checkbox';
 import { useApp } from '../../context/AppContext';
+import Range from '../../components/range';
+import Button from '../../components/button';
+import Icon from '../../components/icons';
 
 export default function ChaosGame() {
   const { isEditing, setIsEditing, setEdit } = useApp();
@@ -26,8 +29,27 @@ export default function ChaosGame() {
     setIsEditing(false);
   };
 
+  const handleRefreshClick = () => {
+    refresh();
+  };
+
   const handleDarkMode = (checked: boolean) => {
     args.current.darkMode = checked;
+    refresh();
+  };
+
+  const handleShowBorder = (checked: boolean) => {
+    args.current.showBorder = checked;
+    refresh();
+  };
+
+  const handleShowMesh = (checked: boolean) => {
+    args.current.showMesh = checked;
+    refresh();
+  };
+
+  const handleRandomFillPercent = (value: number) => {
+    args.current.randomFillPercent = value;
     refresh();
   };
 
@@ -55,11 +77,39 @@ export default function ChaosGame() {
         onClose={handleCloseEditing}
       >
         <SlidingPanel.Content $gap="10px">
+          <Button
+            icon={<Icon name="carbon:renew" />}
+            name="refresh"
+            onClick={handleRefreshClick}
+          >
+            {t('inputs.refreshSketch')}
+          </Button>
           <Checkbox
             name="darkMode"
             title={t('inputs.darkMode')}
             onClick={handleDarkMode}
             defaultChecked={defaultArgs.darkMode}
+          />
+          <Checkbox
+            name="showBorder"
+            title={t('inputs.showBorder')}
+            onClick={handleShowBorder}
+            defaultChecked={defaultArgs.showBorder}
+          />
+          <Checkbox
+            name="showMesh"
+            title={t('inputs.showMesh')}
+            onClick={handleShowMesh}
+            defaultChecked={defaultArgs.showMesh}
+          />
+          <Range
+            name="randomFillPercent"
+            title={t('inputs.randomFillPercent')}
+            min={40}
+            max={60}
+            step={1}
+            onChange={handleRandomFillPercent}
+            defaultValue={defaultArgs.randomFillPercent}
           />
         </SlidingPanel.Content>
       </SlidingPanel>

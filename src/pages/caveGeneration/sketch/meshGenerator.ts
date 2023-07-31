@@ -131,11 +131,20 @@ class Mesh {
     this.triangles = [];
   }
 
-  show(p5: P5, darkMode: boolean, gray: number | undefined = undefined) {
+  show(
+    p5: P5,
+    darkMode: boolean,
+    showMesh: boolean,
+    gray: number | undefined = undefined
+  ) {
     const color = gray || (darkMode ? 30 : 250);
     p5.strokeWeight(gray ? 5 : 1);
     p5.stroke(color);
-    p5.fill(color);
+    if (showMesh) {
+      p5.noFill();
+    } else {
+      p5.fill(color);
+    }
     for (let i = 0; i < this.triangles.length; i += 1) {
       const face = this.triangles[i];
       p5.beginShape();
@@ -491,8 +500,8 @@ export default class MeshGenerator {
     }
   }
 
-  show(p5: P5, darkMode: boolean) {
-    this.mesh.show(p5, darkMode);
-    this.wallMesh.show(p5, darkMode, 170);
+  show(p5: P5, darkMode: boolean, showMesh: boolean, showBorder: boolean) {
+    this.mesh.show(p5, darkMode, showMesh);
+    if (showBorder) this.wallMesh.show(p5, darkMode, false, 170);
   }
 }

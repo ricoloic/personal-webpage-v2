@@ -1,5 +1,10 @@
 {
     "inputs": {
-        "darkMode": "Dark Mode"
+        "darkMode": "Dark Mode",
+        "showBorder": "Show Border",
+        "showMesh": "Show Mesh",
+        "randomizeEverytime": "Randomize everytime",
+        "randomFillPercent": "Random Fill Percent",
+        "refreshSketch" : "refreshSketch"
     }
 }

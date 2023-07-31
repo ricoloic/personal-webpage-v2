@@ -7,6 +7,8 @@ export type Args = {
   tileScale: number;
   numberOfPass: number;
   randomSeed: boolean;
+  showMesh: boolean;
+  showBorder: boolean;
   darkMode: boolean;
 };
 
@@ -15,7 +17,9 @@ export const defaultArgs: Args = {
   tileScale: 20,
   numberOfPass: 5,
   randomSeed: true,
-  darkMode: true,
+  showMesh: true,
+  showBorder: true,
+  darkMode: false,
 };
 
 const sketch = (args: Args, height: number) =>
@@ -38,7 +42,7 @@ const sketch = (args: Args, height: number) =>
         3,
         args.randomSeed
       );
-      mapGenerator.show(args.darkMode);
+      mapGenerator.show(args.darkMode, args.showMesh, args.showBorder);
     };
 
     p5.setup = () => {
