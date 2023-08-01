@@ -8,7 +8,7 @@ export const Wrapper = styled.div`
 
 export const ContentContainer = styled.div`
   max-height: 60vh;
-  overflow: auto;
+  overflow: hidden;
   ::-webkit-scrollbar {
     display: none;
   }
