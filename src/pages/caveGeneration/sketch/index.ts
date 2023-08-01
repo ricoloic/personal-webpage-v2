@@ -19,7 +19,7 @@ export const defaultArgs: Args = {
   randomSeed: true,
   showMesh: true,
   showBorder: true,
-  darkMode: false,
+  darkMode: true,
 };
 
 const sketch = (args: Args, height: number) =>
@@ -29,7 +29,13 @@ const sketch = (args: Args, height: number) =>
     const generateDefault = () => {
       const w = p5.ceil(p5.width / args.tileScale - 1);
       const h = p5.ceil(p5.height / args.tileScale - 1);
-      p5.background(args.darkMode ? 250 : 30);
+      let color: number;
+      if (args.showMesh) {
+        color = args.darkMode ? 30 : 250;
+      } else {
+        color = args.darkMode ? 250 : 30;
+      }
+      p5.background(color);
       const halfTile = args.tileScale / 2;
       p5.translate(p5.width / 2 + halfTile, p5.height / 2 + halfTile);
       mapGenerator = new MapGenerator(
@@ -57,8 +63,6 @@ const sketch = (args: Args, height: number) =>
       p5.resizeCanvas(p5.windowWidth, height);
       generateDefault();
     };
-
-    // p5.draw = () => {};
   });
 
 export default sketch;

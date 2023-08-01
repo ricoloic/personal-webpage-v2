@@ -62,6 +62,12 @@ const sketch = (args: Args, height: number) =>
 
     p5.windowResized = () => {
       p5.resizeCanvas(p5.windowWidth, height);
+      args.size = p5.width <= p5.height ? p5.width : p5.height;
+      args.maxSize = args.size - args.size / 50;
+      args.center.set(p5.width / 2, p5.height / 2);
+      args.currentPoint.set(p5.random(args.size), p5.random(args.size));
+      args.seedPoints = pickSeedPoints();
+      p5.background(args.darkMode ? 30 : 250);
     };
 
     p5.draw = () => {

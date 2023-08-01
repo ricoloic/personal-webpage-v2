@@ -7,6 +7,7 @@ import COLORS from '../../constants/colors';
 import SlidingPanel from '../../components/slidingPanel';
 import { useApp } from '../../context/AppContext';
 import Checkbox from '../../components/checkbox';
+import References from '../../components/references';
 
 export default function Flocking() {
   const { isEditing, setIsEditing, setEdit } = useApp();
@@ -113,9 +114,34 @@ export default function Flocking() {
             onChange={handleBoidsAmount}
             defaultValue={defaultArgs.boidAmount}
           />
+          <div>
+            <hr />
+          </div>
+          <References>
+            <References.Element
+              href="https://www.youtube.com/embed/bqtqltqcQhw"
+              title="Sebastian Lague - Boids"
+            />
+            <References.Element
+              href="https://www.youtube.com/embed/mhjuuHl6qHM"
+              title="The Coding Train - Flocking Simulation"
+            />
+            <References.Element
+              href="https://www.youtube.com/embed/OJxEcs0w_kE"
+              title="The Coding Train - Quadtree"
+            />
+            <References.Element
+              href="https://en.wikipedia.org/wiki/Boids"
+              title="Wikipedia - Boids"
+            />
+            <References.Element
+              href="https://en.wikipedia.org/wiki/Quadtree"
+              title="Wikipedia - Quadtree"
+            />
+          </References>
         </SlidingPanel.Content>
       </SlidingPanel>
-      <SketchContainer ref={ref as any} id="parent" />
+      <SketchContainer ref={ref as never} id="parent" />
     </>
   );
 }

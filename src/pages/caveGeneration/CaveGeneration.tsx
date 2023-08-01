@@ -10,6 +10,7 @@ import { useApp } from '../../context/AppContext';
 import Range from '../../components/range';
 import Button from '../../components/button';
 import Icon from '../../components/icons';
+import References from '../../components/references';
 
 export default function ChaosGame() {
   const { isEditing, setIsEditing, setEdit } = useApp();
@@ -111,9 +112,26 @@ export default function ChaosGame() {
             onChange={handleRandomFillPercent}
             defaultValue={defaultArgs.randomFillPercent}
           />
+          <div>
+            <hr />
+          </div>
+          <References>
+            <References.Element
+              href="https://www.youtube.com/embed/videoseries?list=PLFt_AvWsXl0eZgMK_DT5_biRkWXftAOf9"
+              title="Sebastian Lague - Procedural Cave Generation"
+            />
+            <References.Element
+              href="https://www.youtube.com/embed/0ZONMNUKTfU"
+              title="The Coding Train - Coding Marching Squares"
+            />
+            <References.Element
+              href="https://en.wikipedia.org/wiki/Marching_squares"
+              title="Wikipedia - Marching Squares"
+            />
+          </References>
         </SlidingPanel.Content>
       </SlidingPanel>
-      <SketchContainer ref={ref as any} id="parent" />
+      <SketchContainer ref={ref as never} id="parent" />
     </>
   );
 }

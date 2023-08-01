@@ -25,7 +25,7 @@ export default class Ball {
     let velX = this.p5.random([1, -1]);
     if (side === 'left') velX = -1;
     else if (side === 'right') velX = 1;
-    this.vel.set(velX, this.p5.random(-0.5, 0.5)).setMag(5);
+    this.vel.set(velX, this.p5.random(-0.5, 0.5)).setMag(7);
   }
 
   intersectHandles(leftHandle: Handle, rightHandle: Handle) {

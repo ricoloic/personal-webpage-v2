@@ -107,7 +107,7 @@ export default function CircularMotion() {
           />
         </SlidingPanel.Content>
       </SlidingPanel>
-      <SketchContainer ref={ref as any} id="parent" />
+      <SketchContainer ref={ref as never} id="parent" />
     </>
   );
 }

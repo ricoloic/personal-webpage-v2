@@ -30,6 +30,7 @@ export const WrapperContent = styled.div`
   flex-direction: column;
   height: 100%;
   color: ${COLORS.white};
+  overflow-y: auto;
 `;
 
 export const CloseContainer = styled.div`

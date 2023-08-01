@@ -1,14 +1,6 @@
 /* eslint-disable max-classes-per-file,no-param-reassign */
 import P5 from 'p5';
 
-function min(numA: number, numB: number) {
-  return numA < numB ? numA : numB;
-}
-
-function max(numA: number, numB: number) {
-  return numA > numB ? numA : numB;
-}
-
 class Node {
   public position: P5.Vector;
 
@@ -137,7 +129,14 @@ class Mesh {
     showMesh: boolean,
     gray: number | undefined = undefined
   ) {
-    const color = gray || (darkMode ? 30 : 250);
+    let color = gray;
+    if (!color) {
+      if (showMesh) {
+        color = darkMode ? 250 : 30;
+      } else {
+        color = darkMode ? 30 : 250;
+      }
+    }
     p5.strokeWeight(gray ? 5 : 1);
     p5.stroke(color);
     if (showMesh) {

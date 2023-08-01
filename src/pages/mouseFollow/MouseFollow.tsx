@@ -122,7 +122,7 @@ export default function MouseFollow() {
           />
         </SlidingPanel.Content>
       </SlidingPanel>
-      <SketchContainer ref={ref as any} id="parent" />
+      <SketchContainer ref={ref as never} id="parent" />
     </>
   );
 }

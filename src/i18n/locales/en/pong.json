@@ -1,5 +1,6 @@
 {
     "inputs": {
+        "refreshSketch": "Refresh Sketch",
         "darkMode": "Dark Mode"
     }
 }

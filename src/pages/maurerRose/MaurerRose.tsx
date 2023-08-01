@@ -8,6 +8,7 @@ import SlidingPanel from '../../components/slidingPanel';
 import { useApp } from '../../context/AppContext';
 import Checkbox from '../../components/checkbox';
 import Range from '../../components/range';
+import References from '../../components/references';
 
 export default function MaurerRose() {
   const { isEditing, setIsEditing, setEdit } = useApp();
@@ -88,9 +89,22 @@ export default function MaurerRose() {
             step={1}
             defaultValue={defaultArgs.degrees}
           />
+          <div>
+            <hr />
+          </div>
+          <References>
+            <References.Element
+              href="https://www.youtube.com/embed/4uU9lZ-HSqA"
+              title="The Coding Train - Maurer Rose"
+            />
+            <References.Element
+              href="https://en.wikipedia.org/wiki/Maurer_rose"
+              title="Wikipedia - Maurer Rose"
+            />
+          </References>
         </SlidingPanel.Content>
       </SlidingPanel>
-      <SketchContainer ref={ref as any} id="parent" />
+      <SketchContainer ref={ref as never} id="parent" />
     </>
   );
 }

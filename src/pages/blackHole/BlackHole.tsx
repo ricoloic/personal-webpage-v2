@@ -6,6 +6,7 @@ import COLORS from '../../constants/colors';
 import SlidingPanel from '../../components/slidingPanel';
 import { useApp } from '../../context/AppContext';
 import Checkbox from '../../components/checkbox';
+import References from '../../components/references';
 
 export default function ChaosGame() {
   const { isEditing, setIsEditing, setEdit } = useApp();
@@ -50,9 +51,18 @@ export default function ChaosGame() {
             onClick={handleDarkMode}
             defaultChecked={defaultArgs.darkMode}
           />
+          <div>
+            <hr />
+          </div>
+          <References>
+            <References.Element
+              href="https://www.youtube.com/embed/EpgB3cNhKPM"
+              title="The Coding Train - Gravitational Attraction"
+            />
+          </References>
         </SlidingPanel.Content>
       </SlidingPanel>
-      <SketchContainer ref={ref as any} id="parent" />
+      <SketchContainer ref={ref as never} id="parent" />
     </>
   );
 }

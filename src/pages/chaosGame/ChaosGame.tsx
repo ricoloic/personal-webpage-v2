@@ -9,6 +9,7 @@ import SlidingPanel from '../../components/slidingPanel';
 import { useApp } from '../../context/AppContext';
 import Checkbox from '../../components/checkbox';
 import Range from '../../components/range';
+import References from '../../components/references';
 
 export default function ChaosGame() {
   const { isEditing, setIsEditing, setEdit } = useApp();
@@ -90,9 +91,22 @@ export default function ChaosGame() {
             step={0.005}
             defaultValue={defaultArgs.lerpAmount}
           />
+          <div>
+            <hr />
+          </div>
+          <References>
+            <References.Element
+              href="https://www.youtube.com/embed/EpgB3cNhKPM"
+              title="The Coding Train - Gravitational Attraction"
+            />
+            <References.Element
+              href="https://en.wikipedia.org/wiki/Chaos_game"
+              title="Wikipedia - Chaos Game"
+            />
+          </References>
         </SlidingPanel.Content>
       </SlidingPanel>
-      <SketchContainer ref={ref as any} id="parent" />
+      <SketchContainer ref={ref as never} id="parent" />
     </>
   );
 }

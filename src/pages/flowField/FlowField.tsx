@@ -13,6 +13,7 @@ import Icon from '../../components/icons';
 import Checkbox from '../../components/checkbox';
 import { COLOR_OPTIONS, ColorOptionsKeys } from './sketch/colorOptions';
 import Range from '../../components/range';
+import References from '../../components/references';
 
 export default function FlowField() {
   const { isEditing, setIsEditing, setEdit } = useApp();
@@ -133,9 +134,22 @@ export default function FlowField() {
             }))}
             defaultValue={defaultArgs.selectColor}
           />
+          <div>
+            <hr />
+          </div>
+          <References>
+            <References.Element
+              href="https://www.youtube.com/embed/BjoM9oKOAKY"
+              title="The Coding Train - Flow Field"
+            />
+            <References.Element
+              href="https://en.wikipedia.org/wiki/Perlin_noise"
+              title="Wikipedia - Perlin Noise"
+            />
+          </References>
         </SlidingPanel.Content>
       </SlidingPanel>
-      <SketchContainer ref={ref as any} id="parent" />
+      <SketchContainer ref={ref as never} id="parent" />
     </>
   );
 }
