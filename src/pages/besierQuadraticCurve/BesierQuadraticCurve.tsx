@@ -7,6 +7,7 @@ import COLORS from '../../constants/colors';
 import SlidingPanel from '../../components/slidingPanel';
 import { useApp } from '../../context/AppContext';
 import Checkbox from '../../components/checkbox';
+import { H3 } from '../../components/typography';
 
 export default function BesierQuadraticCurve() {
   const { isEditing, setIsEditing, setEdit } = useApp();
@@ -62,6 +63,21 @@ export default function BesierQuadraticCurve() {
             onClick={handleDisplayControlLines}
             defaultChecked={defaultArgs.displayControlLines}
           />
+          <div>
+            <hr />
+          </div>
+          <div>
+            <H3>References</H3>
+            <p>
+              <a
+                href="https://en.wikipedia.org/wiki/B%C3%A9zier_curve"
+                target="_blank"
+                rel="noreferrer"
+              >
+                Wikipedia - Bézier Curve
+              </a>
+            </p>
+          </div>
         </SlidingPanel.Content>
       </SlidingPanel>
       <SketchContainer ref={ref as any} id="parent" />

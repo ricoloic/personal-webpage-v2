@@ -88,6 +88,38 @@ export default function MaurerRose() {
             step={1}
             defaultValue={defaultArgs.degrees}
           />
+          <div>
+            <hr />
+          </div>
+          <div>
+            <p>
+              <a
+                href="https://www.youtube.com/embed/4uU9lZ-HSqA"
+                target="_blank"
+                rel="noreferrer"
+              >
+                The Coding Train - Maurer Rose
+              </a>
+            </p>
+            <iframe
+              width="350"
+              height="230"
+              src="https://www.youtube.com/embed/4uU9lZ-HSqA"
+              title="YouTube video player"
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowFullScreen
+            />
+            <p>
+              <a
+                href="https://en.wikipedia.org/wiki/Maurer_rose"
+                target="_blank"
+                rel="noreferrer"
+              >
+                Wikipedia - Maurer Rose
+              </a>
+            </p>
+          </div>
         </SlidingPanel.Content>
       </SlidingPanel>
       <SketchContainer ref={ref as any} id="parent" />

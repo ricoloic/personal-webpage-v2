@@ -57,8 +57,6 @@ const sketch = (args: Args, height: number) =>
       p5.resizeCanvas(p5.windowWidth, height);
       generateDefault();
     };
-
-    // p5.draw = () => {};
   });
 
 export default sketch;

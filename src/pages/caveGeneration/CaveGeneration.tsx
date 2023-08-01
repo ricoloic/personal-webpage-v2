@@ -10,6 +10,7 @@ import { useApp } from '../../context/AppContext';
 import Range from '../../components/range';
 import Button from '../../components/button';
 import Icon from '../../components/icons';
+import { H3 } from '../../components/typography';
 
 export default function ChaosGame() {
   const { isEditing, setIsEditing, setEdit } = useApp();
@@ -111,6 +112,39 @@ export default function ChaosGame() {
             onChange={handleRandomFillPercent}
             defaultValue={defaultArgs.randomFillPercent}
           />
+          <div>
+            <hr />
+          </div>
+          <div>
+            <H3>References</H3>
+            <p>
+              <a
+                href="https://www.youtube.com/embed/videoseries?list=PLFt_AvWsXl0eZgMK_DT5_biRkWXftAOf9"
+                target="_blank"
+                rel="noreferrer"
+              >
+                Sebastian Lague - Procedural Cave Generation
+              </a>
+            </p>
+            <iframe
+              width="350"
+              height="230"
+              src="https://www.youtube.com/embed/videoseries?list=PLFt_AvWsXl0eZgMK_DT5_biRkWXftAOf9"
+              title="YouTube video player"
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowFullScreen
+            />
+            <p>
+              <a
+                href="https://en.wikipedia.org/wiki/Marching_squares"
+                target="_blank"
+                rel="noreferrer"
+              >
+                Wikipedia - Marching Squares
+              </a>
+            </p>
+          </div>
         </SlidingPanel.Content>
       </SlidingPanel>
       <SketchContainer ref={ref as any} id="parent" />

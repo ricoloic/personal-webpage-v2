@@ -51,6 +51,20 @@ export default function Pong() {
             onClick={handleDarkMode}
             defaultChecked={defaultArgs.darkMode}
           />
+          <div>
+            <hr />
+          </div>
+          <div>
+            <p>
+              <a
+                href="https://en.wikipedia.org/wiki/Pong"
+                target="_blank"
+                rel="noreferrer"
+              >
+                Wikipedia - Pong
+              </a>
+            </p>
+          </div>
         </SlidingPanel.Content>
       </SlidingPanel>
       <SketchContainer ref={ref as any} id="parent" />
