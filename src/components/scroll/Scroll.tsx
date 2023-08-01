@@ -2,7 +2,6 @@ import React, { useState, useEffect, useRef } from 'react';
 import useIsOverflow from '../../hooks/useIsOverflow';
 import { Children } from '../../types';
 import { Wrapper, ContentContainer } from './Scroll.styles';
-import AppearanceEffect from '../appearanceEffect/index';
 import ButtonContainer from './ButtonContainer';
 import Icon from '../icons/Icon';
 
@@ -36,21 +35,19 @@ function Scroll({ children }: Props) {
   return (
     <Wrapper>
       {overflow && showUpArray && (
-        <ButtonContainer top="-20px">
-          <AppearanceEffect>
-            <Icon
-              name="carbon:arrow-up"
-              fontSize="2xl"
-              onClick={() => {
-                // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-                // @ts-ignore
-                listContainerRef?.current?.scrollTo({
-                  top: 0,
-                  behavior: 'smooth',
-                } as ScrollToOptions);
-              }}
-            />
-          </AppearanceEffect>
+        <ButtonContainer top="-30px">
+          <Icon
+            name="carbon:arrow-up"
+            fontSize="2xl"
+            onClick={() => {
+              // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+              // @ts-ignore
+              listContainerRef?.current?.scrollTo({
+                top: 0,
+                behavior: 'smooth',
+              } as ScrollToOptions);
+            }}
+          />
         </ButtonContainer>
       )}
       <ContentContainer ref={listContainerRef} onScroll={handleScroll}>
@@ -58,20 +55,18 @@ function Scroll({ children }: Props) {
         <div ref={listBottomRef} />
       </ContentContainer>
       {overflow && showDownArray && (
-        <ButtonContainer bottom="-20px">
-          <AppearanceEffect>
-            <Icon
-              name="carbon:arrow-down"
-              fontSize="2xl"
-              onClick={() => {
-                // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-                // @ts-ignore
-                listBottomRef?.current?.scrollIntoView({
-                  behavior: 'smooth',
-                });
-              }}
-            />
-          </AppearanceEffect>
+        <ButtonContainer bottom="-35px">
+          <Icon
+            name="carbon:arrow-down"
+            fontSize="2xl"
+            onClick={() => {
+              // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+              // @ts-ignore
+              listBottomRef?.current?.scrollIntoView({
+                behavior: 'smooth',
+              });
+            }}
+          />
         </ButtonContainer>
       )}
     </Wrapper>

@@ -10,7 +10,6 @@
 		"pre-commit": "lint-staged"
 	},
 	"dependencies": {
-		"@react-spring/web": "^9.7.3",
 		"@uidotdev/usehooks": "^2.0.1",
 		"@vercel/analytics": "^1.0.1",
 		"i18next": "21.9.2",
@@ -19,7 +18,6 @@
 		"react": "^18.2.0",
 		"react-dom": "^18.2.0",
 		"react-i18next": "11.18.6",
-		"react-icons": "^4.10.1",
 		"react-router-dom": "6.14.2",
 		"react-spinners": "^0.13.8",
 		"react-use": "^17.4.0",
