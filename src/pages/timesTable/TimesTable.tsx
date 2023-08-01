@@ -8,6 +8,7 @@ import SlidingPanel from '../../components/slidingPanel';
 import { useApp } from '../../context/AppContext';
 import Checkbox from '../../components/checkbox';
 import Range from '../../components/range';
+import References from '../../components/references';
 
 export default function TimesTable() {
   const { isEditing, setIsEditing, setEdit } = useApp();
@@ -105,9 +106,26 @@ export default function TimesTable() {
             step={1}
             defaultValue={defaultArgs.multiplier}
           />
+          <div>
+            <hr />
+          </div>
+          <References>
+            <References.Element
+              href="https://www.youtube.com/embed/qhbuKbxJsk8"
+              title="Mathologer - Times Tables, Mandelbrot and the Heart of Mathematics"
+            />
+            <References.Element
+              href="https://www.youtube.com/embed/bl3nc_a1nvs"
+              title="The Coding Train - Times Tables Cardioid Visualization"
+            />
+            <References.Element
+              href="https://en.wikipedia.org/wiki/Cardioid"
+              title="Wikipedia - Cardioid"
+            />
+          </References>
         </SlidingPanel.Content>
       </SlidingPanel>
-      <SketchContainer ref={ref as any} id="parent" />
+      <SketchContainer ref={ref as never} id="parent" />
     </>
   );
 }

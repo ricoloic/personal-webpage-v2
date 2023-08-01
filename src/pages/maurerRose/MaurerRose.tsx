@@ -8,6 +8,7 @@ import SlidingPanel from '../../components/slidingPanel';
 import { useApp } from '../../context/AppContext';
 import Checkbox from '../../components/checkbox';
 import Range from '../../components/range';
+import References from '../../components/references';
 
 export default function MaurerRose() {
   const { isEditing, setIsEditing, setEdit } = useApp();
@@ -91,38 +92,19 @@ export default function MaurerRose() {
           <div>
             <hr />
           </div>
-          <div>
-            <p>
-              <a
-                href="https://www.youtube.com/embed/4uU9lZ-HSqA"
-                target="_blank"
-                rel="noreferrer"
-              >
-                The Coding Train - Maurer Rose
-              </a>
-            </p>
-            <iframe
-              width="350"
-              height="230"
-              src="https://www.youtube.com/embed/4uU9lZ-HSqA"
-              title="YouTube video player"
-              frameBorder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              allowFullScreen
+          <References>
+            <References.Element
+              href="https://www.youtube.com/embed/4uU9lZ-HSqA"
+              title="The Coding Train - Maurer Rose"
             />
-            <p>
-              <a
-                href="https://en.wikipedia.org/wiki/Maurer_rose"
-                target="_blank"
-                rel="noreferrer"
-              >
-                Wikipedia - Maurer Rose
-              </a>
-            </p>
-          </div>
+            <References.Element
+              href="https://en.wikipedia.org/wiki/Maurer_rose"
+              title="Wikipedia - Maurer Rose"
+            />
+          </References>
         </SlidingPanel.Content>
       </SlidingPanel>
-      <SketchContainer ref={ref as any} id="parent" />
+      <SketchContainer ref={ref as never} id="parent" />
     </>
   );
 }

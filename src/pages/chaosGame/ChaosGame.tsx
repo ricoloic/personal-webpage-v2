@@ -9,7 +9,7 @@ import SlidingPanel from '../../components/slidingPanel';
 import { useApp } from '../../context/AppContext';
 import Checkbox from '../../components/checkbox';
 import Range from '../../components/range';
-import { H3 } from '../../components/typography';
+import References from '../../components/references';
 
 export default function ChaosGame() {
   const { isEditing, setIsEditing, setEdit } = useApp();
@@ -94,39 +94,19 @@ export default function ChaosGame() {
           <div>
             <hr />
           </div>
-          <div>
-            <H3>References</H3>
-            <p>
-              <a
-                href="https://www.youtube.com/embed/EpgB3cNhKPM"
-                target="_blank"
-                rel="noreferrer"
-              >
-                The Coding Train - Gravitational Attraction
-              </a>
-            </p>
-            <iframe
-              width="350"
-              height="230"
-              src="https://www.youtube.com/embed/7gNzMtYo9n4"
-              title="YouTube video player"
-              frameBorder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              allowFullScreen
+          <References>
+            <References.Element
+              href="https://www.youtube.com/embed/EpgB3cNhKPM"
+              title="The Coding Train - Gravitational Attraction"
             />
-            <p>
-              <a
-                href="https://en.wikipedia.org/wiki/Chaos_game"
-                target="_blank"
-                rel="noreferrer"
-              >
-                Wikipedia - Chaos Game
-              </a>
-            </p>
-          </div>
+            <References.Element
+              href="https://en.wikipedia.org/wiki/Chaos_game"
+              title="Wikipedia - Chaos Game"
+            />
+          </References>
         </SlidingPanel.Content>
       </SlidingPanel>
-      <SketchContainer ref={ref as any} id="parent" />
+      <SketchContainer ref={ref as never} id="parent" />
     </>
   );
 }

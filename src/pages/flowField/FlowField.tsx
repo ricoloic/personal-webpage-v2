@@ -13,6 +13,7 @@ import Icon from '../../components/icons';
 import Checkbox from '../../components/checkbox';
 import { COLOR_OPTIONS, ColorOptionsKeys } from './sketch/colorOptions';
 import Range from '../../components/range';
+import References from '../../components/references';
 
 export default function FlowField() {
   const { isEditing, setIsEditing, setEdit } = useApp();
@@ -136,38 +137,19 @@ export default function FlowField() {
           <div>
             <hr />
           </div>
-          <div>
-            <p>
-              <a
-                href="https://www.youtube.com/embed/BjoM9oKOAKY"
-                target="_blank"
-                rel="noreferrer"
-              >
-                The Coding Train - Flow Field
-              </a>
-            </p>
-            <iframe
-              width="350"
-              height="230"
-              src="https://www.youtube.com/embed/BjoM9oKOAKY"
-              title="YouTube video player"
-              frameBorder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              allowFullScreen
+          <References>
+            <References.Element
+              href="https://www.youtube.com/embed/BjoM9oKOAKY"
+              title="The Coding Train - Flow Field"
             />
-            <p>
-              <a
-                href="https://en.wikipedia.org/wiki/Perlin_noise"
-                target="_blank"
-                rel="noreferrer"
-              >
-                Wikipedia - Perlin Noise
-              </a>
-            </p>
-          </div>
+            <References.Element
+              href="https://en.wikipedia.org/wiki/Perlin_noise"
+              title="Wikipedia - Perlin Noise"
+            />
+          </References>
         </SlidingPanel.Content>
       </SlidingPanel>
-      <SketchContainer ref={ref as any} id="parent" />
+      <SketchContainer ref={ref as never} id="parent" />
     </>
   );
 }

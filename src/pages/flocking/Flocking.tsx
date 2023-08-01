@@ -7,7 +7,7 @@ import COLORS from '../../constants/colors';
 import SlidingPanel from '../../components/slidingPanel';
 import { useApp } from '../../context/AppContext';
 import Checkbox from '../../components/checkbox';
-import { H3 } from '../../components/typography';
+import References from '../../components/references';
 
 export default function Flocking() {
   const { isEditing, setIsEditing, setEdit } = useApp();
@@ -117,66 +117,31 @@ export default function Flocking() {
           <div>
             <hr />
           </div>
-          <div>
-            <H3>References</H3>
-            <p>
-              <a
-                href="https://www.youtube.com/embed/mhjuuHl6qHM"
-                target="_blank"
-                rel="noreferrer"
-              >
-                The Coding Train - Flocking Simulation
-              </a>
-            </p>
-            <iframe
-              width="350"
-              height="230"
-              src="https://www.youtube.com/embed/mhjuuHl6qHM"
-              title="YouTube video player"
-              frameBorder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              allowFullScreen
+          <References>
+            <References.Element
+              href="https://www.youtube.com/embed/bqtqltqcQhw"
+              title="Sebastian Lague - Boids"
             />
-            <p>
-              <a
-                href="https://en.wikipedia.org/wiki/Boids"
-                target="_blank"
-                rel="noreferrer"
-              >
-                Wikipedia - Boids
-              </a>
-            </p>
-            <p>
-              <a
-                href="https://www.youtube.com/embed/OJxEcs0w_kE"
-                target="_blank"
-                rel="noreferrer"
-              >
-                The Coding Train - Quadtree
-              </a>
-            </p>
-            <iframe
-              width="350"
-              height="230"
-              src="https://www.youtube.com/embed/OJxEcs0w_kE"
-              title="YouTube video player"
-              frameBorder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              allowFullScreen
+            <References.Element
+              href="https://www.youtube.com/embed/mhjuuHl6qHM"
+              title="The Coding Train - Flocking Simulation"
             />
-            <p>
-              <a
-                href="https://en.wikipedia.org/wiki/Quadtree"
-                target="_blank"
-                rel="noreferrer"
-              >
-                Wikipedia - Quadtree
-              </a>
-            </p>
-          </div>
+            <References.Element
+              href="https://www.youtube.com/embed/OJxEcs0w_kE"
+              title="The Coding Train - Quadtree"
+            />
+            <References.Element
+              href="https://en.wikipedia.org/wiki/Boids"
+              title="Wikipedia - Boids"
+            />
+            <References.Element
+              href="https://en.wikipedia.org/wiki/Quadtree"
+              title="Wikipedia - Quadtree"
+            />
+          </References>
         </SlidingPanel.Content>
       </SlidingPanel>
-      <SketchContainer ref={ref as any} id="parent" />
+      <SketchContainer ref={ref as never} id="parent" />
     </>
   );
 }
