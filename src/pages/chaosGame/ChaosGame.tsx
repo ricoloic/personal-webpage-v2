@@ -96,8 +96,8 @@ export default function ChaosGame() {
           </div>
           <References>
             <References.Element
-              href="https://www.youtube.com/embed/EpgB3cNhKPM"
-              title="The Coding Train - Gravitational Attraction"
+              href="https://www.youtube.com/embed/7gNzMtYo9n4"
+              title="The Coding Train - Chaos Game"
             />
             <References.Element
               href="https://en.wikipedia.org/wiki/Chaos_game"
