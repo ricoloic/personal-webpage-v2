@@ -48,7 +48,10 @@ export const CardWrapper = styled(Link)`
   }
 `;
 
-export const SketchCardWrapper = styled(Link)<{ $imageUrl: string }>`
+export const SketchCardWrapper = styled(Link)<{
+  $imageUrl: string;
+  $gifUrl?: string;
+}>`
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -62,6 +65,9 @@ export const SketchCardWrapper = styled(Link)<{ $imageUrl: string }>`
   transition: all 0.15s ease-in-out;
 
   &:hover {
+    ${({ $gifUrl }) =>
+      $gifUrl ? `background-image: url(${$gifUrl});` : undefined}
+
     box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.75);
     transform: scale(0.95);
     transition: all 0.15s ease-in-out;
