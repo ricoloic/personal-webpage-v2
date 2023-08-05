@@ -8,13 +8,13 @@ export const Button = styled.button`
   gap: 10px;
   font-size: 18px;
   line-height: 10px;
-  padding: 5px 10px;
-  background-color: ${COLORS.white};
-  color: ${COLORS.black};
+  background-color: transparent;
+  color: ${COLORS.white};
+  border: ${COLORS.white} 3px solid;
   transition: 0.1s;
   cursor: pointer;
-  &:hover * {
-    transform: scale(1.05);
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.1);
   }
   div {
     user-select: none;

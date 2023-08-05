@@ -3,7 +3,6 @@ import { useClickAway } from 'react-use';
 import { CssSize, Children, Colors } from '../../types';
 import {
   Wrapper,
-  CloseContainer,
   ContentContainer,
   WrapperContent,
 } from './SlidingPanel.styles';
@@ -60,9 +59,9 @@ function SlidingPanel({
       overflow={overflow ?? 'hidden'}
     >
       <WrapperContent>
-        <CloseContainer>
+        <div>
           <Icon name="carbon:close-outline" onClick={onClose} fontSize="5xl" />
-        </CloseContainer>
+        </div>
         {children}
       </WrapperContent>
     </Wrapper>

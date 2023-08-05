@@ -122,6 +122,7 @@ const sketch = (args: Args, height: number) =>
       for (let i = 0; i < points.length; i += 1) {
         if (points[i].mouseHover()) {
           points[i].isSelected = true;
+          break;
         }
       }
     };

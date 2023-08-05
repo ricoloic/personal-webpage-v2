@@ -2,6 +2,7 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { H3 } from '../typography';
 import { Children } from '../../types';
+import ReferencesWrapper from './References.styles';
 
 interface ElementProps {
   title: Children;
@@ -10,11 +11,11 @@ interface ElementProps {
 
 function Element({ href, title }: ElementProps) {
   return (
-    <p>
+    <div>
       <a href={href} target="_blank" rel="noreferrer">
         {title}
       </a>
-    </p>
+    </div>
   );
 }
 
@@ -25,10 +26,10 @@ interface Props {
 function References({ children }: Props) {
   const { t } = useTranslation('general');
   return (
-    <div>
+    <ReferencesWrapper>
       <H3>{t('references')}</H3>
       {children}
-    </div>
+    </ReferencesWrapper>
   );
 }
 
