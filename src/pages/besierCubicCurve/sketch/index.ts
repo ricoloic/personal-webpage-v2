@@ -151,10 +151,6 @@ const sketch = (args: Args, height: number) =>
         points[i].isSelected = false;
       }
     };
-
-    p5.keyPressed = () => {
-      p5.saveGif('besier-cubic-curve-gif', 5, {});
-    };
   });
 
 export default sketch;
