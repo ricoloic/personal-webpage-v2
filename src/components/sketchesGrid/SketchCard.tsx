@@ -6,11 +6,12 @@ interface Props {
   children: Children;
   to: string;
   imageUrl: string;
+  gifUrl?: string;
 }
 
-function SketchCard({ children, to, imageUrl }: Props) {
+function SketchCard({ children, to, imageUrl, gifUrl }: Props) {
   return (
-    <SketchCardWrapper to={to} $imageUrl={imageUrl}>
+    <SketchCardWrapper to={to} $imageUrl={imageUrl} $gifUrl={gifUrl}>
       <p>{children}</p>
     </SketchCardWrapper>
   );
