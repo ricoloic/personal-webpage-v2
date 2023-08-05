@@ -4,7 +4,6 @@ import P5 from 'p5';
 export type Args = {
   petalAmount: number;
   degrees: number;
-  center: P5.Vector;
   colorHighlight: boolean;
   size: number;
   darkMode: boolean;
@@ -13,7 +12,6 @@ export type Args = {
 export const defaultArgs: Args = {
   petalAmount: 2,
   degrees: 29,
-  center: new P5.Vector(0, 0),
   colorHighlight: true,
   size: 0,
   darkMode: true,
@@ -21,11 +19,13 @@ export const defaultArgs: Args = {
 
 const sketch = (args: Args, height: number) =>
   new P5((p5: P5) => {
+    const center = p5.createVector();
+
     p5.setup = () => {
       p5.createCanvas(window.innerWidth, height).parent('parent');
       const minSize = p5.width <= p5.height ? p5.width : p5.height;
       args.size = (minSize - minSize / 50) / 2;
-      args.center.set(p5.width / 2, p5.height / 2);
+      center.set(p5.width / 2, p5.height / 2);
       p5.angleMode(p5.DEGREES);
       p5.strokeWeight(2);
       p5.noFill();
@@ -33,10 +33,11 @@ const sketch = (args: Args, height: number) =>
 
     p5.windowResized = () => {
       p5.resizeCanvas(p5.windowWidth, height);
+      center.set(p5.width / 2, p5.height / 2);
     };
 
     p5.draw = () => {
-      p5.translate(args.center.x, args.center.y);
+      p5.translate(center.x, center.y);
       p5.background(args.darkMode ? 30 : 250);
       p5.stroke(args.darkMode ? 250 : 30);
       p5.strokeWeight(1);

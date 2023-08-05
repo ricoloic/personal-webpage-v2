@@ -1,9 +1,10 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import P5 from 'p5';
+import ReactHighlightSyntax from 'react-highlight-syntax';
 import SketchContainer from '../../components/sketchContainer';
 import sketch, { Args, defaultArgs } from './sketch';
-import SlidingPanel from '../../components/slidingPanel';
+import SlidingPanel, { PageSlidingPanel } from '../../components/slidingPanel';
 import COLORS from '../../constants/colors';
 import Checkbox from '../../components/checkbox';
 import { useApp } from '../../context/AppContext';
@@ -11,15 +12,28 @@ import Range from '../../components/range';
 import Button from '../../components/button';
 import Icon from '../../components/icons';
 import References from '../../components/references';
+import queryFileContent from '../../utils/queryFileContent';
+import ViewCodeButton from '../../components/button/ViewCodeButton';
 
 export default function ChaosGame() {
   const { isEditing, setIsEditing, setEdit } = useApp();
   const { t } = useTranslation('caveGeneration');
 
+  const [code, setCode] = useState('');
+  const [openCode, setOpenCode] = useState(false);
   const ref = useRef<HTMLDivElement>();
-
   const activeSketch = useRef<P5>();
   const args = useRef<Args>(defaultArgs);
+
+  const handleOpenViewCode = () => {
+    setOpenCode(true);
+    setIsEditing(false);
+  };
+
+  const handleCloseViewCode = () => {
+    setOpenCode(false);
+    setIsEditing(true);
+  };
 
   const refresh = () => {
     activeSketch.current?.remove();
@@ -60,6 +74,19 @@ export default function ChaosGame() {
     setEdit(() => true);
     activeSketch.current = newSketch;
 
+    queryFileContent('caveGeneration/sketch/index.ts')
+      .then((codeContent) => {
+        setCode(codeContent);
+        return queryFileContent('caveGeneration/sketch/mapGenerator.ts');
+      })
+      .then((codeContent) => {
+        setCode((previousContent) => `${previousContent}\n\n${codeContent}`);
+        return queryFileContent('caveGeneration/sketch/meshGenerator.ts');
+      })
+      .then((codeContent) =>
+        setCode((previousContent) => `${previousContent}\n\n${codeContent}`)
+      );
+
     return () => {
       setEdit(() => false);
       newSketch.remove();
@@ -69,6 +96,14 @@ export default function ChaosGame() {
 
   return (
     <>
+      <PageSlidingPanel open={openCode} onClose={handleCloseViewCode}>
+        <ReactHighlightSyntax
+          theme="AtomOneDarkReasonable"
+          language="TypeScript"
+        >
+          {code}
+        </ReactHighlightSyntax>
+      </PageSlidingPanel>
       <SlidingPanel
         backgroundColor={COLORS.gray1000}
         open={isEditing}
@@ -79,7 +114,7 @@ export default function ChaosGame() {
       >
         <SlidingPanel.Content $gap="10px">
           <Button
-            icon={<Icon name="carbon:renew" />}
+            icon={<Icon name="carbon:renew" fontSize="2xl" />}
             name="refresh"
             onClick={handleRefreshClick}
           >
@@ -129,6 +164,10 @@ export default function ChaosGame() {
               title="Wikipedia - Marching Squares"
             />
           </References>
+          <div>
+            <hr />
+          </div>
+          <ViewCodeButton onClick={handleOpenViewCode} />
         </SlidingPanel.Content>
       </SlidingPanel>
       <SketchContainer ref={ref as never} id="parent" />

@@ -33,12 +33,6 @@ export const WrapperContent = styled.div`
   overflow-y: auto;
 `;
 
-export const CloseContainer = styled.div`
-  padding-top: 4px;
-  padding-bottom: 4px;
-  padding-left: 4px;
-`;
-
 export const ContentContainer = styled.div<{ $gap?: CssSize }>`
   display: flex;
   flex-direction: column;
@@ -46,4 +40,4 @@ export const ContentContainer = styled.div<{ $gap?: CssSize }>`
   padding: 20px;
 `;
 
-export default { Wrapper, CloseContainer, ContentContainer, WrapperContent };
+export default { Wrapper, ContentContainer, WrapperContent };

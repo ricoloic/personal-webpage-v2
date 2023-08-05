@@ -41,5 +41,8 @@
         "chaosGame": "Chaos Game",
         "maurerRose": "Maurer Rose",
         "pong": "Pong"
+    },
+    "buttons": {
+        "viewCode": "View Code"
     }
 }

@@ -1,21 +1,35 @@
 import * as React from 'react';
 import { useTranslation } from 'react-i18next';
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
+import ReactHighlightSyntax from 'react-highlight-syntax';
 import SketchContainer from '../../components/sketchContainer';
 import sketch, { Args, defaultArgs } from './sketch';
 import COLORS from '../../constants/colors';
-import SlidingPanel from '../../components/slidingPanel';
+import SlidingPanel, { PageSlidingPanel } from '../../components/slidingPanel';
 import { useApp } from '../../context/AppContext';
 import Checkbox from '../../components/checkbox';
 import References from '../../components/references';
+import queryFileContent from '../../utils/queryFileContent';
+import ViewCodeButton from '../../components/button/ViewCodeButton';
 
 export default function BesierQuadraticCurve() {
   const { isEditing, setIsEditing, setEdit } = useApp();
   const { t } = useTranslation('besierQuadraticCurve');
 
+  const [code, setCode] = useState('');
+  const [openCode, setOpenCode] = useState(false);
   const ref = useRef<HTMLDivElement>();
-
   const args = useRef<Args>(defaultArgs);
+
+  const handleOpenViewCode = () => {
+    setOpenCode(true);
+    setIsEditing(false);
+  };
+
+  const handleCloseViewCode = () => {
+    setOpenCode(false);
+    setIsEditing(true);
+  };
 
   const handleCloseEditing = () => {
     setIsEditing(false);
@@ -34,6 +48,15 @@ export default function BesierQuadraticCurve() {
 
     setEdit(() => true);
 
+    queryFileContent('besierQuadraticCurve/sketch/index.ts')
+      .then((codeContent) => {
+        setCode(codeContent);
+        return queryFileContent('besierQuadraticCurve/sketch/point.ts');
+      })
+      .then((codeContent) =>
+        setCode((previousContent) => `${previousContent}\n\n${codeContent}`)
+      );
+
     return () => {
       setEdit(() => false);
       newSketch.remove();
@@ -42,6 +65,14 @@ export default function BesierQuadraticCurve() {
 
   return (
     <>
+      <PageSlidingPanel open={openCode} onClose={handleCloseViewCode}>
+        <ReactHighlightSyntax
+          theme="AtomOneDarkReasonable"
+          language="TypeScript"
+        >
+          {code}
+        </ReactHighlightSyntax>
+      </PageSlidingPanel>
       <SlidingPanel
         backgroundColor={COLORS.gray1000}
         open={isEditing}
@@ -72,6 +103,10 @@ export default function BesierQuadraticCurve() {
               title="Wikipedia - Bézier Curve"
             />
           </References>
+          <div>
+            <hr />
+          </div>
+          <ViewCodeButton onClick={handleOpenViewCode} />
         </SlidingPanel.Content>
       </SlidingPanel>
       <SketchContainer ref={ref as never} id="parent" />
