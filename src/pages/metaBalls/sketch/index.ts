@@ -17,7 +17,7 @@ export const defaultArgs: Args = {
 
 const sketch = (args: Args, height: number) =>
   new P5((p5: P5) => {
-    const scale = 8;
+    const scale = 18;
     let cols: number;
     let rows: number;
     const balls: Ball[] = [];
@@ -25,8 +25,8 @@ const sketch = (args: Args, height: number) =>
 
     p5.setup = () => {
       p5.createCanvas(window.innerWidth, height).parent('parent');
-      cols = p5.ceil(p5.width / scale);
-      rows = p5.ceil(p5.height / scale);
+      cols = p5.ceil(p5.width / scale + 1);
+      rows = p5.ceil(p5.height / scale + 1);
       for (let i = 0; i < args.ballAmount; i += 1) {
         balls.push(new Ball(p5, scale));
       }
@@ -35,12 +35,14 @@ const sketch = (args: Args, height: number) =>
 
     p5.windowResized = () => {
       p5.resizeCanvas(p5.windowWidth, height);
+      cols = p5.ceil(p5.width / scale + 1);
+      rows = p5.ceil(p5.height / scale + 1);
     };
 
     p5.draw = () => {
-      if (args.ballAmount > balls.length) {
+      if (args.ballAmount < balls.length) {
         balls.splice(0, 1);
-      } else if (args.ballAmount < balls.length) {
+      } else if (args.ballAmount > balls.length) {
         balls.push(new Ball(p5, scale));
       }
       p5.background(args.darkMode ? 30 : 250);
@@ -67,11 +69,8 @@ const sketch = (args: Args, height: number) =>
         }
       }
 
-      p5.push();
-      p5.translate(center.x, center.y);
-      const meshGenerator = new MeshGenerator(map, scale);
-      meshGenerator.show(p5, args.darkMode);
-      p5.pop();
+      const meshGenerator = new MeshGenerator(p5, map, scale);
+      meshGenerator.show(args.darkMode);
 
       for (let i = 0; i < balls.length; i += 1) {
         balls[i].update();
