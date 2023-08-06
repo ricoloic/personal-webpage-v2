@@ -24,6 +24,8 @@ import besierCubicCurveGif from '../../assets/gifs/besier-cubic-curve-gif.gif';
 import blackHolePreview from '../../assets/previews/black-hole-preview.png';
 import blackHoleGif from '../../assets/gifs/black-hole-gif.gif';
 import pongPreview from '../../assets/previews/pong-preview.png';
+import metaBallsPreview from '../../assets/previews/meta-balls-preview.png';
+import metaBallsGif from '../../assets/gifs/meta-balls-gif.gif';
 
 export default function SketchesMenu() {
   const { t } = useTranslation('general');
@@ -88,6 +90,13 @@ export default function SketchesMenu() {
         gifUrl={flowFieldGif}
       >
         {t('sketches.flowField')}
+      </SketchCard>
+      <SketchCard
+        to={ROUTES.metaBalls}
+        imageUrl={metaBallsPreview}
+        gifUrl={metaBallsGif}
+      >
+        {t('sketches.metaBalls')}
       </SketchCard>
       <SketchCard to={ROUTES.pong} imageUrl={pongPreview}>
         {t('sketches.pong')}

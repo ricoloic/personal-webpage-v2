@@ -16,6 +16,7 @@ import timesTable from './locales/en/timesTable.json';
 import chaosGame from './locales/en/chaosGame.json';
 import pong from './locales/en/pong.json';
 import maurerRose from './locales/en/maurerRose.json';
+import metaBalls from './locales/en/metaBalls.json';
 
 export const defaultNS = 'general';
 export const resources = {
@@ -28,6 +29,7 @@ export const resources = {
     besierCubicCurve,
     caveGeneration,
     flocking,
+    metaBalls,
     mouseFollow,
     mouseConfetti,
     flowField,

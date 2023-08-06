@@ -27,6 +27,7 @@ const FlowField = lazy(() => import('../pages/flowField'));
 const CircularMotion = lazy(() => import('../pages/circularMotion'));
 const ChaosGame = lazy(() => import('../pages/chaosGame'));
 const MaurerRose = lazy(() => import('../pages/maurerRose'));
+const MetaBalls = lazy(() => import('../pages/metaBalls'));
 
 function Router() {
   return (
@@ -126,6 +127,14 @@ function Router() {
             element={
               <Suspense fallback={<Loading />}>
                 <Pong />
+              </Suspense>
+            }
+          />
+          <Route
+            path={`${ROUTES.metaBalls}/*`}
+            element={
+              <Suspense fallback={<Loading />}>
+                <MetaBalls />
               </Suspense>
             }
           />
