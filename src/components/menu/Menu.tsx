@@ -25,6 +25,7 @@ const sketches = (
     'timesTable',
     'chaosGame',
     'maurerRose',
+    'metaBalls',
   ] as PagesKeys[]
 ).sort();
 
