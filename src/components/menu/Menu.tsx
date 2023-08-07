@@ -26,6 +26,7 @@ const sketches = (
     'chaosGame',
     'maurerRose',
     'metaBalls',
+    'rayCasting',
   ] as PagesKeys[]
 ).sort();
 

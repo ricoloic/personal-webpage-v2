@@ -23,6 +23,7 @@ const ROUTES = {
   chaosGame: `${SKETCH_PATH}/chaos-game`,
   maurerRose: `${SKETCH_PATH}/maurer-rose`,
   metaBalls: `${SKETCH_PATH}/meta-balls`,
+  rayCasting: `${SKETCH_PATH}/ray-casting`,
   pong: `${SKETCH_PATH}/pong`,
 } as const;
 

@@ -9,6 +9,8 @@ import circularMotionPreview from '../../assets/previews/circular-motion-preview
 import mouseFollowGif from '../../assets/gifs/mouse-follow-gif.gif';
 import mouseConfettiGif from '../../assets/gifs/mouse-confetti-gif.gif';
 import circularMotionGif from '../../assets/gifs/circular-motion-gif.gif';
+import rayCastingPreview from '../../assets/previews/ray-casting-preview.png';
+import rayCastingGif from '../../assets/gifs/ray-casting-gif.gif';
 
 export default function SketchesMouseMovement() {
   const { t } = useTranslation('general');
@@ -22,6 +24,13 @@ export default function SketchesMouseMovement() {
           gifUrl={mouseFollowGif}
         >
           {t('sketches.mouseFollow')}
+        </SketchCard>
+        <SketchCard
+          to={ROUTES.rayCasting}
+          imageUrl={rayCastingPreview}
+          gifUrl={rayCastingGif}
+        >
+          {t('sketches.rayCasting')}
         </SketchCard>
         <SketchCard
           to={ROUTES.mouseConfetti}

@@ -17,6 +17,7 @@ import chaosGame from './locales/en/chaosGame.json';
 import pong from './locales/en/pong.json';
 import maurerRose from './locales/en/maurerRose.json';
 import metaBalls from './locales/en/metaBalls.json';
+import rayCasting from './locales/en/rayCasting.json';
 
 export const defaultNS = 'general';
 export const resources = {
@@ -37,6 +38,7 @@ export const resources = {
     timesTable,
     chaosGame,
     maurerRose,
+    rayCasting,
   },
 } as const;
 export const namespaces = [
@@ -48,6 +50,7 @@ export const namespaces = [
   'besierCubicCurve',
   'caveGeneration',
   'flocking',
+  'metaBalls',
   'mouseFollow',
   'mouseConfetti',
   'flowField',
@@ -55,6 +58,7 @@ export const namespaces = [
   'timesTable',
   'chaosGame',
   'maurerRose',
+  'rayCasting',
 ];
 
 i18n.use(initReactI18next).init({

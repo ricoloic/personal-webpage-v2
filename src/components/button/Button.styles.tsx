@@ -7,6 +7,7 @@ export const Button = styled.button`
   align-items: center;
   gap: 10px;
   font-size: 18px;
+  padding: 10px;
   line-height: 10px;
   background-color: transparent;
   color: ${COLORS.white};

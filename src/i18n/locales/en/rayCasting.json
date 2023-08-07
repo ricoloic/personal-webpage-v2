@@ -1,0 +1,11 @@
+{
+    "inputs": {
+        "darkMode": "Dark Mode",
+        "editing": "Edit Mode",
+        "autoMove": "Automatic Movement",
+        "snapNode": "Snap Node",
+        "showCasting": "Show Casting Rays",
+        "showBackground": "Show Casting Background",
+        "addBoundary": "+{{pointAmount}} Boundary"
+    }
+}
