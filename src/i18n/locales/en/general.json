@@ -26,7 +26,8 @@
         "timesTable": "Times Table",
         "chaosGame": "Chaos Game",
         "maurerRose": "Maurer Rose",
-        "pong": "Pong"
+        "pong": "Pong",
+        "rayCasting": "Ray Casting"
     },
     "sketches": {
         "blackHole": "Black Hole",
@@ -42,7 +43,8 @@
         "timesTable": "Times Table",
         "chaosGame": "Chaos Game",
         "maurerRose": "Maurer Rose",
-        "pong": "Pong"
+        "pong": "Pong",
+        "rayCasting": "Ray Casting"
     },
     "buttons": {
         "viewCode": "View Code"

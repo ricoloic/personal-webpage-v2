@@ -20,6 +20,7 @@ export const PAGES = {
   timesTable: 'timesTable',
   maurerRose: 'maurerRose',
   pong: 'pong',
+  rayCasting: 'rayCasting',
 } as const;
 
 export default PAGES;

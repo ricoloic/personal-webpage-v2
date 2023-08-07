@@ -26,6 +26,8 @@ import blackHoleGif from '../../assets/gifs/black-hole-gif.gif';
 import pongPreview from '../../assets/previews/pong-preview.png';
 import metaBallsPreview from '../../assets/previews/meta-balls-preview.png';
 import metaBallsGif from '../../assets/gifs/meta-balls-gif.gif';
+import rayCastingPreview from '../../assets/previews/ray-casting-preview.png';
+import rayCastingGif from '../../assets/gifs/ray-casting-gif.gif';
 
 export default function SketchesMenu() {
   const { t } = useTranslation('general');
@@ -43,6 +45,13 @@ export default function SketchesMenu() {
         gifUrl={mouseFollowGif}
       >
         {t('sketches.mouseFollow')}
+      </SketchCard>
+      <SketchCard
+        to={ROUTES.rayCasting}
+        imageUrl={rayCastingPreview}
+        gifUrl={rayCastingGif}
+      >
+        {t('sketches.rayCasting')}
       </SketchCard>
       <SketchCard
         to={ROUTES.mouseConfetti}
