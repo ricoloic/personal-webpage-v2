@@ -89,7 +89,6 @@ const sketch = (args: Args, height: number) =>
     };
 
     p5.mouseReleased = () => {
-      args.clicking = false;
       for (let i = args.boundaries.length; i > 0; i -= 1) {
         for (let j = args.boundaries[i - 1].points.length; j > 0; j -= 1) {
           args.boundaries[i - 1].points[j - 1].setMoving(false);
@@ -98,7 +97,6 @@ const sketch = (args: Args, height: number) =>
     };
 
     p5.mousePressed = () => {
-      args.clicking = true;
       for (let i = args.boundaries.length; i > 0; i -= 1) {
         for (let j = args.boundaries[i - 1].points.length; j > 0; j -= 1) {
           if (args.boundaries[i - 1].points[j - 1].hovering()) {
