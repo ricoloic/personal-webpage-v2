@@ -26,15 +26,17 @@ class CasterContainer {
     this.caster.castRays(lines);
   }
 
-  castBackground(lines: LineBoundary[]) {
-    this.caster.castBackground(lines);
-    for (let i = 0; i < this.shadows.length; i += 1) {
-      this.shadows[i].castBackground(lines);
-    }
+  castBackground(lines: LineBoundary[], color: number, displayShadow: boolean) {
+    this.caster.castBackground(lines, color);
+    if (displayShadow) {
+      for (let i = 0; i < this.shadows.length; i += 1) {
+        this.shadows[i].castBackground(lines, color, true);
+      }
 
-    this.caster.castPoint();
-    for (let i = 0; i < this.shadows.length; i += 1) {
-      this.shadows[i].castPoint();
+      this.caster.castPoint();
+      for (let i = 0; i < this.shadows.length; i += 1) {
+        this.shadows[i].castPoint();
+      }
     }
   }
 
@@ -49,3 +51,5 @@ class CasterContainer {
     }
   }
 }
+
+export default CasterContainer;

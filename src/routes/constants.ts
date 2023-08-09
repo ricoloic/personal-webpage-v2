@@ -25,6 +25,7 @@ const ROUTES = {
   metaBalls: `${SKETCH_PATH}/meta-balls`,
   rayCasting: `${SKETCH_PATH}/ray-casting`,
   pong: `${SKETCH_PATH}/pong`,
+  mazeGeneration: `${SKETCH_PATH}/maze-generation`,
 } as const;
 
 export default ROUTES;

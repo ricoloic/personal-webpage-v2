@@ -27,7 +27,8 @@
         "chaosGame": "Chaos Game",
         "maurerRose": "Maurer Rose",
         "pong": "Pong",
-        "rayCasting": "Ray Casting"
+        "rayCasting": "Ray Casting",
+        "mazeGeneration": "Maze Generation"
     },
     "sketches": {
         "blackHole": "Black Hole",
@@ -44,7 +45,8 @@
         "chaosGame": "Chaos Game",
         "maurerRose": "Maurer Rose",
         "pong": "Pong",
-        "rayCasting": "Ray Casting"
+        "rayCasting": "Ray Casting",
+        "mazeGeneration": "Maze Generation"
     },
     "buttons": {
         "viewCode": "View Code"

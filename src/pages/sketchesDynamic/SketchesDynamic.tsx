@@ -12,6 +12,8 @@ import flockingGif from '../../assets/gifs/flocking-gif.gif';
 import blackHoleGif from '../../assets/gifs/black-hole-gif.gif';
 import metaBallsPreview from '../../assets/previews/meta-balls-preview.png';
 import metaBallsGif from '../../assets/gifs/meta-balls-gif.gif';
+import mazeGenerationPreview from '../../assets/previews/maze-generation-preview.png';
+import mazeGenerationGif from '../../assets/gifs/maze-generation-gif.gif';
 
 export default function SketchesDynamic() {
   const { t } = useTranslation('general');
@@ -22,6 +24,13 @@ export default function SketchesDynamic() {
           to={ROUTES.flowField}
           imageUrl={flowFieldPreview}
           gifUrl={flowFieldGif}
+        >
+          {t('sketches.flowField')}
+        </SketchCard>
+        <SketchCard
+          to={ROUTES.mazeGeneration}
+          imageUrl={mazeGenerationPreview}
+          gifUrl={mazeGenerationGif}
         >
           {t('sketches.flowField')}
         </SketchCard>

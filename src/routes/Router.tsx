@@ -29,6 +29,7 @@ const ChaosGame = lazy(() => import('../pages/chaosGame'));
 const MaurerRose = lazy(() => import('../pages/maurerRose'));
 const MetaBalls = lazy(() => import('../pages/metaBalls'));
 const RayCasting = lazy(() => import('../pages/rayCasting'));
+const MazeGeneration = lazy(() => import('../pages/mazeGeneration'));
 
 function Router() {
   return (
@@ -120,6 +121,14 @@ function Router() {
             element={
               <Suspense fallback={<Loading />}>
                 <Flocking />
+              </Suspense>
+            }
+          />
+          <Route
+            path={`${ROUTES.mazeGeneration}/*`}
+            element={
+              <Suspense fallback={<Loading />}>
+                <MazeGeneration />
               </Suspense>
             }
           />
