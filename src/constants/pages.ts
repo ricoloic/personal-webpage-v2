@@ -21,6 +21,7 @@ export const PAGES = {
   maurerRose: 'maurerRose',
   pong: 'pong',
   rayCasting: 'rayCasting',
+  mazeGeneration: 'mazeGeneration',
 } as const;
 
 export default PAGES;

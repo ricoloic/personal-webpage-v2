@@ -18,6 +18,7 @@ import pong from './locales/en/pong.json';
 import maurerRose from './locales/en/maurerRose.json';
 import metaBalls from './locales/en/metaBalls.json';
 import rayCasting from './locales/en/rayCasting.json';
+import mazeGeneration from './locales/en/mazeGeneration.json';
 
 export const defaultNS = 'general';
 export const resources = {
@@ -39,6 +40,7 @@ export const resources = {
     chaosGame,
     maurerRose,
     rayCasting,
+    mazeGeneration,
   },
 } as const;
 export const namespaces = [
@@ -59,6 +61,7 @@ export const namespaces = [
   'chaosGame',
   'maurerRose',
   'rayCasting',
+  'mazeGeneration',
 ];
 
 i18n.use(initReactI18next).init({

@@ -1,10 +1,10 @@
 /* eslint-disable no-param-reassign */
 import P5 from 'p5';
-import Caster from './caster';
 import BoxBoundary from './boxBoundary';
 import Boundary from './boundary';
 import Point from './point';
 import LineBoundary from './lineBoundary';
+import CasterContainer from './casterContainer';
 
 export type Args = {
   editing: boolean;
@@ -13,6 +13,7 @@ export type Args = {
   casting: boolean;
   clicking: boolean;
   background: boolean;
+  displayShadow: boolean;
   boundaries: Boundary[];
   darkMode: boolean;
 };
@@ -24,6 +25,7 @@ export const defaultArgs: Args = {
   casting: true,
   clicking: false,
   background: true,
+  displayShadow: false,
   boundaries: [],
   darkMode: true,
 };
@@ -33,14 +35,14 @@ const sketch = (args: Args, height: number) =>
     const center = p5.createVector();
     let xoff = 0;
     let yoff = 1111;
-    let caster: Caster;
+    let caster: CasterContainer;
     let canvasBoundary: BoxBoundary;
 
     p5.setup = () => {
       p5.createCanvas(window.innerWidth, height).parent('parent');
       center.set(p5.width / 2, p5.height / 2);
       p5.noiseDetail(2, 0.7);
-      caster = new Caster(p5, p5.createVector(p5.mouseX, p5.mouseY));
+      caster = new CasterContainer(p5, p5.createVector(p5.mouseX, p5.mouseY));
       canvasBoundary = new BoxBoundary(
         p5,
         new Point(p5, 0, 0),
@@ -79,7 +81,8 @@ const sketch = (args: Args, height: number) =>
 
       if (!args.clicking) {
         const color = args.darkMode ? 250 : 30;
-        if (args.background) caster.castBackground(tempArray, color);
+        if (args.background)
+          caster.castBackground(tempArray, color, args.displayShadow);
         if (args.casting) caster.castRays(tempArray);
       }
 

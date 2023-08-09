@@ -28,6 +28,8 @@ import metaBallsPreview from '../../assets/previews/meta-balls-preview.png';
 import metaBallsGif from '../../assets/gifs/meta-balls-gif.gif';
 import rayCastingPreview from '../../assets/previews/ray-casting-preview.png';
 import rayCastingGif from '../../assets/gifs/ray-casting-gif.gif';
+import mazeGenerationPreview from '../../assets/previews/maze-generation-preview.png';
+import mazeGenerationGif from '../../assets/gifs/maze-generation-gif.gif';
 
 export default function SketchesMenu() {
   const { t } = useTranslation('general');
@@ -97,6 +99,13 @@ export default function SketchesMenu() {
         to={ROUTES.flowField}
         imageUrl={flowFieldPreview}
         gifUrl={flowFieldGif}
+      >
+        {t('sketches.flowField')}
+      </SketchCard>
+      <SketchCard
+        to={ROUTES.mazeGeneration}
+        imageUrl={mazeGenerationPreview}
+        gifUrl={mazeGenerationGif}
       >
         {t('sketches.flowField')}
       </SketchCard>

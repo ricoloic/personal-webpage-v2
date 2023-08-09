@@ -60,14 +60,15 @@ class Caster {
 
   castBackground(
     lines: LineBoundary[],
-    color: number = this.rayBackGroundColor
+    color = this.rayBackGroundColor,
+    alfa = false
   ) {
     const rays = this.makeRays(lines);
     const foundIntersections = this.findIntersections(rays, lines);
 
     foundIntersections.sort((a, b) => a.getAngle() - b.getAngle());
     this.p5.noStroke();
-    this.p5.fill(color);
+    this.p5.fill(color, alfa ? 50 : 255);
     this.p5.beginShape();
     for (let i = 0; i < foundIntersections.length; i += 1) {
       const pa = foundIntersections[i];
