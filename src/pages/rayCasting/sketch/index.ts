@@ -22,10 +22,10 @@ export const defaultArgs: Args = {
   editing: false,
   autoMove: false,
   snapNode: false,
-  casting: true,
+  casting: false,
   clicking: false,
   background: true,
-  displayShadow: false,
+  displayShadow: true,
   boundaries: [],
   darkMode: true,
 };
