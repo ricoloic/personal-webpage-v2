@@ -4,7 +4,6 @@ import P5 from 'p5';
 import SketchContainer from '../../components/sketchContainer';
 import sketch, { Args, defaultArgs } from './sketch';
 import SlidingPanel from '../../components/slidingPanel';
-import COLORS from '../../constants/colors';
 import Checkbox from '../../components/checkbox';
 import { useApp } from '../../context/AppContext';
 import Button from '../../components/button';
@@ -52,7 +51,6 @@ export default function ChaosGame() {
   return (
     <>
       <SlidingPanel
-        backgroundColor={COLORS.gray1000}
         open={isEditing}
         width="400px"
         side="right"

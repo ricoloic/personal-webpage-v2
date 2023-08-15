@@ -3,14 +3,13 @@ import { Outlet } from 'react-router-dom';
 import styled from 'styled-components';
 import Menu from './components/menu/Menu';
 import Header from './components/header';
-import COLORS from './constants/colors';
 
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   flex: 1;
   overflow-y: auto;
-  background-color: ${COLORS.gray100};
+  background-color: ${({ theme }) => theme.white};
 `;
 
 function AppLayout() {

@@ -32,8 +32,8 @@ export type CssMargin =
   | `${CssSize} ${CssSize} ${CssSize} ${CssSize}`;
 export type CssWrap = 'nowrap' | 'wrap' | 'wrap-reverse';
 
-export type ColorsKeys = keyof typeof COLORS;
-export type Colors = (typeof COLORS)[ColorsKeys];
+export type ColorsKeys = keyof typeof COLORS.light;
+export type Colors = string;
 
 export type FontWeightsKeys = keyof typeof FONT_WEIGHT;
 export type FontWeights = (typeof FONT_WEIGHT)[FontWeightsKeys];

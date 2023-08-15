@@ -37,7 +37,7 @@ interface Props {
 }
 
 function Menu({ open, onClose }: Props) {
-  const { page } = useApp();
+  const { page, theme } = useApp();
   const navigate = useNavigate();
 
   const handlePageChange = (pageKey: RoutesKeys) => () => {
@@ -46,7 +46,7 @@ function Menu({ open, onClose }: Props) {
 
   return (
     <SlidingPanel
-      backgroundColor={COLORS.gray1000}
+      backgroundColor={COLORS[theme].black}
       open={open}
       width="320px"
       side="left"
@@ -54,7 +54,7 @@ function Menu({ open, onClose }: Props) {
       onClose={onClose}
     >
       <Scroll>
-        <List color={COLORS.white}>
+        <List color={COLORS[theme].white}>
           <MenuLink page="home" currentPage={page} onClick={handlePageChange} />
           <MenuLink
             page="sketches"

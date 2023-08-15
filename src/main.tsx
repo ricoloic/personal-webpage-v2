@@ -8,6 +8,14 @@ if (import.meta.env.PROD) {
   inject();
 }
 
+declare global {
+  interface Window {
+    DARK_MODE: boolean;
+  }
+}
+
+window.DARK_MODE = localStorage.getItem('theme') === 'dark';
+
 const container: HTMLElement = document.getElementById('root') as HTMLElement;
 const root = createRoot(container);
 

@@ -1,6 +1,5 @@
 import styled from 'styled-components';
-import { Colors, CssSize } from '../../types';
-import COLORS from '../../constants/colors';
+import { CssSize } from '../../types';
 
 export const Wrapper = styled.div<{
   $open?: boolean;
@@ -9,7 +8,6 @@ export const Wrapper = styled.div<{
   width: CssSize;
   transform: string;
   overflow?: string;
-  $background: Colors;
 }>`
   position: fixed;
   top: 0;
@@ -18,7 +16,7 @@ export const Wrapper = styled.div<{
   left: ${({ $left = undefined }) => $left};
   width: ${({ width }) => `min(${width}, 100%)`};
   transform: ${({ transform }) => transform};
-  background: ${({ $background }) => $background};
+  background: ${({ theme }) => theme.white};
   transition: 0.3s ease-out;
   overflow: ${({ overflow = undefined }) => overflow};
   z-index: 999;
@@ -29,7 +27,10 @@ export const WrapperContent = styled.div`
   display: flex;
   flex-direction: column;
   height: 100%;
-  color: ${COLORS.white};
+  color: ${({ theme }) => theme.black};
+  * {
+    color: ${({ theme }) => theme.black};
+  }
   overflow-y: auto;
 `;
 

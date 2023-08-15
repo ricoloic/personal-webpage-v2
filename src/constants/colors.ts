@@ -1,11 +1,20 @@
-export const COLORS = {
-  white: '#FFFFFF',
+const DEFAULT_THEME = {
+  white: '#EFF2F5',
   black: '#333333',
-  gray100: '#EFF2F5',
-  gray800: '#2e3f52',
-  gray900: '#7a858f',
-  gray1000: '#212529',
   red100: '#FCEDEE',
+};
+
+export const COLORS = {
+  dark: {
+    white: DEFAULT_THEME.black,
+    black: DEFAULT_THEME.white,
+    red100: DEFAULT_THEME.red100,
+  },
+  light: {
+    white: DEFAULT_THEME.white,
+    black: DEFAULT_THEME.black,
+    red100: DEFAULT_THEME.red100,
+  },
 } as const;
 
 export default COLORS;

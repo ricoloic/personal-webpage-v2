@@ -14,8 +14,10 @@ import {
 } from './Home.styles';
 import MaxWidthContainer from '../../components/maxWidthContainer/MaxWidthContainer';
 import SketchesMenu from '../../components/sketchesMenu';
+import { useApp } from '../../context/AppContext';
 
 export default function Home() {
+  const { theme } = useApp();
   const { t } = useTranslation('home');
 
   const age = useMemo(() => {
@@ -27,7 +29,10 @@ export default function Home() {
   return (
     <div>
       <AboutContainer
-        style={{ backgroundColor: COLORS.gray1000, color: COLORS.white }}
+        style={{
+          backgroundColor: COLORS[theme].black,
+          color: COLORS[theme].white,
+        }}
       >
         <AboutContent>
           <Image width={500} height={500} src={loic} alt="Loïc Rico" />

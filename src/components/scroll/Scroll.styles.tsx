@@ -12,4 +12,11 @@ export const ContentContainer = styled.div`
   ::-webkit-scrollbar {
     display: none;
   }
+  ul {
+    margin: 0;
+    li {
+      margin-top: 2px;
+      margin-bottom: 2px;
+    }
+  }
 `;

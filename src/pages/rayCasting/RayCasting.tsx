@@ -1,40 +1,22 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 import P5 from 'p5';
-import ReactHighlightSyntax from 'react-highlight-syntax';
 import SketchContainer from '../../components/sketchContainer';
 import sketch, { Args, defaultArgs } from './sketch';
-import COLORS from '../../constants/colors';
-import SlidingPanel, { PageSlidingPanel } from '../../components/slidingPanel';
+import SlidingPanel from '../../components/slidingPanel';
 import { useApp } from '../../context/AppContext';
 import Checkbox from '../../components/checkbox';
 import Boundary from './sketch/boundary';
 import Button from '../../components/button';
 import References from '../../components/references';
-import ViewCodeButton from '../../components/button/ViewCodeButton';
-import queryFileContent from '../../utils/queryFileContent';
 
 export default function RayCasting() {
   const { isEditing, setIsEditing, setEdit } = useApp();
   const { t } = useTranslation('rayCasting');
 
-  const [code, setCode] = useState('');
-  const [openCode, setOpenCode] = useState(false);
   const ref = useRef<HTMLDivElement>();
   const activeSketch = useRef<P5>();
   const args = useRef<Args>(defaultArgs);
-
-  const handleOpenViewCode = () => {
-    activeSketch.current?.noLoop();
-    setOpenCode(true);
-    setIsEditing(false);
-  };
-
-  const handleCloseViewCode = () => {
-    activeSketch.current?.loop();
-    setOpenCode(false);
-    setIsEditing(true);
-  };
 
   const handleCloseEditing = () => {
     setIsEditing(false);
@@ -79,39 +61,6 @@ export default function RayCasting() {
     activeSketch.current = newSketch;
     setEdit(() => true);
 
-    queryFileContent('rayCasting/sketch/index.ts')
-      .then((codeContent) => {
-        setCode(codeContent);
-        return queryFileContent('rayCasting/sketch/lineBoundary.ts');
-      })
-      .then((codeContent) => {
-        setCode((previousContent) => `${previousContent}\n\n${codeContent}`);
-        return queryFileContent('rayCasting/sketch/boundary.ts');
-      })
-      .then((codeContent) => {
-        setCode((previousContent) => `${previousContent}\n\n${codeContent}`);
-        return queryFileContent('rayCasting/sketch/boxBoundary.ts');
-      })
-      .then((codeContent) => {
-        setCode((previousContent) => `${previousContent}\n\n${codeContent}`);
-        return queryFileContent('rayCasting/sketch/point.ts');
-      })
-      .then((codeContent) => {
-        setCode((previousContent) => `${previousContent}\n\n${codeContent}`);
-        return queryFileContent('rayCasting/sketch/ray.ts');
-      })
-      .then((codeContent) => {
-        setCode((previousContent) => `${previousContent}\n\n${codeContent}`);
-        return queryFileContent('rayCasting/sketch/caster.ts');
-      })
-      .then((codeContent) => {
-        setCode((previousContent) => `${previousContent}\n\n${codeContent}`);
-        return queryFileContent('rayCasting/sketch/casterContainer.ts');
-      })
-      .then((codeContent) =>
-        setCode((previousContent) => `${previousContent}\n\n${codeContent}`)
-      );
-
     return () => {
       setEdit(() => false);
       newSketch.remove();
@@ -122,16 +71,7 @@ export default function RayCasting() {
 
   return (
     <>
-      <PageSlidingPanel open={openCode} onClose={handleCloseViewCode}>
-        <ReactHighlightSyntax
-          theme="AtomOneDarkReasonable"
-          language="TypeScript"
-        >
-          {code}
-        </ReactHighlightSyntax>
-      </PageSlidingPanel>
       <SlidingPanel
-        backgroundColor={COLORS.gray1000}
         open={isEditing}
         width="400px"
         side="right"
@@ -208,10 +148,6 @@ export default function RayCasting() {
               title="Sebastian Lague - Ray Tracing"
             />
           </References>
-          <div>
-            <hr />
-          </div>
-          <ViewCodeButton onClick={handleOpenViewCode} />
         </SlidingPanel.Content>
       </SlidingPanel>
       <SketchContainer ref={ref as never} id="parent" />

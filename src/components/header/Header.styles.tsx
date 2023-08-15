@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import COLORS from '../../constants/colors';
 
 export const Wrapper = styled.div`
   position: sticky;
@@ -8,7 +7,8 @@ export const Wrapper = styled.div`
   flex-direction: row;
   align-items: center;
   gap: 20px;
-  background-color: ${COLORS.white};
+  background-color: ${({ theme }) => theme.white};
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.75);
 `;
 
 export default Wrapper;

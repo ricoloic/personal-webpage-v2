@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import COLORS from '../../constants/colors';
 
 export const Wrapper = styled.div<{ $disabled?: boolean }>`
   display: grid;
@@ -8,12 +7,12 @@ export const Wrapper = styled.div<{ $disabled?: boolean }>`
   position: relative;
   margin: 0;
 
-  ${({ $disabled = false }) =>
+  ${({ $disabled = false, theme }) =>
     $disabled &&
     `
   cursor: not-allowed;
-  background-color: ${COLORS.gray900};
-  background-image: linear-gradient(to top, ${COLORS.gray800}, ${COLORS.gray900} 33%);
+  background-color: ${theme.black};
+  background-image: linear-gradient(to top, ${theme.black}, ${theme.black} 33%);
   `}
 
   select,
@@ -23,7 +22,7 @@ export const Wrapper = styled.div<{ $disabled?: boolean }>`
 
   min-width: 15ch;
 
-  border: 1px solid ${COLORS.gray900};
+  border: 1px solid ${({ theme }) => theme.black};
   border-radius: 0.25em;
   padding: 5px 10px;
 
@@ -32,11 +31,11 @@ export const Wrapper = styled.div<{ $disabled?: boolean }>`
 
   // Optional styles
   // remove for transparency
-  background-color: ${COLORS.white};
+  background-color: ${({ theme }) => theme.white};
   background-image: linear-gradient(
     to top,
-    ${COLORS.gray100},
-    ${COLORS.white} 33%
+    ${({ theme }) => theme.white},
+    ${({ theme }) => theme.white} 33%
   );
 
   // Custom arrow
@@ -45,7 +44,7 @@ export const Wrapper = styled.div<{ $disabled?: boolean }>`
     justify-self: end;
     width: 0.8em;
     height: 0.5em;
-    background-color: ${COLORS.gray900};
+    background-color: ${({ theme }) => theme.black};
     clip-path: polygon(100% 0%, 0 0%, 50% 100%);
   }
 
@@ -85,10 +84,13 @@ export const Select = styled.select`
 
   // Remove focus outline, will add on alternate element
   outline: none;
+
+  color: ${({ theme }) => theme.black};
 `;
 
 export const Label = styled.label`
   user-select: none;
+  color: ${({ theme }) => theme.white};
 `;
 
 export default { Label, Select, Wrapper };

@@ -8,14 +8,20 @@ const BlackHole = lazy(() => import('../pages/blackHole'));
 const BesierCubicCurve = lazy(() => import('../pages/besierCubicCurve'));
 const CaveGeneration = lazy(() => import('../pages/caveGeneration'));
 const Flocking = lazy(() => import('../pages/flocking'));
-const SketchesStatic = lazy(() => import('../pages/sketchesStatic'));
-const SketchesDynamic = lazy(() => import('../pages/sketchesDynamic'));
-const SketchesBesierCurve = lazy(() => import('../pages/sketchesBesierCurve'));
+const SketchesStatic = lazy(
+  () => import('../pages/sketchMenus/sketchesStatic')
+);
+const SketchesDynamic = lazy(
+  () => import('../pages/sketchMenus/sketchesDynamic')
+);
+const SketchesBesierCurve = lazy(
+  () => import('../pages/sketchMenus/sketchesBesierCurve')
+);
 const SketchesMouseMovement = lazy(
-  () => import('../pages/sketchesMouseMovement')
+  () => import('../pages/sketchMenus/sketchesMouseMovement')
 );
 const Home = lazy(() => import('../pages/home'));
-const Sketches = lazy(() => import('../pages/sketches'));
+const Sketches = lazy(() => import('../pages/sketchMenus/sketches'));
 const BesierQuadraticCurve = lazy(
   () => import('../pages/besierQuadraticCurve')
 );
