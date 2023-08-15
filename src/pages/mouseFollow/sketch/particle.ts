@@ -20,7 +20,8 @@ export class Particle {
     this.lifespan = 255;
   }
 
-  reset(center: Required<{ x: number; y: number }>) {
+  reset(center: Required<{ x: number; y: number }>, color: ColorObj) {
+    this.color = color;
     this.pos = this.p5.createVector(
       this.p5.mouseX - center.x,
       this.p5.mouseY - center.y

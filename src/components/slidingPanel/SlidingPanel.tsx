@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
 import { useClickAway } from 'react-use';
-import { CssSize, Children, Colors } from '../../types';
+import { CssSize, Children } from '../../types';
 import {
   Wrapper,
   ContentContainer,
@@ -17,7 +17,6 @@ interface Props {
   open: boolean;
   side: Side;
   overflow?: Overflow;
-  backgroundColor: Colors;
   width: CssSize;
   onClickAway?: () => void;
   onClose: () => void;
@@ -28,7 +27,6 @@ function SlidingPanel({
   open,
   side,
   width,
-  backgroundColor,
   overflow = 'hidden',
   onClickAway = undefined,
   onClose,
@@ -55,7 +53,6 @@ function SlidingPanel({
       $left={calcSide.left as CssSize}
       width={width}
       transform={calcTransformation}
-      $background={backgroundColor}
       overflow={overflow ?? 'hidden'}
     >
       <WrapperContent>

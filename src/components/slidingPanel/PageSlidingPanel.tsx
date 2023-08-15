@@ -1,7 +1,6 @@
 import React, { useRef } from 'react';
 import styled from 'styled-components';
 import { Children } from '../../types';
-import COLORS from '../../constants/colors';
 import { WrapperContent } from './SlidingPanel.styles';
 import Icon from '../icons';
 
@@ -16,7 +15,8 @@ const Wrapper = styled.div<{ transform: string }>`
   overflow-y: hidden;
   overflow-x: auto;
   z-index: 999;
-  background-color: ${COLORS.gray1000};
+  background-color: ${({ theme }) => theme.white};
+
   & pre {
     margin: 0;
   }
@@ -26,6 +26,9 @@ const WrapperIcon = styled.div`
   position: fixed;
   right: 20px;
   z-index: 999;
+  * {
+    color: white !important;
+  }
 `;
 
 interface Props {

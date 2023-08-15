@@ -1,12 +1,11 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-import COLORS from '../../constants/colors';
 
 export const CardWrapper = styled(Link)`
-  background: ${COLORS.gray1000};
+  background: ${({ theme }) => theme.black};
   border-radius: 5px;
   min-height: 350px;
-  color: ${COLORS.black};
+  color: ${({ theme }) => theme.black};
   padding: 15px;
   position: relative;
   font-size: 1.5rem;
@@ -35,12 +34,12 @@ export const CardWrapper = styled(Link)`
       width: fit-content;
       margin: 0;
       padding: 5px 10px;
-      background-color: ${COLORS.gray100};
+      background-color: ${({ theme }) => theme.white};
     }
 
     & p {
       width: fit-content;
-      background-color: ${COLORS.gray100};
+      background-color: ${({ theme }) => theme.white};
       padding: 5px 10px;
       font-size: 20px;
       margin: 0;
@@ -58,7 +57,7 @@ export const SketchCardWrapper = styled(Link)<{
   background-image: url(${({ $imageUrl }) => $imageUrl});
   border-radius: 5px;
   min-height: 350px;
-  color: ${COLORS.black};
+  color: ${({ theme }) => theme.black};
   padding: 15px;
   position: relative;
   font-size: 1.5rem;
@@ -77,7 +76,7 @@ export const SketchCardWrapper = styled(Link)<{
     display: inline-block;
     margin: 0;
     padding: 5px 10px;
-    background-color: ${COLORS.gray100};
+    background-color: ${({ theme }) => theme.white};
   }
 `;
 

@@ -6,7 +6,12 @@ import React, {
   useMemo,
   useState,
 } from 'react';
+import { ThemeProvider } from 'styled-components';
 import { Children, PagesKeys } from '../types';
+import COLORS from '../constants/colors';
+import GlobalStyles from '../theme/GlobalStyles';
+
+export type THEME = 'light' | 'dark';
 
 interface ContextState {
   title: string;
@@ -17,6 +22,12 @@ interface ContextState {
   setEdit: Dispatch<SetStateAction<boolean>>;
   isEditing: boolean;
   setIsEditing: Dispatch<SetStateAction<boolean>>;
+  viewCode: boolean;
+  setViewCode: Dispatch<SetStateAction<boolean>>;
+  isViewingCode: boolean;
+  setIsViewingCode: Dispatch<SetStateAction<boolean>>;
+  theme: THEME;
+  setTheme: Dispatch<SetStateAction<THEME>>;
 }
 
 const AppContext = createContext({} as ContextState);
@@ -30,6 +41,11 @@ export function AppProvider({ children }: Props) {
   const [page, setPage] = useState<PagesKeys>('home');
   const [edit, setEdit] = useState<boolean>(false);
   const [isEditing, setIsEditing] = useState<boolean>(false);
+  const [viewCode, setViewCode] = useState<boolean>(false);
+  const [isViewingCode, setIsViewingCode] = useState<boolean>(false);
+  const [theme, setTheme] = useState<THEME>(
+    window.DARK_MODE ? 'dark' : 'light'
+  );
   const value = useMemo(
     () => ({
       title,
@@ -40,10 +56,23 @@ export function AppProvider({ children }: Props) {
       setEdit,
       isEditing,
       setIsEditing,
+      viewCode,
+      setViewCode,
+      isViewingCode,
+      setIsViewingCode,
+      theme,
+      setTheme,
     }),
-    [title, page, edit, isEditing]
+    [title, page, edit, isEditing, viewCode, isViewingCode, theme]
   );
-  return <AppContext.Provider value={value}>{children}</AppContext.Provider>;
+  return (
+    <AppContext.Provider value={value}>
+      <ThemeProvider theme={COLORS[theme]}>
+        <GlobalStyles />
+        {children}
+      </ThemeProvider>
+    </AppContext.Provider>
+  );
 }
 
 export function useApp() {

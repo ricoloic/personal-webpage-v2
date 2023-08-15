@@ -1,8 +1,8 @@
 import styled from 'styled-components';
-import COLORS from '../../constants/colors';
 
 export const Label = styled.label`
   user-select: none;
+  color: ${({ theme }) => theme.black};
 `;
 
 const height = '15px';
@@ -12,7 +12,7 @@ export const RangeSlider = styled.input`
   width: calc(100% - 90px);
   border-radius: 5px;
   height: calc(${height} - (${height} / 2));
-  background: ${COLORS.gray100};
+  background: ${({ theme }) => theme.black};
   outline: none;
   padding: 0;
   margin: 0;
@@ -23,13 +23,13 @@ export const RangeSlider = styled.input`
     height: ${height};
     border: 0;
     border-radius: 50%;
-    background: ${COLORS.gray900};
+    background: ${({ theme }) => theme.white};
     cursor: pointer;
     transition: background 0.15s ease-in-out;
     transform: translateY(calc(-${height} / 4));
 
     &:hover {
-      background: ${COLORS.gray100};
+      background: ${({ theme }) => theme.black};
     }
   }
   &::-webkit-slider-thumb {
@@ -38,39 +38,39 @@ export const RangeSlider = styled.input`
     height: ${height};
     border: 0;
     border-radius: 50%;
-    background: ${COLORS.gray900};
+    background: ${({ theme }) => theme.white};
     cursor: pointer;
     transition: background 0.15s ease-in-out;
     transform: translateY(calc(-${height} / 4));
 
     &:hover {
-      background: ${COLORS.gray100};
+      background: ${({ theme }) => theme.black};
     }
   }
 
   &:active::-moz-range-thumb {
-    background: ${COLORS.gray100};
+    background: ${({ theme }) => theme.black};
   }
   &:active::-webkit-slider-thumb {
-    background: ${COLORS.gray100};
+    background: ${({ theme }) => theme.black};
   }
 
   // Focus state
-  &:focus::-webkit-slider-thumb {
-    box-shadow: 0 0 0 calc(${height} / 6) ${COLORS.gray100},
-      0 0 0 calc(${height} / 3) ${COLORS.gray900};
+  &::-webkit-slider-thumb {
+    box-shadow: 0 0 0 calc(${height} / 6) ${({ theme }) => theme.black},
+      0 0 0 calc(${height} / 3) ${({ theme }) => theme.white};
   }
-  &:hover::-webkit-slider-thumb {
-    box-shadow: 0 0 0 calc(${height} / 6) ${COLORS.gray100},
-      0 0 0 calc(${height} / 3) ${COLORS.gray100};
+  &::-webkit-slider-thumb {
+    box-shadow: 0 0 0 calc(${height} / 6) ${({ theme }) => theme.black},
+      0 0 0 calc(${height} / 3) ${({ theme }) => theme.black};
   }
-  &:focus::-moz-range-thumb {
-    box-shadow: 0 0 0 calc(${height} / 6) ${COLORS.gray100},
-      0 0 0 calc(${height} / 3) ${COLORS.gray900};
+  &::-moz-range-thumb {
+    box-shadow: 0 0 0 calc(${height} / 6) ${({ theme }) => theme.black},
+      0 0 0 calc(${height} / 3) ${({ theme }) => theme.white};
   }
-  &:hover::-moz-range-thumb {
-    box-shadow: 0 0 0 calc(${height} / 6) ${COLORS.gray100},
-      0 0 0 calc(${height} / 3) ${COLORS.gray100};
+  &::-moz-range-thumb {
+    box-shadow: 0 0 0 calc(${height} / 6) ${({ theme }) => theme.black},
+      0 0 0 calc(${height} / 3) ${({ theme }) => theme.black};
   }
 
   &::-webkit-slider-runnable-track {
@@ -87,11 +87,11 @@ export const RangeValue = styled.span`
   display: inline-block;
   position: relative;
   width: 60px;
-  color: ${COLORS.white};
+  color: ${({ theme }) => theme.white};
   line-height: 20px;
   text-align: center;
   border-radius: 3px;
-  background: ${COLORS.gray900};
+  background: ${({ theme }) => theme.black};
   padding: 2px 10px;
   margin-left: 8px;
   user-select: none;
@@ -103,7 +103,7 @@ export const RangeValue = styled.span`
     width: 0;
     height: 0;
     border-top: 7px solid transparent;
-    border-right: 7px solid ${COLORS.gray900};
+    border-right: 7px solid ${({ theme }) => theme.black};
     border-bottom: 7px solid transparent;
     content: '';
   }

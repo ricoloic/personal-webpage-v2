@@ -1,40 +1,24 @@
 import * as React from 'react';
 import { useTranslation } from 'react-i18next';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef } from 'react';
 import P5 from 'p5';
-import ReactHighlightSyntax from 'react-highlight-syntax';
 import SketchContainer from '../../components/sketchContainer';
 import sketch, { Args, defaultArgs } from './sketch';
-import COLORS from '../../constants/colors';
-import SlidingPanel, { PageSlidingPanel } from '../../components/slidingPanel';
+import SlidingPanel from '../../components/slidingPanel';
 import { useApp } from '../../context/AppContext';
 import Dropdown from '../../components/dropdown';
 import { PALETTE_OPTIONS } from '../../constants/colorPalettes';
 import { ColorPalettesKeys } from '../../types';
 import Range from '../../components/range';
 import Checkbox from '../../components/checkbox';
-import queryFileContent from '../../utils/queryFileContent';
-import ViewCodeButton from '../../components/button/ViewCodeButton';
 
 export default function CircularMotion() {
   const { isEditing, setIsEditing, setEdit } = useApp();
   const { t } = useTranslation('circularMotion');
 
-  const [code, setCode] = useState('');
-  const [openCode, setOpenCode] = useState(false);
   const ref = useRef<HTMLDivElement>();
   const activeSketch = useRef<P5>();
   const args = useRef<Args>(defaultArgs);
-
-  const handleOpenViewCode = () => {
-    setOpenCode(true);
-    setIsEditing(false);
-  };
-
-  const handleCloseViewCode = () => {
-    setOpenCode(false);
-    setIsEditing(true);
-  };
 
   const handleCloseEditing = () => {
     setIsEditing(false);
@@ -71,15 +55,6 @@ export default function CircularMotion() {
     activeSketch.current = newSketch;
     setEdit(() => true);
 
-    queryFileContent('circularMotion/sketch/index.ts')
-      .then((codeContent) => {
-        setCode(codeContent);
-        return queryFileContent('circularMotion/sketch/particle.ts');
-      })
-      .then((codeContent) =>
-        setCode((previousContent) => `${previousContent}\n\n${codeContent}`)
-      );
-
     return () => {
       setEdit(() => false);
       newSketch.remove();
@@ -89,16 +64,7 @@ export default function CircularMotion() {
 
   return (
     <>
-      <PageSlidingPanel open={openCode} onClose={handleCloseViewCode}>
-        <ReactHighlightSyntax
-          theme="AtomOneDarkReasonable"
-          language="TypeScript"
-        >
-          {code}
-        </ReactHighlightSyntax>
-      </PageSlidingPanel>
       <SlidingPanel
-        backgroundColor={COLORS.gray1000}
         open={isEditing}
         width="400px"
         side="right"
@@ -137,10 +103,6 @@ export default function CircularMotion() {
             options={PALETTE_OPTIONS.map((key) => ({ value: key, label: key }))}
             defaultValue={defaultArgs.selectColorPalette}
           />
-          <div>
-            <hr />
-          </div>
-          <ViewCodeButton onClick={handleOpenViewCode} />
         </SlidingPanel.Content>
       </SlidingPanel>
       <SketchContainer ref={ref as never} id="parent" />

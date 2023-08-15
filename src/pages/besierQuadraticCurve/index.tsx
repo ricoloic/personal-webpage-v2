@@ -1,7 +1,13 @@
 import withTitle from '../../hoc/withTitle';
 import BesierQuadraticCurve from './BesierQuadraticCurve';
 import withSketch from '../../hoc/withSketch';
+import withCode from '../../hoc/withCode';
 
-export default withSketch()(
-  withTitle('besierQuadraticCurve')(BesierQuadraticCurve)
+const files = [
+  'besierQuadraticCurve/sketch/index.ts',
+  'besierQuadraticCurve/sketch/point.ts',
+];
+
+export default withCode(files)(
+  withSketch()(withTitle('besierQuadraticCurve')(BesierQuadraticCurve))
 );

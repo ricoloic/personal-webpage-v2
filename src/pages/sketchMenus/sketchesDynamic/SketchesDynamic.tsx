@@ -1,19 +1,19 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import MaxWidthContainer from '../../components/maxWidthContainer';
-import SketchesGrid, { SketchCard } from '../../components/sketchesGrid';
-import ROUTES from '../../routes/constants';
-import flowFieldPreview from '../../assets/previews/flow-field-preview.png';
-import flockingPreview from '../../assets/previews/flocking-preview.png';
-import blackHolePreview from '../../assets/previews/black-hole-preview.png';
-import pongPreview from '../../assets/previews/pong-preview.png';
-import flowFieldGif from '../../assets/gifs/flow-field-gif.gif';
-import flockingGif from '../../assets/gifs/flocking-gif.gif';
-import blackHoleGif from '../../assets/gifs/black-hole-gif.gif';
-import metaBallsPreview from '../../assets/previews/meta-balls-preview.png';
-import metaBallsGif from '../../assets/gifs/meta-balls-gif.gif';
-import mazeGenerationPreview from '../../assets/previews/maze-generation-preview.png';
-import mazeGenerationGif from '../../assets/gifs/maze-generation-gif.gif';
+import MaxWidthContainer from '../../../components/maxWidthContainer';
+import SketchesGrid, { SketchCard } from '../../../components/sketchesGrid';
+import ROUTES from '../../../routes/constants';
+import flowFieldPreview from '../../../assets/previews/flow-field-preview.png';
+import flockingPreview from '../../../assets/previews/flocking-preview.png';
+import blackHolePreview from '../../../assets/previews/black-hole-preview.png';
+import pongPreview from '../../../assets/previews/pong-preview.png';
+import flowFieldGif from '../../../assets/gifs/flow-field-gif.gif';
+import flockingGif from '../../../assets/gifs/flocking-gif.gif';
+import blackHoleGif from '../../../assets/gifs/black-hole-gif.gif';
+import metaBallsPreview from '../../../assets/previews/meta-balls-preview.png';
+import metaBallsGif from '../../../assets/gifs/meta-balls-gif.gif';
+import mazeGenerationPreview from '../../../assets/previews/maze-generation-preview.png';
+import mazeGenerationGif from '../../../assets/gifs/maze-generation-gif.gif';
 
 export default function SketchesDynamic() {
   const { t } = useTranslation('general');

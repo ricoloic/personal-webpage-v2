@@ -1,14 +1,13 @@
 import React from 'react';
 import { Icon as Iconify } from '@iconify/react';
-import COLORS from '../../constants/colors';
-import { ColorsKeys, FontSizesKeys } from '../../types';
+import { FontSizesKeys } from '../../types';
 import FONT_SIZE from '../../constants/sizes';
 
 interface Props {
   name: string;
   fontSize?: FontSizesKeys;
   onClick?: () => void | undefined;
-  color?: ColorsKeys;
+  color?: string;
   style?: React.CSSProperties;
 }
 
@@ -33,7 +32,7 @@ function Icon({
     >
       <Iconify
         icon={name}
-        color={color ? COLORS[color] : undefined}
+        color={color || undefined}
         width={FONT_SIZE[fontSize]}
         height={FONT_SIZE[fontSize]}
       />

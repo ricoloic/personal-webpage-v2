@@ -1,36 +1,20 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import ReactHighlightSyntax from 'react-highlight-syntax';
 import SketchContainer from '../../components/sketchContainer';
 import sketch, { Args, defaultArgs } from './sketch';
-import COLORS from '../../constants/colors';
-import SlidingPanel, { PageSlidingPanel } from '../../components/slidingPanel';
+import SlidingPanel from '../../components/slidingPanel';
 import { useApp } from '../../context/AppContext';
 import Checkbox from '../../components/checkbox';
 import Range from '../../components/range';
 import References from '../../components/references';
-import ViewCodeButton from '../../components/button/ViewCodeButton';
-import queryFileContent from '../../utils/queryFileContent';
 
 export default function TimesTable() {
   const { isEditing, setIsEditing, setEdit } = useApp();
   const { t } = useTranslation('timesTable');
 
-  const [code, setCode] = useState('');
-  const [openCode, setOpenCode] = useState(false);
   const ref = useRef<HTMLDivElement>();
   const args = useRef<Args>(defaultArgs);
-
-  const handleOpenViewCode = () => {
-    setOpenCode(true);
-    setIsEditing(false);
-  };
-
-  const handleCloseViewCode = () => {
-    setOpenCode(false);
-    setIsEditing(true);
-  };
 
   const handleCloseEditing = () => {
     setIsEditing(false);
@@ -61,10 +45,6 @@ export default function TimesTable() {
 
     setEdit(() => true);
 
-    queryFileContent('timesTable/sketch/index.ts').then((codeContent) => {
-      setCode(codeContent);
-    });
-
     return () => {
       setEdit(() => false);
       newSketch.remove();
@@ -73,16 +53,7 @@ export default function TimesTable() {
 
   return (
     <>
-      <PageSlidingPanel open={openCode} onClose={handleCloseViewCode}>
-        <ReactHighlightSyntax
-          theme="AtomOneDarkReasonable"
-          language="TypeScript"
-        >
-          {code}
-        </ReactHighlightSyntax>
-      </PageSlidingPanel>
       <SlidingPanel
-        backgroundColor={COLORS.gray1000}
         open={isEditing}
         width="400px"
         side="right"
@@ -149,10 +120,6 @@ export default function TimesTable() {
               title="Wikipedia - Cardioid"
             />
           </References>
-          <div>
-            <hr />
-          </div>
-          <ViewCodeButton onClick={handleOpenViewCode} />
         </SlidingPanel.Content>
       </SlidingPanel>
       <SketchContainer ref={ref as never} id="parent" />

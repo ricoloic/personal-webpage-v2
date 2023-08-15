@@ -1,38 +1,22 @@
 import * as React from 'react';
 import { useTranslation } from 'react-i18next';
-import { useEffect, useRef, useState } from 'react';
-import ReactHighlightSyntax from 'react-highlight-syntax';
+import { useEffect, useRef } from 'react';
 import SketchContainer from '../../components/sketchContainer';
 import sketch, { Args, defaultArgs } from './sketch';
-import COLORS from '../../constants/colors';
-import SlidingPanel, { PageSlidingPanel } from '../../components/slidingPanel';
+import SlidingPanel from '../../components/slidingPanel';
 import { useApp } from '../../context/AppContext';
 import Checkbox from '../../components/checkbox';
 import Range from '../../components/range';
 import Dropdown from '../../components/dropdown';
 import { PALETTE_OPTIONS } from '../../constants/colorPalettes';
 import { ColorPalettesKeys } from '../../types';
-import ViewCodeButton from '../../components/button/ViewCodeButton';
-import queryFileContent from '../../utils/queryFileContent';
 
 export default function MouseFollow() {
   const { isEditing, setIsEditing, setEdit } = useApp();
   const { t } = useTranslation('mouseFollow');
 
-  const [code, setCode] = useState('');
-  const [openCode, setOpenCode] = useState(false);
   const ref = useRef<HTMLDivElement>();
   const args = useRef<Args>(defaultArgs);
-
-  const handleOpenViewCode = () => {
-    setOpenCode(true);
-    setIsEditing(false);
-  };
-
-  const handleCloseViewCode = () => {
-    setOpenCode(false);
-    setIsEditing(true);
-  };
 
   const handleCloseEditing = () => {
     setIsEditing(false);
@@ -63,6 +47,7 @@ export default function MouseFollow() {
   };
 
   const handleColorPaletteChange = (value: string) => {
+    console.log(value);
     args.current.selectColorPalette = value as ColorPalettesKeys;
   };
 
@@ -70,15 +55,6 @@ export default function MouseFollow() {
     const newSketch = sketch(args.current, ref.current?.offsetHeight ?? 0);
 
     setEdit(() => true);
-
-    queryFileContent('mouseFollow/sketch/index.ts')
-      .then((codeContent) => {
-        setCode(codeContent);
-        return queryFileContent('mouseFollow/sketch/particle.ts');
-      })
-      .then((codeContent) =>
-        setCode((previousContent) => `${previousContent}\n\n${codeContent}`)
-      );
 
     return () => {
       setEdit(() => false);
@@ -88,16 +64,7 @@ export default function MouseFollow() {
 
   return (
     <>
-      <PageSlidingPanel open={openCode} onClose={handleCloseViewCode}>
-        <ReactHighlightSyntax
-          theme="AtomOneDarkReasonable"
-          language="TypeScript"
-        >
-          {code}
-        </ReactHighlightSyntax>
-      </PageSlidingPanel>
       <SlidingPanel
-        backgroundColor={COLORS.gray1000}
         open={isEditing}
         width="400px"
         side="right"
@@ -151,10 +118,6 @@ export default function MouseFollow() {
             options={PALETTE_OPTIONS.map((key) => ({ value: key, label: key }))}
             defaultValue={defaultArgs.selectColorPalette}
           />
-          <div>
-            <hr />
-          </div>
-          <ViewCodeButton onClick={handleOpenViewCode} />
         </SlidingPanel.Content>
       </SlidingPanel>
       <SketchContainer ref={ref as never} id="parent" />
