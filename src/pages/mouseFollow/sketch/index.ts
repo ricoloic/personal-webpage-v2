@@ -67,7 +67,11 @@ const sketch = (args: Args, height: number) =>
           particles[i].show(args.particleBorder, args.particleAlfa);
         avg.x += particles[i].pos.x;
         avg.y += particles[i].pos.y;
-        if (particles[i].finished()) particles[i].reset(center);
+        if (particles[i].finished())
+          particles[i].reset(
+            center,
+            p5.random(COLOR_PALETTES[args.selectColorPalette])
+          );
       }
       avg.x /= particles.length;
       avg.y /= particles.length;

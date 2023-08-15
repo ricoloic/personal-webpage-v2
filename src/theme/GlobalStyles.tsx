@@ -53,8 +53,15 @@ export default createGlobalStyle`
     display: none;
   }
 
+  [role="button"], svg {
+    user-select: none;
+    -moz-user-select: none;
+    -moz-user-focus: ignore;
+  }
+  
   canvas {
     user-select: none;
+    -moz-user-select: none;
     -moz-user-focus: ignore;
   }
 `;

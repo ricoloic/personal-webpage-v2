@@ -90,7 +90,7 @@ export const Select = styled.select`
 
 export const Label = styled.label`
   user-select: none;
-  color: ${({ theme }) => theme.white};
+  color: ${({ theme }) => theme.black};
 `;
 
 export default { Label, Select, Wrapper };

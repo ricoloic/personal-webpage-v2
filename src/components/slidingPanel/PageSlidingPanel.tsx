@@ -27,7 +27,7 @@ const WrapperIcon = styled.div`
   right: 20px;
   z-index: 999;
   * {
-    color: white;
+    color: white !important;
   }
 `;
 

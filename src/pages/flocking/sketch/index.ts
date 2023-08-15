@@ -49,6 +49,7 @@ const sketch = (args: Args, height: number) =>
     };
 
     p5.draw = () => {
+      console.log(p5.frameRate());
       if (args.boidAmount > boids.length) {
         boids.push(new Boid(p5));
       } else if (args.boidAmount < boids.length) {

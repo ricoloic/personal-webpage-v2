@@ -28,7 +28,7 @@ export const WrapperContent = styled.div`
   flex-direction: column;
   height: 100%;
   color: ${({ theme }) => theme.black};
-  * {
+  *:not(span) {
     color: ${({ theme }) => theme.black};
   }
   overflow-y: auto;

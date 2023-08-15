@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const Label = styled.label`
   user-select: none;
-  color: ${({ theme }) => theme.white};
+  color: ${({ theme }) => theme.black};
 `;
 
 const height = '15px';

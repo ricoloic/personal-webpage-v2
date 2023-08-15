@@ -47,6 +47,7 @@ export default function MouseFollow() {
   };
 
   const handleColorPaletteChange = (value: string) => {
+    console.log(value);
     args.current.selectColorPalette = value as ColorPalettesKeys;
   };
 
