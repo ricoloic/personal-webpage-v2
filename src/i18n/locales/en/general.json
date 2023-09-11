@@ -13,6 +13,7 @@
         "sketchesBesierCurve": "Besier Curves",
         "sketchesBesierCurveDescription": "Sketches created using Besier Curves",
 
+        "fractalTree": "Fractal Tree",
         "blackHole": "Black Hole",
         "besierQuadraticCurve": "Besier Quadratic Curve",
         "besierCubicCurve": "Besier Cubic Curve",
@@ -31,6 +32,7 @@
         "mazeGeneration": "Maze Generation"
     },
     "sketches": {
+        "fractalTree": "Fractal Tree",
         "blackHole": "Black Hole",
         "besierCubicCurve": "Besier Cubic Curve",
         "besierQuadraticCurve": "Besier Quadratic Curve",
