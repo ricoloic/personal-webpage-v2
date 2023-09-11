@@ -5,6 +5,7 @@ import AppLayout from '../AppLayout';
 import Loading from '../components/loading';
 
 const BlackHole = lazy(() => import('../pages/blackHole'));
+const FractalTree = lazy(() => import('../pages/fractalTree'));
 const BesierCubicCurve = lazy(() => import('../pages/besierCubicCurve'));
 const CaveGeneration = lazy(() => import('../pages/caveGeneration'));
 const Flocking = lazy(() => import('../pages/flocking'));
@@ -71,6 +72,14 @@ function Router() {
             element={
               <Suspense fallback={<Loading />}>
                 <SketchesMouseMovement />
+              </Suspense>
+            }
+          />
+          <Route
+            path={ROUTES.fractalTree}
+            element={
+              <Suspense fallback={<Loading />}>
+                <FractalTree />
               </Suspense>
             }
           />

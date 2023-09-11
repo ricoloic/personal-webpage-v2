@@ -12,6 +12,7 @@ import circularMotionGif from '../../assets/gifs/circular-motion-gif.gif';
 import timesTablePreview from '../../assets/previews/times-table-preview.png';
 import chaosGamePreview from '../../assets/previews/chaos-game-preview.png';
 import maurerRosePreview from '../../assets/previews/maurer-rose-preview.png';
+import fractalTreePreview from '../../assets/previews/fractal-tree-preview.png';
 import maurerRoseGif from '../../assets/gifs/maurer-rose-gif.gif';
 import flowFieldPreview from '../../assets/previews/flow-field-preview.png';
 import flowFieldGif from '../../assets/gifs/flow-field-gif.gif';
@@ -41,6 +42,9 @@ export default function SketchesMenu() {
         title={t('pages.sketchesMouseMovement')}
         subtitle={t('pages.sketchesMouseMovementDescription')}
       />
+      <SketchCard to={ROUTES.fractalTree} imageUrl={fractalTreePreview}>
+        {t('sketches.fractalTree')}
+      </SketchCard>
       <SketchCard
         to={ROUTES.mouseFollow}
         imageUrl={mouseFollowPreview}

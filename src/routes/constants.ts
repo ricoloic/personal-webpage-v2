@@ -16,6 +16,7 @@ const ROUTES = {
   caveGeneration: `${SKETCH_PATH}/cave-generation`,
   mouseFollow: `${SKETCH_PATH}/mouse-follow`,
   mouseConfetti: `${SKETCH_PATH}/mouse-confetti`,
+  fractalTree: `${SKETCH_PATH}/fractal-tree`,
   flocking: `${SKETCH_PATH}/flocking`,
   flowField: `${SKETCH_PATH}/flow-field`,
   circularMotion: `${SKETCH_PATH}/circular-motion`,

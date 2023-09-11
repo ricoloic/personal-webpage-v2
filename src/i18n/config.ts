@@ -4,6 +4,7 @@ import { initReactI18next } from 'react-i18next';
 import general from './locales/en/general.json';
 import home from './locales/en/home.json';
 import blackHole from './locales/en/blackHole.json';
+import fractalTree from './locales/en/fractalTree.json';
 import besierQuadraticCurve from './locales/en/besierQuadraticCurve.json';
 import besierCubicCurve from './locales/en/besierCubicCurve.json';
 import caveGeneration from './locales/en/caveGeneration.json';
@@ -25,6 +26,7 @@ export const resources = {
   en: {
     general,
     home,
+    fractalTree,
     pong,
     blackHole,
     besierQuadraticCurve,
@@ -46,6 +48,7 @@ export const resources = {
 export const namespaces = [
   'general',
   'home',
+  'fractalTree',
   'pong',
   'blackHole',
   'besierQuadraticCurve',
