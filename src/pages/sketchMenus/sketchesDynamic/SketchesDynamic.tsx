@@ -32,7 +32,7 @@ export default function SketchesDynamic() {
           imageUrl={mazeGenerationPreview}
           gifUrl={mazeGenerationGif}
         >
-          {t('sketches.flowField')}
+          {t('sketches.mazeGeneration')}
         </SketchCard>
         <SketchCard
           to={ROUTES.metaBalls}
